@@ -1,0 +1,87 @@
+Flutter crash report; please file at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run
+
+## exception
+
+NoSuchMethodError: NoSuchMethodError: Class 'RunCommand' has no instance getter 'device'.
+Receiver: Instance of 'RunCommand'
+Tried calling: device
+
+```
+#0      Object._noSuchMethod (dart:core-patch/object_patch.dart:43)
+#1      Object.noSuchMethod (dart:core-patch/object_patch.dart:47)
+#2      RunCommand.runCommand (package:flutter_tools/src/commands/run.dart:333)
+<asynchronous suspension>
+#3      FlutterCommand.verifyThenRunCommand (package:flutter_tools/src/runner/flutter_command.dart:205)
+<asynchronous suspension>
+#4      RunCommand.verifyThenRunCommand (package:flutter_tools/src/commands/run.dart:210)
+<asynchronous suspension>
+#5      FlutterCommand.run (package:flutter_tools/src/runner/flutter_command.dart:156)
+<asynchronous suspension>
+#6      CommandRunner.runCommand (package:args/command_runner.dart:194)
+<asynchronous suspension>
+#7      FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:262)
+<asynchronous suspension>
+#8      CommandRunner.run.<anonymous closure> (package:args/command_runner.dart:109)
+#9      Future.Future.sync (dart:async/future.dart:208)
+#10     CommandRunner.run (package:args/command_runner.dart:109)
+#11     FlutterCommandRunner.run (package:flutter_tools/src/runner/flutter_command_runner.dart:157)
+#12     run.<anonymous closure> (package:flutter_tools/executable.dart:140)
+<asynchronous suspension>
+#13     AppContext._run (package:flutter_tools/src/base/context.dart:76)
+<asynchronous suspension>
+#14     AppContext.runInZone.<anonymous closure> (package:flutter_tools/src/base/context.dart:66)
+#15     _rootRun (dart:async/zone.dart:1120)
+#16     _CustomZone.run (dart:async/zone.dart:1001)
+#17     runZoned (dart:async/zone.dart:1465)
+#18     AppContext.runInZone (package:flutter_tools/src/base/context.dart:65)
+#19     run (package:flutter_tools/executable.dart:113)
+<asynchronous suspension>
+#20     main (package:flutter_tools/executable.dart:66)
+<asynchronous suspension>
+#21     main (file:///Users/xster/development/flutter/packages/flutter_tools/bin/flutter_tools.dart:8)
+#22     _startIsolate.<anonymous closure> (dart:isolate-patch/isolate_patch.dart:263)
+#23     _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:151)
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (on Mac OS X 10.12.4 16E195, channel analytics)
+    • Flutter at /Users/xster/development/flutter
+    • Framework revision 7ca8f61834 (24 minutes ago), 2017-04-27 13:36:40 -0700
+    • Engine revision c0f1e3b47b
+    • Tools Dart version 1.23.0-dev.11.11
+
+[✓] Host Executable Compatibility
+    • Downloaded executables execute on host
+
+[✓] Android toolchain - develop for Android devices (Android SDK 25.0.2)
+    • Android SDK at /Users/xster/Library/Android/sdk
+    • Platform android-25, build-tools 25.0.2
+    • ANDROID_HOME = /Users/xster/Library/Android/sdk
+    • Java binary at: /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/bin/java
+    • Java version: OpenJDK Runtime Environment (build 1.8.0_112-release-b06)
+
+[✓] iOS toolchain - develop for iOS devices (Xcode 8.3)
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • Xcode 8.3, Build version 8E162
+    • ios-deploy 1.9.1
+    • CocoaPods version 1.2.0
+
+[✓] Android Studio (version 2.3)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    • Gradle version 3.2
+    • Java version: OpenJDK Runtime Environment (build 1.8.0_112-release-b06)
+
+[✓] IntelliJ IDEA Community Edition (version 2017.1)
+    • Dart plugin version 171.4006
+    • Flutter plugin version 12.1
+
+[✓] Connected devices
+    • Xiao Yu’s iPhone • ff369dfd5f4a80545a431441c1e3066f8cb8d759 • ios • iOS 10.3.1 (14E304)
+
+```

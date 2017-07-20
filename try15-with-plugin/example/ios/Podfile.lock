@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - try15_with_plugin (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `/Users/xster/development/flutter/bin/cache/artifacts/engine/ios`)
+  - try15_with_plugin (from `/Users/xster/development/test/try15-with-plugin/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: /Users/xster/development/flutter/bin/cache/artifacts/engine/ios
+  try15_with_plugin:
+    :path: /Users/xster/development/test/try15-with-plugin/ios
+
+SPEC CHECKSUMS:
+  Flutter: d674e78c937094a75ac71dd77e921e840bea3dbf
+  try15_with_plugin: d2eaa9eb44dd902bfd099c4919de9ba9ba6abd7e
+
+PODFILE CHECKSUM: cc70c01bca487bebd110b87397f017f3b76a89f1
+
+COCOAPODS: 1.2.1

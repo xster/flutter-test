@@ -1,0 +1,11 @@
+name: try15_with_plugin
+description: A new flutter plugin project.
+
+flutter:
+  plugin:
+    androidPackage: com.yourcompany.try15_with_plugin
+    pluginClass: Try15WithPlugin
+
+dependencies:
+  flutter:
+    sdk: flutter

@@ -1,0 +1,14 @@
+name: t23_podfile
+description: A new flutter plugin project.
+version: 0.0.1
+author:
+homepage:
+
+flutter:
+  plugin:
+    androidPackage: com.yourcompany.t23podfile
+    pluginClass: T23PodfilePlugin
+
+dependencies:
+  flutter:
+    sdk: flutter

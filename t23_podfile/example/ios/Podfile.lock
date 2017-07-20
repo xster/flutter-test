@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - t23_podfile (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `/Users/xster/development/flutter/bin/cache/artifacts/engine/ios`)
+  - t23_podfile (from `/Users/xster/development/test/t23_podfile/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: /Users/xster/development/flutter/bin/cache/artifacts/engine/ios
+  t23_podfile:
+    :path: /Users/xster/development/test/t23_podfile/ios
+
+SPEC CHECKSUMS:
+  Flutter: d674e78c937094a75ac71dd77e921e840bea3dbf
+  t23_podfile: 41e8fffa8c54eb63bcdc677ae7f2075c0e92f4a4
+
+PODFILE CHECKSUM: cc70c01bca487bebd110b87397f017f3b76a89f1
+
+COCOAPODS: 1.2.1

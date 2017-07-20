@@ -1,0 +1,89 @@
+Flutter crash report; please file at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter --suppress-analytics build flx --target=/Users/xster/development/test/t31_ink_splash/lib/main.dart --output-file=/Users/xster/development/test/t31_ink_splash/ios/Flutter/app.flx --snapshot=build/snapshot_blob.bin --depfile=build/snapshot_blob.bin.d --working-dir=build/flx --local-engine=/Users/xster/development/engine/src/out/ios_debug_unopt
+
+## exception
+
+ArgumentError: Invalid argument(s): Cannot find executable for /Users/xster/development/engine/src/out/ios_debug_unopt/clang_i386/gen_snapshot.
+
+```
+#0      _getExecutable (package:process/src/interface/local_process_manager.dart:115)
+#1      LocalProcessManager.start (package:process/src/interface/local_process_manager.dart:43)
+#2      runCommand (package:flutter_tools/src/base/process.dart:107)
+#3      runCommandAndStreamOutput (package:flutter_tools/src/base/process.dart:125)
+<asynchronous suspension>
+#4      _createSnapshot (package:flutter_tools/src/flx.dart:86)
+<asynchronous suspension>
+#5      build (package:flutter_tools/src/flx.dart:128)
+<asynchronous suspension>
+#6      BuildFlxCommand.runCommand (package:flutter_tools/src/commands/build_flx.dart:44)
+<asynchronous suspension>
+#7      FlutterCommand.verifyThenRunCommand (package:flutter_tools/src/runner/flutter_command.dart:220)
+<asynchronous suspension>
+#8      BuildSubCommand.verifyThenRunCommand (package:flutter_tools/src/commands/build.dart:50)
+<asynchronous suspension>
+#9      FlutterCommand.run (package:flutter_tools/src/runner/flutter_command.dart:162)
+<asynchronous suspension>
+#10     CommandRunner.runCommand (package:args/command_runner.dart:194)
+<asynchronous suspension>
+#11     FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:277)
+<asynchronous suspension>
+#12     CommandRunner.run.<anonymous closure> (package:args/command_runner.dart:109)
+#13     new Future.sync (dart:async/future.dart:222)
+#14     CommandRunner.run (package:args/command_runner.dart:109)
+#15     FlutterCommandRunner.run (package:flutter_tools/src/runner/flutter_command_runner.dart:161)
+#16     run.<anonymous closure> (package:flutter_tools/executable.dart:142)
+<asynchronous suspension>
+#17     AppContext._run (package:flutter_tools/src/base/context.dart:76)
+<asynchronous suspension>
+#18     AppContext.runInZone.<anonymous closure> (package:flutter_tools/src/base/context.dart:66)
+#19     _rootRun (dart:async/zone.dart:1120)
+#20     _CustomZone.run (dart:async/zone.dart:1001)
+#21     runZoned (dart:async/zone.dart:1467)
+#22     AppContext.runInZone (package:flutter_tools/src/base/context.dart:65)
+#23     run (package:flutter_tools/executable.dart:114)
+<asynchronous suspension>
+#24     main (package:flutter_tools/executable.dart:67)
+<asynchronous suspension>
+#25     main (file:///Users/xster/development/flutter/packages/flutter_tools/bin/flutter_tools.dart:16)
+#26     _startIsolate.<anonymous closure> (dart:isolate-patch/isolate_patch.dart:263)
+#27     _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:151)
+```
+
+## flutter doctor
+
+```
+[-] Flutter (on Mac OS X 10.12.5 16F73, locale en-US, channel master)
+    • Flutter at /Users/xster/development/flutter
+    • Framework revision e1adc525d8 (4 hours ago), 2017-07-19 12:57:22 -0700
+    • Engine revision 488584f8b7
+    • Tools Dart version 1.25.0-dev.4.0
+    ✗ Downloaded executables cannot execute on host (see https://github.com/flutter/flutter/issues/6207 for more information)
+
+[✓] Android toolchain - develop for Android devices (Android SDK 26.0.0)
+    • Android SDK at /Users/xster/Library/Android/sdk
+    • Platform android-26, build-tools 26.0.0
+    • ANDROID_HOME = /Users/xster/Library/Android/sdk
+    • Java binary at: /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/bin/java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_112-release-b06)
+
+[✓] iOS toolchain - develop for iOS devices (Xcode 8.3.3)
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • Xcode 8.3.3, Build version 8E3004b
+    • ios-deploy 1.9.1
+    • CocoaPods version 1.2.1
+
+[✓] Android Studio (version 2.3)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    • Java version OpenJDK Runtime Environment (build 1.8.0_112-release-b06)
+
+[✓] IntelliJ IDEA Community Edition (version 2017.1.5)
+    • Flutter plugin version 15.1
+    • Dart plugin version 171.4694.29
+
+[✓] Connected devices
+    • Xiao Yu’s iPhone • ff369dfd5f4a80545a431441c1e3066f8cb8d759 • ios • iOS 10.3.2
+
+```

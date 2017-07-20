@@ -1,0 +1,85 @@
+Flutter crash report; please file at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter --suppress-analytics build aot --output-dir=build/aot --target-platform=ios --target=/Users/xster/development/test/try3/lib/main.dart --interpreter --debug --local-engine=/Users/xster/development/engine/src/out/android_debug_unopt
+
+## exception
+
+FileSystemException: writeFrom failed, path = '' (OS Error: Broken pipe, errno = 32)
+
+```
+dart:io                                                           _StdSink.writeln
+package:flutter_tools/executable.dart 150                         main.<async>.<fn>.<fn>
+===== asynchronous gap ===========================
+dart:io                                                           _StdSink.writeln
+package:flutter_tools/executable.dart 150                         main.<async>.<fn>.<fn>
+===== asynchronous gap ===========================
+dart:io                                                           _StdSink.writeln
+package:flutter_tools/executable.dart 150                         main.<async>.<fn>.<fn>
+===== asynchronous gap ===========================
+dart:io                                                           _StdSink.write
+package:flutter_tools/src/base/logger.dart 256                    _AnsiStatus._AnsiStatus
+package:flutter_tools/src/base/logger.dart 91                     StdoutLogger.startProgress
+package:flutter_tools/src/commands/build_aot.dart 55              BuildAotCommand.runCommand.<async>
+dart:async                                                        _SyncCompleter.complete
+package:flutter_tools/src/commands/build.dart 71                  BuildSubCommand.runCommand.<async>
+===== asynchronous gap ===========================
+dart:async                                                        _asyncThenWrapperHelper
+package:flutter_tools/src/commands/build_aot.dart                 BuildAotCommand.runCommand
+package:flutter_tools/src/runner/flutter_command.dart 148         FlutterCommand.verifyThenRunCommand.<async>
+dart:async                                                        _SyncCompleter.complete
+package:flutter_tools/src/dart/pub.dart 68                        pubGet.<async>
+===== asynchronous gap ===========================
+dart:async                                                        _asyncThenWrapperHelper
+package:flutter_tools/src/runner/flutter_command.dart             FlutterCommand.verifyThenRunCommand
+package:flutter_tools/src/commands/build.dart 50                  BuildSubCommand.verifyThenRunCommand.<async>
+===== asynchronous gap ===========================
+dart:async                                                        Future.Future.microtask
+package:flutter_tools/src/commands/build.dart                     BuildSubCommand.verifyThenRunCommand
+package:flutter_tools/src/runner/flutter_command.dart 119         FlutterCommand.run
+package:args/command_runner.dart 194                              CommandRunner.runCommand.<async>
+===== asynchronous gap ===========================
+dart:async                                                        Future.Future.microtask
+package:args/command_runner.dart                                  CommandRunner.runCommand
+package:flutter_tools/src/runner/flutter_command_runner.dart 212  FlutterCommandRunner.runCommand.<async>
+===== asynchronous gap ===========================
+dart:async                                                        Future.Future.microtask
+package:flutter_tools/src/runner/flutter_command_runner.dart      FlutterCommandRunner.runCommand
+package:args/command_runner.dart 109                              CommandRunner.run.<fn>
+dart:async                                                        Future.Future.sync
+package:args/command_runner.dart 109                              CommandRunner.run
+package:flutter_tools/src/runner/flutter_command_runner.dart 150  FlutterCommandRunner.run
+package:flutter_tools/executable.dart 124                         main.<async>.<fn>.<fn>.<async>
+===== asynchronous gap ===========================
+package:stack_trace                                               Chain.capture
+package:flutter_tools/executable.dart 123                         main.<async>.<fn>
+package:flutter_tools/src/base/context.dart 76                    AppContext._run.<async>
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (on Mac OS, channel master)
+    • Flutter at /Users/xster/development/flutter
+    • Framework revision 723489de02 (5 days ago), 2017-02-08 15:57:31
+    • Engine revision 4baeae886a
+    • Tools Dart version 1.22.0-dev.10.6
+
+[✓] Android toolchain - develop for Android devices (Android SDK 25.0.2)
+    • Android SDK at /Users/xster/Library/Android/sdk
+    • Platform android-25, build-tools 25.0.2
+    • Java(TM) SE Runtime Environment (build 1.8.0_112-b16)
+
+[✓] iOS toolchain - develop for iOS devices (Xcode 8.2.1)
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • Xcode 8.2.1, Build version 8C1002
+    • ios-deploy 1.9.1
+
+[✓] IntelliJ IDEA Community Edition (version 2016.3.4)
+    • Dart plugin version 163.13137
+    • Flutter plugin version 0.1.9.1
+
+[✓] Connected devices
+    • iPhone • ff369dfd5f4a80545a431441c1e3066f8cb8d759 • ios • iOS 10.2.1 (14D27)
+```

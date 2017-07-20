@@ -1,0 +1,94 @@
+Flutter crash report; please file at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run
+
+## exception
+
+FileSystemException: FileSystemException: Cannot copy file to 'ios/Podfile', path = '/Users/xster/development/flutter/packages/flutter_tools/templates/cocoapods/Podfile' (OS Error: No such file or directory, errno = 2)
+
+```
+#0      _File.throwIfError (dart:io/file_impl.dart:599)
+#1      _File.copySync (dart:io/file_impl.dart:321)
+#2      _LocalFileSystemEntity&ForwardingFile.copySync (package:file/src/forwarding/forwarding_file.dart:25)
+#3      CocoaPods._createPodfile (package:flutter_tools/src/ios/cocoapods.dart:101)
+<asynchronous suspension>
+#4      CocoaPods.processPods (package:flutter_tools/src/ios/cocoapods.dart:61)
+<asynchronous suspension>
+#5      buildXcodeProject (package:flutter_tools/src/ios/mac.dart:218)
+<asynchronous suspension>
+#6      IOSDevice.startApp (package:flutter_tools/src/ios/devices.dart:185)
+<asynchronous suspension>
+#7      FlutterDevice.runHot (package:flutter_tools/src/resident_runner.dart:233)
+<asynchronous suspension>
+#8      HotRunner.run (package:flutter_tools/src/run_hot.dart:183)
+<asynchronous suspension>
+#9      RunCommand.runCommand (package:flutter_tools/src/commands/run.dart:339)
+<asynchronous suspension>
+#10     FlutterCommand.verifyThenRunCommand (package:flutter_tools/src/runner/flutter_command.dart:217)
+<asynchronous suspension>
+#11     RunCommand.verifyThenRunCommand (package:flutter_tools/src/commands/run.dart:227)
+<asynchronous suspension>
+#12     FlutterCommand.run (package:flutter_tools/src/runner/flutter_command.dart:159)
+<asynchronous suspension>
+#13     CommandRunner.runCommand (package:args/command_runner.dart:194)
+<asynchronous suspension>
+#14     FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:277)
+<asynchronous suspension>
+#15     CommandRunner.run.<anonymous closure> (package:args/command_runner.dart:109)
+#16     new Future.sync (dart:async/future.dart:222)
+#17     CommandRunner.run (package:args/command_runner.dart:109)
+#18     FlutterCommandRunner.run (package:flutter_tools/src/runner/flutter_command_runner.dart:161)
+#19     run.<anonymous closure> (package:flutter_tools/executable.dart:142)
+<asynchronous suspension>
+#20     AppContext._run (package:flutter_tools/src/base/context.dart:76)
+<asynchronous suspension>
+#21     AppContext.runInZone.<anonymous closure> (package:flutter_tools/src/base/context.dart:66)
+#22     _rootRun (dart:async/zone.dart:1120)
+#23     _CustomZone.run (dart:async/zone.dart:1001)
+#24     runZoned (dart:async/zone.dart:1467)
+#25     AppContext.runInZone (package:flutter_tools/src/base/context.dart:65)
+#26     run (package:flutter_tools/executable.dart:114)
+<asynchronous suspension>
+#27     main (package:flutter_tools/executable.dart:67)
+<asynchronous suspension>
+#28     main (file:///Users/xster/development/flutter/packages/flutter_tools/bin/flutter_tools.dart:16)
+#29     _startIsolate.<anonymous closure> (dart:isolate-patch/isolate_patch.dart:263)
+#30     _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:151)
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (on Mac OS X 10.12.5 16F73, locale en-US, channel auto-pods)
+    • Flutter at /Users/xster/development/flutter
+    • Framework revision 3cae3ebd34 (5 days ago), 2017-07-07 14:57:32 -0700
+    • Engine revision 431a251151
+    • Tools Dart version 1.25.0-dev.4.0
+
+[✓] Android toolchain - develop for Android devices (Android SDK 25.0.3)
+    • Android SDK at /Users/xster/Library/Android/sdk
+    • Platform android-25, build-tools 25.0.3
+    • ANDROID_HOME = /Users/xster/Library/Android/sdk
+    • Java binary at: /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/bin/java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_112-release-b06)
+
+[✓] iOS toolchain - develop for iOS devices (Xcode 8.3.3)
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • Xcode 8.3.3, Build version 8E3004b
+    • ios-deploy 1.9.1
+    • CocoaPods version 1.2.1
+
+[✓] Android Studio (version 2.3)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    • Java version OpenJDK Runtime Environment (build 1.8.0_112-release-b06)
+
+[✓] IntelliJ IDEA Community Edition (version 2017.1.5)
+    • Flutter plugin version 15.1
+    • Dart plugin version 171.4694.29
+
+[✓] Connected devices
+    • Xiao Yu’s iPhone • ff369dfd5f4a80545a431441c1e3066f8cb8d759 • ios • iOS 10.3.2
+
+```

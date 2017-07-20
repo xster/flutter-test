@@ -1,0 +1,60 @@
+PODS:
+  - Firebase/Core (4.0.0):
+    - FirebaseAnalytics (= 4.0.0)
+    - FirebaseCore (= 4.0.0)
+  - Firebase/Database (4.0.0):
+    - Firebase/Core
+    - FirebaseDatabase (= 4.0.0)
+  - firebase_database (0.0.1):
+    - Firebase/Database
+    - Flutter
+  - FirebaseAnalytics (4.0.0):
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseCore (4.0.0):
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseDatabase (4.0.0):
+    - FirebaseAnalytics (~> 4.0)
+  - FirebaseInstanceID (2.0.0):
+    - FirebaseCore (~> 4.0)
+  - Flutter (1.0.0)
+  - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/NSData+zlib (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - url_launcher (0.0.1):
+    - Flutter
+  - video_launcher (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - firebase_database (from `/Users/xster/.pub-cache/hosted/pub.dartlang.org/firebase_database-0.0.12/ios`)
+  - Flutter (from `/Users/xster/development/flutter/bin/cache/artifacts/engine/ios`)
+  - url_launcher (from `/Users/xster/.pub-cache/hosted/pub.dartlang.org/url_launcher-0.4.2+1/ios`)
+  - video_launcher (from `/Users/xster/.pub-cache/hosted/pub.dartlang.org/video_launcher-0.2.2/ios`)
+
+EXTERNAL SOURCES:
+  firebase_database:
+    :path: /Users/xster/.pub-cache/hosted/pub.dartlang.org/firebase_database-0.0.12/ios
+  Flutter:
+    :path: /Users/xster/development/flutter/bin/cache/artifacts/engine/ios
+  url_launcher:
+    :path: /Users/xster/.pub-cache/hosted/pub.dartlang.org/url_launcher-0.4.2+1/ios
+  video_launcher:
+    :path: /Users/xster/.pub-cache/hosted/pub.dartlang.org/video_launcher-0.2.2/ios
+
+SPEC CHECKSUMS:
+  Firebase: 284eea779b73fdff309791817da7c68bff8dd572
+  firebase_database: 8d50f5c188b769afc186b0a700b2c6cdb8208df9
+  FirebaseAnalytics: 6f08e746f7d66f5452931bc2e822b5df9c66b64a
+  FirebaseCore: 85ad466044c2f013cdb167f85d426d15b128114a
+  FirebaseDatabase: d829b3a8c3e2ac7a16773c5df226966b0805dfc2
+  FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
+  Flutter: d674e78c937094a75ac71dd77e921e840bea3dbf
+  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  url_launcher: 0067ddb8f10d36786672aa0722a21717dba3a298
+  video_launcher: 2420baaa0ce4ae07ff2ea6661766558bb655389f
+
+PODFILE CHECKSUM: 351e02e34b831289961ec3558a535cbd2c4965d2
+
+COCOAPODS: 1.2.1

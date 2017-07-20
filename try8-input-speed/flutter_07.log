@@ -1,0 +1,79 @@
+Flutter crash report; please file at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run
+
+## exception
+
+_CastError: type 'CommandResult' is not a subtype of type 'Null' in type cast where
+  CommandResult is from package:flutter_tools/src/runner/flutter_command.dart
+  Null is from dart:core
+
+
+```
+#0      Object._as (dart:core-patch/object_patch.dart:72)
+#1      CommandRunner.runCommand (package:args/command_runner.dart:194)
+<asynchronous suspension>
+#2      FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:262)
+<asynchronous suspension>
+#3      CommandRunner.run.<anonymous closure> (package:args/command_runner.dart:109)
+#4      Future.Future.sync (dart:async/future.dart:208)
+#5      CommandRunner.run (package:args/command_runner.dart:109)
+#6      FlutterCommandRunner.run (package:flutter_tools/src/runner/flutter_command_runner.dart:157)
+#7      run.<anonymous closure> (package:flutter_tools/executable.dart:140)
+<asynchronous suspension>
+#8      AppContext._run (package:flutter_tools/src/base/context.dart:76)
+<asynchronous suspension>
+#9      AppContext.runInZone.<anonymous closure> (package:flutter_tools/src/base/context.dart:66)
+#10     _rootRun (dart:async/zone.dart:1120)
+#11     _CustomZone.run (dart:async/zone.dart:1001)
+#12     runZoned (dart:async/zone.dart:1465)
+#13     AppContext.runInZone (package:flutter_tools/src/base/context.dart:65)
+#14     run (package:flutter_tools/executable.dart:113)
+<asynchronous suspension>
+#15     main (package:flutter_tools/executable.dart:66)
+<asynchronous suspension>
+#16     main (file:///Users/xster/development/flutter/packages/flutter_tools/bin/flutter_tools.dart:8)
+#17     _startIsolate.<anonymous closure> (dart:isolate-patch/isolate_patch.dart:263)
+#18     _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:151)
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (on Mac OS X 10.12.4 16E195, channel analytics)
+    • Flutter at /Users/xster/development/flutter
+    • Framework revision 20de33cdbe (3 hours ago), 2017-04-25 13:35:53 -0700
+    • Engine revision bcc8779cb8
+    • Tools Dart version 1.23.0-dev.11.6
+
+[✓] Host Executable Compatibility
+    • Downloaded executables execute on host
+
+[✓] Android toolchain - develop for Android devices (Android SDK 25.0.2)
+    • Android SDK at /Users/xster/Library/Android/sdk
+    • Platform android-25, build-tools 25.0.2
+    • ANDROID_HOME = /Users/xster/Library/Android/sdk
+    • Java binary at: /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/bin/java
+    • Java version: OpenJDK Runtime Environment (build 1.8.0_112-release-b06)
+
+[✓] iOS toolchain - develop for iOS devices (Xcode 8.3)
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • Xcode 8.3, Build version 8E162
+    • ios-deploy 1.9.1
+    • CocoaPods version 1.2.0
+
+[✓] Android Studio (version 2.3)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    • Gradle version 3.2
+    • Java version: OpenJDK Runtime Environment (build 1.8.0_112-release-b06)
+
+[✓] IntelliJ IDEA Community Edition (version 2017.1)
+    • Dart plugin version 171.4006
+    • Flutter plugin version 12.1
+
+[✓] Connected devices
+    • Nexus 4 Svelte test mode • 04f84703d1118cec • android-arm • Android 5.1.1 (API 22)
+
+```

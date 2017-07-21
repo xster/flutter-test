@@ -1,16 +1,9 @@
-name: t31_ink_splash
+name: t32_splash_screen
 description: A new Flutter project.
 
 dependencies:
   flutter:
     sdk: flutter
-  url_launcher: '^0.4.2+1'
-
-dependency_overrides:
-  sky_engine:
-    path: /Users/xster/Development/engine/src/out/ios_debug_unopt/gen/dart-pkg/sky_engine
-  sky_services:
-    path: /Users/xster/Development/engine/src/out/ios_debug_unopt/gen/dart-pkg/sky_services
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec

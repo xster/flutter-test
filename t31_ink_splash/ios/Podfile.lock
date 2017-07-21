@@ -4,12 +4,12 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
-  - Flutter (from `/Users/xster/development/engine/src/out/ios_profile_unopt`)
+  - Flutter (from `/Users/xster/Development/engine/src/out/ios_debug_unopt`)
   - url_launcher (from `/Users/xster/.pub-cache/hosted/pub.dartlang.org/url_launcher-0.4.2+1/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
-    :path: /Users/xster/development/engine/src/out/ios_profile_unopt
+    :path: /Users/xster/Development/engine/src/out/ios_debug_unopt
   url_launcher:
     :path: /Users/xster/.pub-cache/hosted/pub.dartlang.org/url_launcher-0.4.2+1/ios
 

@@ -42,6 +42,7 @@ class AnimationTesterState extends State<AnimationTester> with SingleTickerProvi
   @override
   Widget build(BuildContext context) {
     return new Material(
+      color: Colors.blue,
       child: new SlideTransition(
         position: positionTween.animate(controller),
         child: new Align(

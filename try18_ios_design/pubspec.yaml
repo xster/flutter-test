@@ -1,0 +1,21 @@
+name: try18_ios_design
+description: A new flutter project.
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+flutter:
+  assets:
+    - assets/bug.png
+    - assets/check-2.png
+    - assets/comments.png
+    - assets/comments-2.png
+    - assets/file.png
+    - assets/git.png
+    - assets/plus.png
+    - assets/search.png
+    - assets/up.png
+    - assets/reviewer1.jpeg
+    - assets/reviewer4.jpg
+  uses-material-design: true

@@ -29,6 +29,7 @@ class IosDemoApp extends StatelessWidget {
               leading: new CupertinoButton(
                 padding: const EdgeInsets.all(0.0),
                 child: const Text('Cancel'),
+                pressedOpacity: 1.0,
                 onPressed: () {},
               ),
               middle: const Text('Add neural reading…', style: const TextStyle(
@@ -84,7 +85,7 @@ Widget buildTab1() {
 Widget buildTab2() {
   return new ListView(
     children: <Widget>[
-      new Padding(padding: const EdgeInsets.only(top: 60.0)),
+    new Padding(padding: const EdgeInsets.only(top: 40.0)),
     ]
         ..addAll(buildHeader())
         ..addAll(buildComments())

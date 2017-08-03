@@ -6,7 +6,10 @@ import 'package:flutter/services.dart';
 const platformChannel = const MethodChannel('t33.test.flutter.io/native');
 
 void main() {
-  runApp(new MaterialApp(home: new AnimationTester()));
+  runApp(new MaterialApp(
+    home: new AnimationTester(),
+    theme: new ThemeData(platform: TargetPlatform.iOS),
+  ));
 }
 
 class AnimationTester extends StatefulWidget {

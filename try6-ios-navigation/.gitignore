@@ -1,0 +1,13 @@
+.DS_Store
+.atom/
+.idea
+.packages
+.pub/
+build/
+ios/.generated/
+packages
+pubspec.lock
+.flutter-plugins
+android/app/src/main/java/io/flutter/plugins/PluginRegistry.java
+ios/Runner/PluginRegistry.h
+ios/Runner/PluginRegistry.m

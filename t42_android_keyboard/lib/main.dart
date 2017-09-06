@@ -21,9 +21,9 @@ class MyApp extends StatelessWidget {
         // didn't reset back to zero; the application is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: new Container(
-        color: const Color(0xFF7777FF),
-        child: const Text('hi')),
+      home: new Material(child: new Center(child: new TextField(
+        decoration: const InputDecoration(labelText: 'Stuff'),
+      ),),),
     );
   }
 }

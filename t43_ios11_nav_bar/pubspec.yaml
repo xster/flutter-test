@@ -1,0 +1,20 @@
+name: t43_ios11_nav_bar
+description: A new Flutter project.
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+# For information on the generic Dart part of this file, see the
+# following page: https://www.dartlang.org/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+
+flutter:
+  assets:
+    - assets/search.png

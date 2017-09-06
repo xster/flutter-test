@@ -36,6 +36,7 @@ class IosDemoApp extends StatelessWidget {
                 fontWeight: FontWeight.w700,
               )),
               trailing: const ImageIcon(const AssetImage('assets/search.png')),
+              // largeTitle: true,
             ),
             tabBar: new CupertinoTabBar(
               items: <BottomNavigationBarItem>[

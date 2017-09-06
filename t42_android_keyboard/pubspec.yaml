@@ -1,4 +1,4 @@
-name: t41_splash_again_after_more_fix
+name: t42_android_keyboard
 description: A new Flutter project.
 
 dependencies:
@@ -8,13 +8,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-dependency_overrides:
-  sky_engine:
-    path: /Users/xster/development/engine/src/out/android_debug_unopt/gen/dart-pkg/sky_engine
-  sky_services:
-    path: /Users/xster/development/engine/src/out/android_debug_unopt/gen/dart-pkg/sky_services
-
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec

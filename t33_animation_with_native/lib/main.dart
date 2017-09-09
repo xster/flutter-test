@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:share/share.dart';
 
 const platformChannel = const MethodChannel('t33.test.flutter.io/native');
 
@@ -50,23 +51,41 @@ class AnimationTesterState extends State<AnimationTester> with SingleTickerProvi
         position: positionTween.animate(controller),
         child: new Align(
           alignment: FractionalOffset.topCenter,
-          child: new RaisedButton(
-            child: const Text('Present Native View'),
-            onPressed: controller.isDismissed
-                ? () {
-                  controller.forward();
-                  presentNative();
-                }
-                : controller.isCompleted
-                    ? () {
-                      controller.reverse();
-                      presentNative();
-                    }
-                    : null,
+          child: new Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              new RaisedButton(
+                child: const Text('Present Native View'),
+                onPressed: animateAndCall(presentNative),
+              ),
+              const Padding(padding: const EdgeInsetsDirectional.only(start: 20.0)),
+              new RaisedButton(
+                child: const Text('Share Native'),
+                onPressed: animateAndCall(shareNative),
+              )
+            ],
           ),
         ),
       ),
     );
+  }
+
+  Function animateAndCall(VoidCallback function) {
+    if (controller.isDismissed) {
+      return () {
+        controller.forward();
+        function();
+      };
+    }
+
+    if (controller.isCompleted) {
+      return () {
+        controller.reverse();
+        function();
+      };
+    }
+
+    return null;
   }
 
   Future<Null> presentNative() async {
@@ -80,5 +99,9 @@ class AnimationTesterState extends State<AnimationTester> with SingleTickerProvi
       },
     );
     Timeline.finishSync();
+  }
+
+  void shareNative() {
+    share('Test string');
   }
 }

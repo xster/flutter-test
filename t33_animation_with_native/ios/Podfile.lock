@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - share (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `/Users/xiao/Development/engine/src/out/ios_debug_unopt`)
+  - share (from `/Users/xiao/.pub-cache/hosted/pub.dartlang.org/share-0.2.1/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: /Users/xiao/Development/engine/src/out/ios_debug_unopt
+  share:
+    :path: /Users/xiao/.pub-cache/hosted/pub.dartlang.org/share-0.2.1/ios
+
+SPEC CHECKSUMS:
+  Flutter: d674e78c937094a75ac71dd77e921e840bea3dbf
+  share: ee3d34d3969ad17fc3043eab552e4f082aacfed1
+
+PODFILE CHECKSUM: 351e02e34b831289961ec3558a535cbd2c4965d2
+
+COCOAPODS: 1.2.1

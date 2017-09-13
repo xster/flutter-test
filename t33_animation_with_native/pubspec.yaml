@@ -12,9 +12,9 @@ dev_dependencies:
 
 dependency_overrides:
   sky_engine:
-    path: /Users/xiao/Development/engine/src/out/ios_debug_unopt/gen/dart-pkg/sky_engine
+    path: /Users/xster/development/engine/src/out/ios_debug_unopt/gen/dart-pkg/sky_engine
   sky_services:
-    path: /Users/xiao/Development/engine/src/out/ios_debug_unopt/gen/dart-pkg/sky_services
+    path: /Users/xster/development/engine/src/out/ios_debug_unopt/gen/dart-pkg/sky_services
 
 
 # For information on the generic Dart part of this file, see the

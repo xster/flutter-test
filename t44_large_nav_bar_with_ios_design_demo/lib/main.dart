@@ -47,18 +47,15 @@ class IosDemoApp extends StatelessWidget {
             rootTabPageBuilder: (BuildContext context, int index) {
               return new CustomScrollView(
                 slivers: <Widget>[
-                  new CupertinoNavigationBar(
+                  new CupertinoSliverNavigationBar(
                     leading: new CupertinoButton(
                       padding: const EdgeInsets.all(0.0),
                       child: const Text('Cancel'),
                       pressedOpacity: 1.0,
                       onPressed: () {},
                     ),
-                    middle: const Text('Add neural reading…', style: const TextStyle(
-                      fontWeight: FontWeight.w700,
-                    )),
+                    largeTitle: const Text('Settings'),
                     trailing: const ImageIcon(const AssetImage('assets/search.png')),
-                    largeTitle: true,
                   ),
                   buildTab2(),
                 ],

@@ -24,20 +24,7 @@ class IosDemoApp extends StatelessWidget {
         ),
         child: new DecoratedBox(
           decoration: const BoxDecoration(color: CupertinoColors.white),
-          child: new CupertinoScaffold.tabbed(
-            navigationBar: new CupertinoNavigationBar(
-              leading: new CupertinoButton(
-                padding: const EdgeInsets.all(0.0),
-                child: const Text('Cancel'),
-                pressedOpacity: 1.0,
-                onPressed: () {},
-              ),
-              middle: const Text('Add neural reading…', style: const TextStyle(
-                fontWeight: FontWeight.w700,
-              )),
-              trailing: const ImageIcon(const AssetImage('assets/search.png')),
-              // largeTitle: true,
-            ),
+          child: new CupertinoTabScaffold(
             tabBar: new CupertinoTabBar(
               items: <BottomNavigationBarItem>[
                 new BottomNavigationBarItem(
@@ -58,25 +45,50 @@ class IosDemoApp extends StatelessWidget {
                 ),
               ],
             ),
-            rootTabPageBuilder: (BuildContext context, int index) {
-              switch (index) {
-                case 0:
-                  return buildTab1();
-                case 1:
-                  return buildTab2();
-                case 2:
-                  return buildTab3(context);
-                case 3:
-                  return buildTab4(context);
-                default:
-                  return new Container();
-              }
+            tabBuilder: (BuildContext context, int index) {
+              return new CupertinoTabView(
+                builder: (BuildContext context) {
+                  return new CupertinoPageScaffold(
+                    navigationBar: buildNavigationBar(),
+                    child: () {
+                      switch (index) {
+                        case 0:
+                          return buildTab1();
+                        case 1:
+                          return buildTab2();
+                        case 2:
+                          return buildTab3(context);
+                        case 3:
+                          return buildTab4(context);
+                        default:
+                          return new Container();
+                      }
+                    } (),
+                  );
+                },
+              );
             },
           ),
         ),
       ),
     );
   }
+}
+
+CupertinoNavigationBar buildNavigationBar() {
+  return new CupertinoNavigationBar(
+    leading: new CupertinoButton(
+      padding: const EdgeInsets.all(0.0),
+      child: const Text('Cancel'),
+      pressedOpacity: 1.0,
+      onPressed: () {},
+    ),
+    middle: const Text('Add neural reading…', style: const TextStyle(
+      fontWeight: FontWeight.w700,
+    )),
+    trailing: const ImageIcon(const AssetImage('assets/search.png')),
+    // largeTitle: true,
+  );
 }
 
 Widget buildTab1() {
@@ -86,7 +98,7 @@ Widget buildTab1() {
 Widget buildTab2() {
   return new ListView(
     children: <Widget>[
-    new Padding(padding: const EdgeInsets.only(top: 40.0)),
+    new Padding(padding: const EdgeInsets.only(top: 60.0)),
     ]
         ..addAll(buildHeader())
         ..addAll(buildComments())
@@ -99,16 +111,38 @@ Widget buildTab3(BuildContext context) {
     onPressed: () {
       Navigator.push(context, new CupertinoPageRoute(
         builder: (BuildContext context) {
-          return new Column(
-            children: <Widget>[
-              const Text('Page 2'),
-              new CupertinoButton(
-                child: const Text('Back'),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
+          return new CupertinoPageScaffold(
+            navigationBar: new CupertinoNavigationBar(
+              middle: const Text('Page 2'),
+            ),
+            child: new Center(
+              child: new Column(
+                children: <Widget>[
+                  new Padding(
+                    padding: const EdgeInsets.only(top: 100.0),
+                  ),
+                  const Text('Page 2'),
+                  new CupertinoButton(
+                    child: const Text('Next Page'),
+                    onPressed: () {
+                      Navigator.push(context, new CupertinoPageRoute(
+                        fullscreenDialog: true,
+                        builder: (BuildContext context) {
+                          return new CupertinoPageScaffold(
+                            navigationBar: const CupertinoNavigationBar(
+                              middle: const Text('Page 3'),
+                            ),
+                            child: new Center(
+                              child: const Text('Page 3'),
+                            ),
+                          );
+                        }
+                      ));
+                    },
+                  ),
+                ],
               ),
-            ],
+            ),
           );
         }
       ));

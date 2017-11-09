@@ -8,7 +8,7 @@ void main() => runApp(new MaterialApp(
     appBar: new AppBar(title: const Text('Explosion Demo')),
     body: new World())));
 
-const int kObjects = 50;
+const int kObjects = 100;
 const FractionalOffset kInitialPosition = const FractionalOffset(0.5, 0.2);
 const double kMaxExplosionLinearVelocity = 2.0;
 const double kMaxExplosionRotationalVelocity = 3.0;

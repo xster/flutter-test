@@ -3,7 +3,7 @@ import 'dart:math' show Random;
 import 'package:flutter/material.dart';
 
 void main() => runApp(new MaterialApp(
-  showPerformanceOverlay: true,
+  showPerformanceOverlay: false,
   home: new Scaffold(
     appBar: new AppBar(title: const Text('Explosion Demo')),
     body: new World())));

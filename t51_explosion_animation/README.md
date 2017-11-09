@@ -1,8 +1,5 @@
 # t51_explosion_animation
 
-A new Flutter project.
+A Flutter project to demo an exploding particles animation effect
 
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](http://flutter.io/).
+![video showing effects](assets/panda.gif)

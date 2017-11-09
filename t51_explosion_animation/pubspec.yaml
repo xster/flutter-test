@@ -1,0 +1,15 @@
+name: t51_explosion_animation
+description: A new Flutter project.
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+  assets:
+    - assets/panda.png

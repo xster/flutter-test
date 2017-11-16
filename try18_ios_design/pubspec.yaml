@@ -19,4 +19,17 @@ flutter:
     - assets/up.png
     - assets/reviewer1.jpeg
     - assets/reviewer4.jpg
+
+  fonts:
+    - family: .SF UI Text
+      fonts:
+        - asset: assets/SFText-Regular.otf
+        - asset: assets/SFText-Light.otf
+          weight: 300
+        - asset: assets/SFText-Medium.otf
+          weight: 500
+        - asset: assets/SFText-Semibold.otf
+          weight: 600
+        - asset: assets/SFText-Bold.otf
+          weight: 700
   uses-material-design: true

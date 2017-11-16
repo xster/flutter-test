@@ -15,6 +15,7 @@ class IosDemoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: new ThemeData(platform: TargetPlatform.iOS),
         title: 'iOS Demo',
         home: new DefaultTextStyle(
             style: const TextStyle(

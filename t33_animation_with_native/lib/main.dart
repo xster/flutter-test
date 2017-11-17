@@ -48,7 +48,7 @@ class AnimationTesterState extends State<AnimationTester> with SingleTickerProvi
     return new Material(
       color: Colors.blue,
       child: new SlideTransition(
-        position: positionTween.animate(controller),
+        position: new Tween<Offset>(begin: const Offset(0.0, 0.2), end: const Offset(0.0, 0.8)).animate(controller),
         child: new Align(
           alignment: FractionalOffset.topCenter,
           child: new Row(

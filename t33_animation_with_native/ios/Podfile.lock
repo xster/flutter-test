@@ -4,12 +4,12 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
-  - Flutter (from `/Users/xster/development/engine/src/out/ios_debug_unopt`)
+  - Flutter (from `/Users/xster/development/flutter/bin/cache/artifacts/engine/ios`)
   - share (from `/Users/xster/.pub-cache/hosted/pub.dartlang.org/share-0.2.1/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
-    :path: /Users/xster/development/engine/src/out/ios_debug_unopt
+    :path: /Users/xster/development/flutter/bin/cache/artifacts/engine/ios
   share:
     :path: /Users/xster/.pub-cache/hosted/pub.dartlang.org/share-0.2.1/ios
 

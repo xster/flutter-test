@@ -30,7 +30,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   double cameraHeight = 1.0;
-  double cylinderRadius = 0.0;
+  double modelScale = 1.0;
   double rotationAngle = 0.0;
 
   _MyHomePageState();
@@ -47,31 +47,26 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               new Expanded(
                 child: new Center(
-                  child: new RepaintBoundary(
-                    child: new Transform(
-                      // transform: new Matrix4.rotationX(rotationAngle),
-                      transform: _getNewTransform(),
-                      // transform: new Matrix4.identity(),
-                      alignment: Alignment.center,
-                      child: new RepaintBoundary(
-                        child: new Container(
-                          width: 200.0,
-                          height: 150.0,
-                          decoration: const BoxDecoration(
-                            gradient: const LinearGradient(
-                              colors: const <Color>[
-                                Colors.blue, Colors.red,
-                              ],
-                            ),
-                          ),
-                          child: new Center(
-                            child: const Text(
-                              '5',
-                              style: const TextStyle(
-                                fontSize: 60.0,
-                                color: Colors.yellow,
-                              ),
-                            ),
+                  child: new Transform(
+                    transform: _getNewTransform(),
+                    alignment: Alignment.center,
+                    child: new Container(
+                      width: 200.0,
+                      height: 150.0,
+                      decoration: const BoxDecoration(
+                        gradient: const LinearGradient(
+                          colors: const <Color>[
+                            Colors.blue, Colors.red,
+                          ],
+                        ),
+                      ),
+                      child: new Center(
+                        child: const Text(
+                          '5\nABC',
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 60.0,
+                            color: Colors.yellow,
                           ),
                         ),
                       ),
@@ -89,30 +84,31 @@ class _MyHomePageState extends State<MyHomePage> {
                       label: cameraHeight.toStringAsFixed(2),
                       value: cameraHeight,
                       min: 0.0,
-                      max: 100.0,
-                      onChanged: onCameraHeightChanged
+                      max: 200.0,
+                      onChanged: onCameraHeightChanged,
                     ),
-                    const Text('Cylinder Radius (model z)'),
+                    const Text('Model scale'),
                     new Slider(
-                      label: cylinderRadius.toStringAsFixed(2),
-                      value: cylinderRadius,
-                      min: -10.0, max: 10.0,
-                      onChanged: onCylinderRadiusChanged
+                      label: modelScale.toStringAsFixed(2),
+                      value: modelScale,
+                      min: 0.1,
+                      max: 20.0,
+                      onChanged: onModelScaleChanged,
                     ),
-                    const Text('Rotation Angle (model rotation)'),
+                    const Text('Camera Angle'),
                     new Slider(
                       label: rotationAngle.toStringAsFixed(2),
                       value: rotationAngle,
                       min: -pi / 2.0,
                       max: pi / 2.0,
-                      onChanged: onRotationAngleChanged
+                      onChanged: onRotationAngleChanged,
                     ),
                     new RaisedButton(
                       child: const Text('Reset'),
                       onPressed: () {
                         setState(() {
                           cameraHeight = 1.0;
-                          cylinderRadius = 0.0;
+                          modelScale = 1.0;
                           rotationAngle = 0.0;
                         });
                       },
@@ -132,9 +128,9 @@ class _MyHomePageState extends State<MyHomePage> {
       cameraHeight = value;
     });
   }
-  void onCylinderRadiusChanged(double value) {
+  void onModelScaleChanged(double value) {
     setState(() {
-      cylinderRadius = value;
+      modelScale = value;
     });
   }
 
@@ -145,14 +141,14 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Matrix4 _getNewTransform() {
-    var cameraPosition = new Math.Vector3(0.0, 0.0, cameraHeight);// - cylinderRadius);
+    var cameraPosition = new Math.Vector3(0.0, cameraHeight * sin(rotationAngle), cameraHeight * cos(rotationAngle));
     var cameraFocusPosition = new Math.Vector3(0.0, 0.0, 0.0);
     var cameraUp = new Math.Vector3(0.0, 1.0, 0.0);
 
-    var projectionMatrix = Math.makePerspectiveMatrix(100.0 * (PI / 180.0), 1.0, 1.0, 1000.0);
+    var projectionMatrix = Math.makePerspectiveMatrix(90.0 * (PI / 180.0), 1.0, 1.0, 1000.0);
     var viewMatrix = Math.makeViewMatrix(cameraPosition, cameraFocusPosition, cameraUp);
 
-    var modelMatrix = new Matrix4.rotationX(rotationAngle) * new Matrix4.translationValues(0.0, 0.0, cylinderRadius);//new Matrix4.translationValues(0.0, 0.0, -cylinderRadius) *
+    var modelMatrix = new Matrix4.diagonal3Values(modelScale, modelScale, 1.0);
     return projectionMatrix * viewMatrix * modelMatrix;
   }
 }

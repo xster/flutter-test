@@ -52,12 +52,18 @@ class _MyHomePageState extends State<MyHomePage> {
                       // transform: new Matrix4.rotationX(rotationAngle),
                       transform: _getNewTransform(),
                       // transform: new Matrix4.identity(),
-                      // alignment: Alignment.center,
+                      alignment: Alignment.center,
                       child: new RepaintBoundary(
                         child: new Container(
                           width: 200.0,
                           height: 150.0,
-                          color: Colors.blue,
+                          decoration: const BoxDecoration(
+                            gradient: const LinearGradient(
+                              colors: const <Color>[
+                                Colors.blue, Colors.red,
+                              ],
+                            ),
+                          ),
                           child: new Center(
                             child: const Text(
                               '5',
@@ -97,8 +103,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     new Slider(
                       label: rotationAngle.toStringAsFixed(2),
                       value: rotationAngle,
-                      min: -pi / 4.0,
-                      max: pi / 4.0,
+                      min: -pi / 2.0,
+                      max: pi / 2.0,
                       onChanged: onRotationAngleChanged
                     ),
                     new RaisedButton(
@@ -146,7 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
     var projectionMatrix = Math.makePerspectiveMatrix(100.0 * (PI / 180.0), 1.0, 1.0, 1000.0);
     var viewMatrix = Math.makeViewMatrix(cameraPosition, cameraFocusPosition, cameraUp);
 
-    var modelMatrix = new Matrix4.translationValues(0.0, 0.0, cylinderRadius) * new Matrix4.rotationX(rotationAngle);//new Matrix4.translationValues(0.0, 0.0, -cylinderRadius) *
+    var modelMatrix = new Matrix4.rotationX(rotationAngle) * new Matrix4.translationValues(0.0, 0.0, cylinderRadius);//new Matrix4.translationValues(0.0, 0.0, -cylinderRadius) *
     return projectionMatrix * viewMatrix * modelMatrix;
   }
 }

@@ -32,8 +32,8 @@ class _MyHomePageState extends State<MyHomePage> {
   PageController pageController;
   bool alternateMode = false;
 
-  double cameraHeight = 1.0;
-  double modelScale = 1.0;
+  double cameraHeight = 2.0;
+  double modelRadius = 1.0;
   double rotationAngle = 0.0;
 
   double perspectiveProjection = 0.0;
@@ -93,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   setState(() {
                     cameraHeight = 1.0;
-                    modelScale = 1.0;
+                    modelRadius = 1.0;
                     rotationAngle = 0.0;
 
                     perspectiveProjection = 0.0;
@@ -108,30 +108,41 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget buildTargetWidget() {
-    return new Transform(
-      transform: alternateMode ? getPerspectiveProjectionTransform() : getPVMTransform(),
-      alignment: Alignment.center,
-      child: new Container(
-        width: 200.0,
-        height: 150.0,
-        decoration: const BoxDecoration(
-          gradient: const LinearGradient(
-            colors: const <Color>[
-              Colors.blue, Colors.red,
-            ],
+    return new Stack(
+      children: <Widget>[
+        new Container(
+          width: 200.0,
+          height: 150.0,
+          decoration: new BoxDecoration(
+            border: new Border.all(color: Colors.green),
           ),
         ),
-        child: new Center(
-          child: const Text(
-            '5\nABC',
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 60.0,
-              color: Colors.yellow,
+        new Transform(
+          transform: alternateMode ? getPerspectiveProjectionTransform() : getPVMTransform(),
+          alignment: Alignment.center,
+          child: new Container(
+            width: 200.0,
+            height: 150.0,
+            decoration: const BoxDecoration(
+              gradient: const LinearGradient(
+                colors: const <Color>[
+                  Colors.blue, Colors.red,
+                ],
+              ),
+            ),
+            child: new Center(
+              child: const Text(
+                '5\nABC',
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 60.0,
+                  color: Colors.yellow,
+                ),
+              ),
             ),
           ),
         ),
-      ),
+      ],
     );
   }
 
@@ -146,16 +157,16 @@ class _MyHomePageState extends State<MyHomePage> {
             label: cameraHeight.toStringAsFixed(2),
             value: cameraHeight,
             min: 0.0,
-            max: 200.0,
+            max: 1000.0,
             onChanged: (double value) { setState(() { cameraHeight = value; }); },
           ),
-          const Text('Model scale'),
+          const Text('Model radius'),
           new Slider(
-            label: modelScale.toStringAsFixed(2),
-            value: modelScale,
-            min: 0.1,
-            max: 20.0,
-            onChanged: (double value) { setState(() { modelScale = value; }); },
+            label: modelRadius.toStringAsFixed(2),
+            value: modelRadius,
+            min: -1000.0,
+            max: 1000.0,
+            onChanged: (double value) { setState(() { modelRadius = value; }); },
           ),
           const Text('Camera Angle'),
           new Slider(
@@ -209,12 +220,11 @@ class _MyHomePageState extends State<MyHomePage> {
     final Matrix4 transformation = (new Matrix4.identity()
         ..setEntry(3, 2, perspectiveProjection)) * new Matrix4.rotationX(rotationAngle);
 
-    print(transformation);
     return transformation;
   }
 
   Matrix4 getPVMTransform() {
-    var cameraPosition = new Math.Vector3(0.0, cameraHeight * sin(rotationAngle), cameraHeight * cos(rotationAngle));
+    var cameraPosition = new Math.Vector3(0.0, 0.0, cameraHeight);
     var cameraFocusPosition = new Math.Vector3(0.0, 0.0, 0.0);
     var cameraUp = new Math.Vector3(0.0, 1.0, 0.0);
 
@@ -225,7 +235,7 @@ class _MyHomePageState extends State<MyHomePage> {
     print(projectionMatrix);
     var viewMatrix = Math.makeViewMatrix(cameraPosition, cameraFocusPosition, cameraUp);
 
-    var modelMatrix = new Matrix4.diagonal3Values(modelScale, 1.0, 1.0);
+    var modelMatrix = new Matrix4.rotationX(rotationAngle) * new Matrix4.translationValues(0.0, 0.0, modelRadius);
     return projectionMatrix * viewMatrix * modelMatrix;
   }
 }

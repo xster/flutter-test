@@ -128,7 +128,6 @@ class _MyHomePageState extends State<MyHomePage> {
       perspective: perspectiveProjection,
       orientation: Axis.vertical,
     );
-    print(transformation);
     return new Stack(
       children: <Widget>[
         new Container(
@@ -242,16 +241,12 @@ class _MyHomePageState extends State<MyHomePage> {
     var cameraFocusPosition = new Math.Vector3(0.0, 0.0, 0.0);
     var cameraUp = new Math.Vector3(0.0, 1.0, 0.0);
 
-    var projectionMatrix = Math.makePerspectiveMatrix(90.0 * (PI / 180.0), 1.0, 1.0, 1000.0);
-    // print(projectionMatrix);
-    projectionMatrix = new Matrix4.identity()
+    // var projectionMatrix = Math.makePerspectiveMatrix(90.0 * (PI / 180.0), 1.0, 1.0, 1000.0);
+    var projectionMatrix = new Matrix4.identity()
         ..setEntry(3, 2, -perspectiveProjection);
-    print(projectionMatrix);
     var viewMatrix = Math.makeViewMatrix(cameraPosition, cameraFocusPosition, cameraUp);
-    print(viewMatrix);
 
     var modelMatrix = new Matrix4.rotationX(rotationAngle) * new Matrix4.translationValues(0.0, 0.0, radius);
-    print(modelMatrix);
     return projectionMatrix * viewMatrix * modelMatrix;
   }
 }

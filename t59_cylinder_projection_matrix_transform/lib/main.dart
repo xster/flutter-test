@@ -32,11 +32,10 @@ class _MyHomePageState extends State<MyHomePage> {
   PageController pageController;
   bool alternateMode = false;
 
-  double cameraHeight = 2.0;
-  double modelRadius = 1.0;
+  double radius = 75.0;
   double rotationAngle = 0.0;
 
-  double perspectiveProjection = 0.0;
+  double perspectiveProjection = 0.001;
 
   _MyHomePageState();
 
@@ -78,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
               new LimitedBox(
-                maxHeight: 350.0,
+                maxHeight: 270.0,
                 child: new PageView(
                   controller: pageController,
                   scrollDirection: Axis.horizontal,
@@ -88,17 +87,32 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               ),
-              new RaisedButton(
-                child: const Text('Reset'),
-                onPressed: () {
-                  setState(() {
-                    cameraHeight = 1.0;
-                    modelRadius = 1.0;
-                    rotationAngle = 0.0;
+              new Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  new RaisedButton(
+                    child: const Text('Reset'),
+                    onPressed: () {
+                      setState(() {
+                        radius = 75.0;
+                        rotationAngle = 0.0;
 
-                    perspectiveProjection = 0.0;
-                  });
-                },
+                        perspectiveProjection = 0.001;
+                      });
+                    },
+                  ),
+                  new RaisedButton(
+                    child: const Text('Interesting Value'),
+                    onPressed: () {
+                      setState(() {
+                        radius = 100.0;
+                        rotationAngle = pi / 3.0;
+
+                        perspectiveProjection = 0.001;
+                      });
+                    },
+                  ),
+                ],
               ),
             ],
           ),
@@ -108,6 +122,13 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget buildTargetWidget() {
+    final Matrix4 transformation = MatrixUtils.createCylindricalProjectionTransform(
+      radius: radius,
+      angle: rotationAngle,
+      perspective: perspectiveProjection,
+      orientation: Axis.vertical,
+    );
+    print(transformation);
     return new Stack(
       children: <Widget>[
         new Container(
@@ -118,7 +139,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         new Transform(
-          transform: alternateMode ? getPerspectiveProjectionTransform() : getPVMTransform(),
+          // transform: alternateMode ? getPerspectiveProjectionTransform() : getPVMTransform(),
+          transform: transformation,
           alignment: Alignment.center,
           child: new Container(
             width: 200.0,
@@ -152,21 +174,13 @@ class _MyHomePageState extends State<MyHomePage> {
       child: new Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          const Text('Camera Height (view z)'),
+          const Text('Radius'),
           new Slider(
-            label: cameraHeight.toStringAsFixed(2),
-            value: cameraHeight,
-            min: 0.0,
-            max: 1000.0,
-            onChanged: (double value) { setState(() { cameraHeight = value; }); },
-          ),
-          const Text('Model radius'),
-          new Slider(
-            label: modelRadius.toStringAsFixed(2),
-            value: modelRadius,
+            label: radius.toStringAsFixed(2),
+            value: radius,
             min: -1000.0,
             max: 1000.0,
-            onChanged: (double value) { setState(() { modelRadius = value; }); },
+            onChanged: (double value) { setState(() { radius = value; }); },
           ),
           const Text('Camera Angle'),
           new Slider(
@@ -224,18 +238,20 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Matrix4 getPVMTransform() {
-    var cameraPosition = new Math.Vector3(0.0, 0.0, cameraHeight);
+    var cameraPosition = new Math.Vector3(0.0, 0.0, radius.abs());
     var cameraFocusPosition = new Math.Vector3(0.0, 0.0, 0.0);
     var cameraUp = new Math.Vector3(0.0, 1.0, 0.0);
 
     var projectionMatrix = Math.makePerspectiveMatrix(90.0 * (PI / 180.0), 1.0, 1.0, 1000.0);
-    print(projectionMatrix);
+    // print(projectionMatrix);
     projectionMatrix = new Matrix4.identity()
         ..setEntry(3, 2, -perspectiveProjection);
     print(projectionMatrix);
     var viewMatrix = Math.makeViewMatrix(cameraPosition, cameraFocusPosition, cameraUp);
+    print(viewMatrix);
 
-    var modelMatrix = new Matrix4.rotationX(rotationAngle) * new Matrix4.translationValues(0.0, 0.0, modelRadius);
+    var modelMatrix = new Matrix4.rotationX(rotationAngle) * new Matrix4.translationValues(0.0, 0.0, radius);
+    print(modelMatrix);
     return projectionMatrix * viewMatrix * modelMatrix;
   }
 }

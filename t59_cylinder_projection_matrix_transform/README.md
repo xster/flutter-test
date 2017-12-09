@@ -1,8 +1,6 @@
 # t59_cylinder_projection_matrix_transform
 
-A new Flutter project.
+A Flutter demo showing perspective transformations. Specifically a box rotating
+on the surface of a cylinder.
 
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](http://flutter.io/).
+![demo](https://media.giphy.com/media/xT0xewlRV4N04PdFU4/giphy.gif)

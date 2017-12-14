@@ -32,16 +32,18 @@ class _MyHomePageState extends State<MyHomePage> {
         title: new Text(widget.title),
       ),
       body: new Container(
-        // margin: const EdgeInsets.only(top: 160.0),
-        height: 400.0,
+        // Try altering this
+        margin: const EdgeInsets.only(top: 100.0),
+        // Try altering this
+        height: 300.0,
         child: new Padding(
           padding: new EdgeInsets.all(10.0),
           child: new Material(
             borderRadius: new BorderRadius.all(
               new Radius.circular(4.0),
             ),
-            elevation: 1.0,
-            color: Colors.white,
+            elevation: 15.0,
+            color: Colors.red[100],
             child: new Column(
               children: <Widget>[
                 new Expanded(
@@ -81,6 +83,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: new Text("Press Me"),
                   onPressed: () {},
                 ),
+                // new CircleAvatar(
+                //   radius: 30.0,
+                // )
               ],
             ),
           ),

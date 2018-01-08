@@ -58,13 +58,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    print('test');
-    print('test)    11\n');
-    print(')');
-    print(')snatoheusn');
-    print(')snato\nheusn');
-    // null.hi();
-
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -112,6 +105,5 @@ class _MyHomePageState extends State<MyHomePage> {
         child: new Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
-
   }
 }

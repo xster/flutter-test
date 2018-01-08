@@ -1,4 +1,4 @@
-name: t63_ios_blurring
+name: t66_test_new_podfile
 description: A new Flutter project.
 
 dependencies:
@@ -8,16 +8,13 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.0
+  google_sign_in: ^2.0.0
+  firebase_analytics: ^0.2.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-dependency_overrides:
-  sky_engine:
-    path: /Users/xster/development/engine/src/out/ios_debug_sim_unopt/gen/dart-pkg/sky_engine
-  sky_services:
-    path: /Users/xster/development/engine/src/out/ios_debug_sim_unopt/gen/dart-pkg/sky_services
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec

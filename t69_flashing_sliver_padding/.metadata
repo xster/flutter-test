@@ -1,0 +1,8 @@
+# This file tracks properties of this Flutter project.
+# Used by Flutter tool to assess capabilities and perform upgrades etc.
+#
+# This file should be version controlled and should not be manually edited.
+
+version:
+  revision: 38c4dc9f9eb2756aad9fdc73218afbfa814f8872
+  channel: cupertino-picker-2

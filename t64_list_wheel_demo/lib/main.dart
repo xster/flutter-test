@@ -45,15 +45,15 @@ class ListWheelDemoState extends State<ListWheelDemo> {
                     border: new Border.all(color: Colors.yellow, width: 0.5),
                     color: Colors.red,
                   ),
-                  child: new Center(
-                    child: new Text(
-                      index.toString(),
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 24.0,
-                      ),
-                    ),
-                  ),
+                  // child: new Center(
+                  //   child: new Text(
+                  //     index.toString(),
+                  //     style: const TextStyle(
+                  //       color: Colors.white,
+                  //       fontSize: 24.0,
+                  //     ),
+                  //   ),
+                  // ),
                 );
               }),
             ),

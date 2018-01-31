@@ -1,4 +1,4 @@
-name: t52_text_transform_rendering
+name: t72_base_ios_app
 description: A new Flutter project.
 
 dependencies:
@@ -12,12 +12,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-# dependency_overrides:
-#   sky_engine:
-#     path: /Users/xster/development/engine/src/out/ios_debug_unopt/gen/dart-pkg/sky_engine
-#   sky_services:
-#     path: /Users/xster/development/engine/src/out/ios_debug_unopt/gen/dart-pkg/sky_services
 
 
 # For information on the generic Dart part of this file, see the
@@ -59,5 +53,5 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
-  # For details regarding fonts from package dependencies,
+  # For details regarding fonts from package dependencies, 
   # see https://flutter.io/custom-fonts/#from-packages

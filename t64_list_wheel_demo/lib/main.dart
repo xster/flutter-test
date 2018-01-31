@@ -36,8 +36,8 @@ class ListWheelDemoState extends State<ListWheelDemo> {
               perspective: _perspective,
               clipToSize: false,
               renderChildrenOutsideViewport: true,
-              itemExtent: 60.0,
-              children: new List<Widget>.generate(100, (int index) {
+              itemExtent: 30.0,
+              children: new List<Widget>.generate(0, (int index) {
                 return new Container(
                   height: 60.0,
                   width: 200.0,
@@ -45,15 +45,15 @@ class ListWheelDemoState extends State<ListWheelDemo> {
                     border: new Border.all(color: Colors.yellow, width: 0.5),
                     color: Colors.red,
                   ),
-                  child: new Center(
-                    child: new Text(
-                      index.toString(),
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 24.0,
-                      ),
-                    ),
-                  ),
+                  // child: new Center(
+                  //   child: new Text(
+                  //     index.toString(),
+                  //     style: const TextStyle(
+                  //       color: Colors.white,
+                  //       fontSize: 24.0,
+                  //     ),
+                  //   ),
+                  // ),
                 );
               }),
             ),
@@ -69,8 +69,9 @@ class ListWheelDemoState extends State<ListWheelDemo> {
               const Text('Diameter'),
               new Slider(
                 min: 0.5,
-                max: 100.0,
+                max: 40.0,
                 value: _diameterRatio,
+                label: _diameterRatio.toStringAsFixed(2),
                 onChanged: (double value) => setState(() { _diameterRatio = value; }),
               ),
               const Text('Perspective'),
@@ -78,8 +79,10 @@ class ListWheelDemoState extends State<ListWheelDemo> {
                 min: 0.0001,
                 max: 0.01,
                 value: _perspective,
+                label: _perspective.toStringAsFixed(3),
                 onChanged: (double value) => setState(() { _perspective = value; }),
               ),
+              const Padding(padding: const EdgeInsets.only(bottom: 60.0)),
             ],
           ),
         ),

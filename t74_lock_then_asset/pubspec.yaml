@@ -1,0 +1,15 @@
+name: t33_animation_with_native
+description: A new Flutter project.
+
+dependencies:
+  flutter:
+    sdk: flutter
+  share:
+  image_picker:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

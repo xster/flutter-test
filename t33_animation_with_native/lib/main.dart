@@ -45,25 +45,28 @@ class AnimationTesterState extends State<AnimationTester> with SingleTickerProvi
 
   @override
   Widget build(BuildContext context) {
-    return new Material(
-      color: Colors.blue,
-      child: new SlideTransition(
-        position: new Tween<Offset>(begin: const Offset(0.0, 0.2), end: const Offset(0.0, 0.8)).animate(controller),
-        child: new Align(
-          alignment: FractionalOffset.topCenter,
-          child: new Row(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              new RaisedButton(
-                child: const Text('Present Native View'),
-                onPressed: animateAndCall(presentNative),
-              ),
-              const Padding(padding: const EdgeInsetsDirectional.only(start: 20.0)),
-              new RaisedButton(
-                child: const Text('Share Native'),
-                onPressed: animateAndCall(shareNative),
-              )
-            ],
+    return new GestureDetector(
+      onTap: () => print('got tapped'),
+      child: new Material(
+        color: Colors.blue,
+        child: new SlideTransition(
+          position: new Tween<Offset>(begin: const Offset(0.0, 0.2), end: const Offset(0.0, 0.8)).animate(controller),
+          child: new Align(
+            alignment: FractionalOffset.topCenter,
+            child: new Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                new RaisedButton(
+                  child: const Text('Present Native View'),
+                  onPressed: animateAndCall(presentNative),
+                ),
+                const Padding(padding: const EdgeInsetsDirectional.only(start: 20.0)),
+                new RaisedButton(
+                  child: const Text('Share Native'),
+                  onPressed: animateAndCall(shareNative),
+                )
+              ],
+            ),
           ),
         ),
       ),

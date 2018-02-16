@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
               child: new CupertinoTabView( // Just a convenient way of adding a Navigator
                 builder: (BuildContext context) {
                   return new Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       new TextField(
                         decoration: const InputDecoration(hintText: 'Text on page 1'),
@@ -31,8 +32,17 @@ class MyApp extends StatelessWidget {
                         onPressed: () {
                           Navigator.of(context).push(new MaterialPageRoute(
                             builder: (BuildContext context) {
-                              return new TextField(
-                                decoration: const InputDecoration(hintText: 'Text on page 2'),
+                              return new Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  new TextField(
+                                    decoration: const InputDecoration(hintText: 'Text on page 2'),
+                                  ),
+                                  new RaisedButton(
+                                    child: const Text('Previous page'),
+                                    onPressed: () => Navigator.pop(context),
+                                  )
+                                ],
                               );
                             },
                           ));

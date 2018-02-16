@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           new FadeInImage.assetNetwork(
             placeholder: 'assets/black.jpg',
-            image: 'https://images.homedepot-static.com/productImages/093ddd96-f34f-4281-a301-28d81a829971/svn/greenworks-pressure-washers-gpw1501-64_1000.jpg',
+            image: 'https://pbs.twimg.com/profile_images/616309728688238592/pBeeJQDQ_400x400.png',
             height: 400.0,
           )
         ],

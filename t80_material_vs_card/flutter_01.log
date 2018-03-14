@@ -1,0 +1,104 @@
+Flutter crash report; please file at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run -d i
+
+## exception
+
+_Exception: Exception: Source directory "/Users/xster/development/test/t80_material_vs_card/build/ios/Release-iphonesimulator/Runner.app" does not exist, nothing to copy
+
+```
+#0      copyDirectorySync (package:flutter_tools/src/base/file_system.dart:81)
+#1      buildXcodeProject (package:flutter_tools/src/ios/mac.dart:414)
+<asynchronous suspension>
+#2      IOSSimulator._buildAndInstallApplicationBundle (package:flutter_tools/src/ios/simulators.dart:401)
+<asynchronous suspension>
+#3      IOSSimulator._setupUpdatedApplicationBundle (package:flutter_tools/src/ios/simulators.dart:388)
+<asynchronous suspension>
+#4      IOSSimulator.startApp (package:flutter_tools/src/ios/simulators.dart:309)
+<asynchronous suspension>
+#5      FlutterDevice.runHot (package:flutter_tools/src/resident_runner.dart:284)
+<asynchronous suspension>
+#6      HotRunner.run (package:flutter_tools/src/run_hot.dart:216)
+<asynchronous suspension>
+#7      RunCommand.runCommand (package:flutter_tools/src/commands/run.dart:368)
+<asynchronous suspension>
+#8      FlutterCommand.verifyThenRunCommand (package:flutter_tools/src/runner/flutter_command.dart:290)
+<asynchronous suspension>
+#9      FlutterCommand.run (package:flutter_tools/src/runner/flutter_command.dart:228)
+<asynchronous suspension>
+#10     CommandRunner.runCommand (package:args/command_runner.dart:194)
+<asynchronous suspension>
+#11     FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:286)
+<asynchronous suspension>
+#12     CommandRunner.run.<anonymous closure> (package:args/command_runner.dart:109)
+#13     new Future.sync (dart:async/future.dart:222)
+#14     CommandRunner.run (package:args/command_runner.dart:109)
+#15     FlutterCommandRunner.run (package:flutter_tools/src/runner/flutter_command_runner.dart:166)
+#16     run.<anonymous closure> (package:flutter_tools/runner.dart:90)
+<asynchronous suspension>
+#17     AppContext._run (package:flutter_tools/src/base/context.dart:76)
+<asynchronous suspension>
+#18     AppContext.runInZone.<anonymous closure> (package:flutter_tools/src/base/context.dart:66)
+#19     _rootRun (dart:async/zone.dart:1126)
+#20     _CustomZone.run (dart:async/zone.dart:1023)
+#21     runZoned (dart:async/zone.dart:1501)
+#22     AppContext.runInZone (package:flutter_tools/src/base/context.dart:65)
+#23     run (package:flutter_tools/runner.dart:61)
+<asynchronous suspension>
+#24     main (package:flutter_tools/executable.dart:48)
+<asynchronous suspension>
+#25     main (file:///Users/xster/development/flutter/packages/flutter_tools/bin/flutter_tools.dart:16)
+#26     _startIsolate.<anonymous closure> (dart:isolate-patch/dart:isolate/isolate_patch.dart:277)
+#27     _RawReceivePortImpl._handleMessage (dart:isolate-patch/dart:isolate/isolate_patch.dart:165)
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel master, v0.2.2-pre.29, on Mac OS X 10.13.3 17D102, locale en-US)
+    • Flutter version 0.2.2-pre.29 at /Users/xster/development/flutter
+    • Framework revision 466d15433f (27 hours ago), 2018-03-12 11:06:32 -0700
+    • Engine revision 1d0da77995
+    • Dart version 2.0.0-dev.33.0.flutter-b5b8080b2c
+
+[✓] Android toolchain - develop for Android devices (Android SDK 27.0.1)
+    • Android SDK at /Users/xster/Library/Android/sdk
+    • Android NDK location not configured (optional; useful for native profiling support)
+    • Platform android-27, build-tools 27.0.1
+    • ANDROID_HOME = /Users/xster/Library/Android/sdk
+    • Java binary at: /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/bin/java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_152-release-915-b08)
+    • All Android licenses accepted.
+
+[✓] iOS toolchain - develop for iOS devices (Xcode 9.2)
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • Xcode 9.2, Build version 9C40b
+    • ios-deploy 1.9.2
+    • CocoaPods version 1.4.0
+
+[✓] Android Studio (version 3.0)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    • Java version OpenJDK Runtime Environment (build 1.8.0_152-release-915-b08)
+
+[✓] Android Studio (version 3.0)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    • Java version OpenJDK Runtime Environment (build 1.8.0_152-release-915-b08)
+
+[✓] IntelliJ IDEA Community Edition (version 2017.3.4)
+    • IntelliJ at /Applications/IntelliJ IDEA CE.app
+    • Flutter plugin version 21.2.3
+    • Dart plugin version 173.4548.30
+
+[✓] VS Code (version 1.21.0)
+    • VS Code at /Applications/Visual Studio Code.app/Contents
+    • Dart Code extension version 2.10.0-beta.1
+
+[✓] Connected devices (3 available)
+    • Nexus 5   • 06af81520068b6f1                     • android-arm   • Android 6.0.1 (API 23)
+    • SM G950U1 • 9887bc30414130414a                   • android-arm64 • Android 7.0 (API 24)
+    • iPhone X  • AE596944-3D9D-417F-94D0-B5EAB44F9091 • ios           • iOS 11.2 (simulator)
+
+• No issues found!
+```

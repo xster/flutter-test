@@ -1,4 +1,4 @@
-name: t78_haptic_tests
+name: t81_raster_cache_page_transitions
 description: A new Flutter project.
 
 dependencies:
@@ -13,11 +13,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-dependency_overrides:
-  sky_engine:
-    path: /Users/xster/development/engine/src/out/android_debug_unopt/gen/dart-pkg/sky_engine
-  sky_services:
-    path: /Users/xster/development/engine/src/out/android_debug_unopt/gen/dart-pkg/sky_services
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
@@ -58,5 +53,5 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
-  # For details regarding fonts from package dependencies,
+  # For details regarding fonts from package dependencies, 
   # see https://flutter.io/custom-fonts/#from-packages

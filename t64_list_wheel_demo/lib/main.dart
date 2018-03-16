@@ -15,7 +15,7 @@ class ListWheelDemo extends StatefulWidget {
 }
 
 class ListWheelDemoState extends State<ListWheelDemo> {
-  double _diameterRatio = 1.0;
+  double _diameterRatio = 2.0;
   double _perspective = 0.001;
 
   @override
@@ -36,8 +36,8 @@ class ListWheelDemoState extends State<ListWheelDemo> {
               perspective: _perspective,
               clipToSize: false,
               renderChildrenOutsideViewport: true,
-              itemExtent: 30.0,
-              children: new List<Widget>.generate(0, (int index) {
+              itemExtent: 50.0,
+              children: new List<Widget>.generate(20, (int index) {
                 return new Container(
                   height: 60.0,
                   width: 200.0,
@@ -45,15 +45,15 @@ class ListWheelDemoState extends State<ListWheelDemo> {
                     border: new Border.all(color: Colors.yellow, width: 0.5),
                     color: Colors.red,
                   ),
-                  // child: new Center(
-                  //   child: new Text(
-                  //     index.toString(),
-                  //     style: const TextStyle(
-                  //       color: Colors.white,
-                  //       fontSize: 24.0,
-                  //     ),
-                  //   ),
-                  // ),
+                  child: new Center(
+                    child: new Text(
+                      index.toString(),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 24.0,
+                      ),
+                    ),
+                  ),
                 );
               }),
             ),

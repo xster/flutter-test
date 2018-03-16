@@ -13,62 +13,60 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       checkerboardRasterCacheImages: true,
-      home: new MyHomePage(title: 'Flutter Demo Home Page'),
+      home: new MyHomePage(depth: 1),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key key, this.depth}) : super(key: key);
 
-  final String title;
+  final int depth;
 
   @override
   _MyHomePageState createState() => new _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    timeDilation = 10.0;
-    debugProfilePaintsEnabled = true;
+    timeDilation = 20.0;
+    debugProfileBuildsEnabled = true;
+    // debugProfilePaintsEnabled = true;
+    // debugRepaintRainbowEnabled = true;
+    // debugPrintMarkNeedsPaintStacks = true;
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text(widget.title),
+        title: new Row(
+          children: new List<Widget>.generate(widget.depth, (int index) {
+            return new Transform.rotate(
+              angle: 0.3 * index,
+              child: const Text('A'),
+            );
+          }),
+        ),
       ),
       body: new Center(
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new Text(
-              'You have pushed the button this many times:',
-            ),
-            new Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
             new RaisedButton(
               child: const Text('We must go deeper'),
-              onPressed: () => Navigator.push(context, new MaterialPageRoute(
-                builder: (BuildContext context) => new RepaintBoundary(child: new MyHomePage(title: 'New Page')),
-              )),
-            )
+              onPressed: () => Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return new RepaintBoundary(
+                        child: new MyHomePage(
+                          depth: widget.depth + 1,
+                        ),
+                      );
+                    },
+                  )),
+            ),
           ],
         ),
       ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: new Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

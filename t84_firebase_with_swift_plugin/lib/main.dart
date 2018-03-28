@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_iap/flutter_iap.dart';
 
 final auth = FirebaseAuth.instance;
 final table = FirebaseDatabase.instance.reference().child('test-1');
@@ -49,6 +50,12 @@ class MyApp extends StatelessWidget {
                       'text': textController.text,
                     });
                     textController.clear();
+                  },
+                ),
+                new RaisedButton(
+                  child: const Text('Super send'),
+                  onPressed: () {
+                    FlutterIap.buy('something');
                   },
                 ),
               ],

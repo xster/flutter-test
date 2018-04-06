@@ -29,6 +29,12 @@ flutter:
     - family: FuturaMedium
       fonts:
         - asset: assets/FuturaBTMedium.otf
+    - family: Raleway
+      fonts:
+        - asset: assets/Raleway-Medium.ttf
+    - family: Noto Serif
+      fonts:
+        - asset: assets/NotoSerif-Regular.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:

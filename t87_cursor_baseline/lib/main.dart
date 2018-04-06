@@ -10,12 +10,33 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       home: new Scaffold(
         body: new Center(
-          child: new TextField(
-            style: const TextStyle(
-              fontFamily: 'FuturaMedium',
-              color: Colors.black,
-              fontSize: 40.0,
-            ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              new TextField(
+                style: const TextStyle(
+                  fontFamily: 'FuturaMedium',
+                  color: Colors.black,
+                  fontSize: 40.0,
+                ),
+              ),
+              new Padding(padding: EdgeInsets.only(top: 20.0)),
+              new TextField(
+                style: const TextStyle(
+                  fontFamily: 'Raleway',
+                  color: Colors.black,
+                  fontSize: 40.0,
+                ),
+              ),
+              new Padding(padding: EdgeInsets.only(top: 20.0)),
+              new TextField(
+                style: const TextStyle(
+                  fontFamily: 'Noto Serif',
+                  color: Colors.black,
+                  fontSize: 40.0,
+                ),
+              ),
+            ],
           ),
         ),
       )

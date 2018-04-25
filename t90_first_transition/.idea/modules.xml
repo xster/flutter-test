@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/t90_first_transition.iml" filepath="$PROJECT_DIR$/t90_first_transition.iml" />
+      <module fileurl="file://$PROJECT_DIR$/t90_first_transition_android.iml" filepath="$PROJECT_DIR$/t90_first_transition_android.iml" />
+    </modules>
+  </component>
+</project>

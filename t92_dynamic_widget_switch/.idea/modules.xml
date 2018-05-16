@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/t92_dynamic_widget_switch.iml" filepath="$PROJECT_DIR$/t92_dynamic_widget_switch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/t92_dynamic_widget_switch_android.iml" filepath="$PROJECT_DIR$/t92_dynamic_widget_switch_android.iml" />
+    </modules>
+  </component>
+</project>

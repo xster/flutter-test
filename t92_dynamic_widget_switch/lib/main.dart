@@ -27,28 +27,42 @@ class _WidgetListState extends State<WidgetList> {
   @override
   Widget build(BuildContext context) {
     return Theme(
-        data: ThemeData(
-            platform: selectedPlatform,
-            adaptiveWidgetTheme: AdaptiveWidgetThemeData.all),
-        child: Scaffold(
-            appBar: AppBar(
-                title: Text('Dynamic Widgets'),
-                leading: Builder(
-                    builder: (BuildContext context) => Switch(
-                        value: Theme.of(context).platform == TargetPlatform.iOS,
-                        onChanged: (bool iOS) => setState(() =>
-                            selectedPlatform = iOS
-                                ? TargetPlatform.iOS
-                                : TargetPlatform.android)))),
-            body: Center(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                  Switch(
-                      value: testSwitch == true,
-                      onChanged: (bool value) =>
-                          setState(() => testSwitch = value)),
-                  Text('You have pushed the button this many times:')
-                ]))));
+      data: ThemeData(
+        platform: selectedPlatform,
+        adaptiveWidgetTheme: AdaptiveWidgetThemeData.all,
+      ),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Dynamic Widgets'),
+          leading: Builder(
+            builder: (BuildContext context) {
+              return Switch(
+                value: Theme.of(context).platform == TargetPlatform.iOS,
+                onChanged: (bool iOS) {
+                  setState(
+                    () => selectedPlatform =
+                        iOS ? TargetPlatform.iOS : TargetPlatform.android,
+                  );
+                },
+              );
+            },
+          ),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Switch(
+                value: testSwitch == true,
+                onChanged: (bool value) {
+                  setState(() => testSwitch = value);
+                },
+              ),
+              Text('You have pushed the button this many times:'),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

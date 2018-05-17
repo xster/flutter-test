@@ -34,6 +34,8 @@ class _WidgetListState extends State<WidgetList> {
       child: Scaffold(
         appBar: AppBar(
           title: Text('Dynamic Widgets'),
+          // This is just for toggling between platforms. The actual consumption
+          // is in the body.
           leading: Builder(
             builder: (BuildContext context) {
               return Switch(
@@ -58,7 +60,6 @@ class _WidgetListState extends State<WidgetList> {
                   setState(() => testSwitch = value);
                 },
               ),
-              Text('You have pushed the button this many times:'),
             ],
           ),
         ),

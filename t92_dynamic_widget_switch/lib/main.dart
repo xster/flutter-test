@@ -22,6 +22,7 @@ class WidgetList extends StatefulWidget {
 class _WidgetListState extends State<WidgetList> {
   TargetPlatform selectedPlatform;
 
+  double testSlider = 0.0;
   bool testSwitch;
 
   @override
@@ -29,7 +30,7 @@ class _WidgetListState extends State<WidgetList> {
     return Theme(
       data: ThemeData(
         platform: selectedPlatform,
-        adaptiveWidgetTheme: AdaptiveWidgetThemeData.all,
+        adaptiveWidgetTheme: AdaptiveWidgetThemeData.bundled,
       ),
       child: Scaffold(
         appBar: AppBar(
@@ -54,6 +55,18 @@ class _WidgetListState extends State<WidgetList> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
+              FlatButton(
+                child: Text('test'),
+                onPressed: () {},
+              ),
+              RaisedButton(
+                child: Text('test 2'),
+                onPressed: () {},
+              ),
+              Slider(
+                value: testSlider,
+                onChanged: (double value) => setState(() => testSlider = value),
+              ),
               Switch(
                 value: testSwitch == true,
                 onChanged: (bool value) {

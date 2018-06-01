@@ -1,8 +1,7 @@
 # t95_ios_settings_page
 
-A new Flutter project.
+A demo showing a copy of the iOS Settings app using Flutter
 
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+![Scrolling the app](settings.gif)
+![Side by side comparison](comparison1.gif)
+![Blend comparison](comparison2.gif)

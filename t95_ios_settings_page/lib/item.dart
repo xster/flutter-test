@@ -3,7 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'colors.dart';
 
 enum SettingsItemType {
+  // Just on and off.
   toggle,
+  // Navigates to another page of detailed settings.
   modal,
 }
 
@@ -13,7 +15,9 @@ class SettingsItem extends StatefulWidget {
     @required this.iconAssetLabel,
     @required this.type,
     this.initialModalValue,
-  });
+  }) : assert(label != null),
+       assert(iconAssetLabel != null),
+       assert(type != null);
 
   final String label;
   final String iconAssetLabel;

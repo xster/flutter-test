@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 import 'colors.dart';
 
+/// The first big header item in settings that aggregates the user's profile
+/// type data.
 class SettingsHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,6 @@ class SettingsHeader extends StatelessWidget {
               radius: 30.0,
               child: Padding(
                 padding: const EdgeInsets.only(
-                  // left: 2.0,
                   bottom: 4.0,
                 ),
                 child: Text(

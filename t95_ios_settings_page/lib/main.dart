@@ -41,6 +41,7 @@ class SettingsPage extends StatelessWidget {
               ),
               SliverSafeArea(
                 top: false,
+                // This is just a big list of all the items in the settings.
                 sliver: SliverList(
                   delegate: SliverChildListDelegate(
                     <Widget>[

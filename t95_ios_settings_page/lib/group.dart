@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class SettingsGroup extends StatelessWidget {
-  const SettingsGroup(this.items);
+  const SettingsGroup(this.items) : assert(items != null);
 
   static const Color borderColor = const Color(0xFFBCBBC1);
 
@@ -15,6 +15,7 @@ class SettingsGroup extends StatelessWidget {
         if (dividedItems.last == item) {
           return item;
         } else {
+          // Add inner dividers.
           return Stack(
             children: <Widget>[
               Positioned(
@@ -38,18 +39,20 @@ class SettingsGroup extends StatelessWidget {
       decoration: BoxDecoration(
         color: CupertinoColors.white,
         border: Border(
-            top: const BorderSide(
-              color: borderColor,
-              width: 0.0,
-            ),
-            bottom: const BorderSide(
-              color: borderColor,
-              width: 0.0,
-            )),
+          top: const BorderSide(
+            color: borderColor,
+            width: 0.0,
+          ),
+          bottom: const BorderSide(
+            color: borderColor,
+            width: 0.0,
+          ),
+        ),
       ),
       child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: dividedItems),
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: dividedItems,
+      ),
     );
   }
 }

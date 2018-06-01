@@ -1,0 +1,20 @@
+name: t95_ios_settings_page
+description: A new Flutter project.
+
+version: 1.0.0+1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.2
+
+  ios_settings_icons:
+    git:
+      url: https://github.com/xster/flutter-test.git
+      path: t96_ios_settings_assets
+      ref: c82db5fe8cd6493d2fa8d2604a3b1a3a386133b1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

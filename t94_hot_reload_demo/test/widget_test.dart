@@ -10,20 +10,27 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:t94_hot_reload_demo/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  testWidgets('Non-negative quantity', (WidgetTester tester) async {
     await tester.pumpWidget(new CartList());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+    await tester.tap(find.byIcon(Icons.add_shopping_cart));
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.widgetWithText(Card, '手表'), findsOneWidget);
+
+    await tester.tap(find.descendant(
+      of: find.widgetWithText(Card, '手表'),
+      matching: find.byIcon(Icons.remove),
+    ));
+    await tester.tap(find.descendant(
+      of: find.widgetWithText(Card, '手表'),
+      matching: find.byIcon(Icons.remove),
+    ));
+    await tester.pump();
+
+    expect(tester.widget<Text>(find.descendant(
+      of: find.widgetWithText(Card, '手表'),
+      matching: find.byType(Text),
+    ).at(1)).data, '0');
   });
 }

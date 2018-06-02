@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
-      ),
-      home: CartList(),
-    ));
+import 'checkout.dart';
+
+void main() => runApp(CartList());
 
 List<String> items = <String>[
   '手表',
@@ -35,6 +31,9 @@ class CartListState extends State<CartList> {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
+        textTheme: TextTheme(
+          body1: TextStyle(fontSize: 20.0),
+        ),
       ),
       home: Scaffold(
         appBar: AppBar(
@@ -43,7 +42,7 @@ class CartListState extends State<CartList> {
         ),
         body: ListView.builder(
           itemCount: bought.length,
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
+          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
           itemBuilder: (BuildContext context, int index) =>
               CartItem(bought[index]),
         ),
@@ -57,9 +56,10 @@ class CartListState extends State<CartList> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16.0),
                 child: RaisedButton(
                   child: Icon(Icons.credit_card),
+                  onPressed: () => Navigator.push(context, checkoutRoute(bought)),
                 ),
               ),
             ],
@@ -84,10 +84,10 @@ class CartItemState extends State<CartItem> {
 
   @override
   Widget build(BuildContext context) {
-    return  Card(
-      margin: const EdgeInsets.all(8.0),
+    return Card(
+      margin: EdgeInsets.all(8.0),
       child: Padding(
-        padding: const EdgeInsets.all(12.0),
+        padding: EdgeInsets.all(12.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -95,7 +95,6 @@ class CartItemState extends State<CartItem> {
             Container(
               decoration: BoxDecoration(
                 border: Border.all(
-                  width: 1.0,
                   color: Colors.black12,
                 ),
                 borderRadius: BorderRadius.circular(8.0),
@@ -104,14 +103,10 @@ class CartItemState extends State<CartItem> {
                 children: <Widget>[
                   IconButton(
                     icon: Icon(Icons.remove),
-                    onPressed: () => setState(
-                          () {
-                            if (quantity > 0) quantity--;
-                          },
-                        ),
+                    onPressed: () { if (quantity > 0) setState(() => quantity--); },
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(8.0),
                     child: Text(quantity.toString()),
                   ),
                   IconButton(

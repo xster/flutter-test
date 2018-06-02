@@ -58,7 +58,7 @@ class SettingsPage extends StatelessWidget {
                           label: 'Wi-Fi',
                           iconAssetLabel: 'wifi',
                           type: SettingsItemType.modal,
-                          initialModalValue: 'nr',
+                          initialModalValue: 'Airport Free',
                         ),
                         SettingsItem(
                           label: 'Bluetooth',

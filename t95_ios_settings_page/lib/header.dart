@@ -25,7 +25,7 @@ class SettingsHeader extends StatelessWidget {
                   bottom: 4.0,
                 ),
                 child: Text(
-                  'XY',
+                  'FR',
                   style: TextStyle(
                     fontSize: 23.0,
                     color: CupertinoColors.white,
@@ -42,7 +42,7 @@ class SettingsHeader extends StatelessWidget {
                 children: <Widget>[
                   Padding(padding: EdgeInsets.only(top: 16.0)),
                   Text(
-                    'Xiao Yu',
+                    'Flutter Rocks',
                     style: TextStyle(
                       fontSize: 21.0,
                       letterSpacing: -0.52,

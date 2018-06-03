@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'checkout.dart';
 
-void main() => runApp(CartList());
-
 List<String> items = <String>[
   '手表',
   '电视',
@@ -17,6 +15,20 @@ List<String> items = <String>[
   '耳环',
 ];
 
+void main() =>
+    runApp(
+      MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.deepOrange,
+          textTheme: TextTheme(
+            body1: TextStyle(fontSize: 20.0),
+          ),
+        ),
+        home: CartList(),
+      ),
+    );
+
 class CartList extends StatefulWidget {
   @override
   CartListState createState() => CartListState();
@@ -27,43 +39,34 @@ class CartListState extends State<CartList> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
-        textTheme: TextTheme(
-          body1: TextStyle(fontSize: 20.0),
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 2.0,
+        title: Text('Hot Reload'),
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          elevation: 2.0,
-          title: Text('Hot Reload'),
-        ),
-        body: ListView.builder(
-          itemCount: bought.length,
-          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
-          itemBuilder: (BuildContext context, int index) =>
-              CartItem(bought[index]),
-        ),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add_shopping_cart),
-          onPressed: () => setState(() => bought.add(items.removeAt(0))),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: BottomAppBar(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(16.0),
-                child: RaisedButton(
-                  child: Icon(Icons.credit_card),
-                  onPressed: () => Navigator.push(context, checkoutRoute(bought)),
-                ),
+      body: ListView.builder(
+        itemCount: bought.length,
+        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
+        itemBuilder: (BuildContext context, int index) =>
+            CartItem(bought[index]),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add_shopping_cart),
+        onPressed: () => setState(() => bought.add(items.removeAt(0))),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(16.0),
+              child: RaisedButton(
+                child: Icon(Icons.credit_card),
+                onPressed: () => Navigator.push(context, checkoutRoute(bought)),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -72,9 +75,7 @@ class CartListState extends State<CartList> {
 
 class CartItem extends StatefulWidget {
   const CartItem(this.name);
-
   final String name;
-
   @override
   CartItemState createState() => new CartItemState();
 }

@@ -15,8 +15,7 @@ List<String> items = <String>[
   '耳环',
 ];
 
-void main() =>
-    runApp(
+void main() => runApp(
       MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(

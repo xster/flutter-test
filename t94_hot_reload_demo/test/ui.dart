@@ -5,7 +5,7 @@ import 'package:t94_hot_reload_demo/main.dart';
 
 void main() {
   testWidgets('Non-negative quantity', (WidgetTester tester) async {
-    await tester.pumpWidget(new CartList());
+    await tester.pumpWidget(MaterialApp(home: CartList()));
 
     await tester.tap(find.byIcon(Icons.add_shopping_cart));
     await tester.pump();

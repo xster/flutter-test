@@ -95,16 +95,14 @@ class CartItemState extends State<CartItem> {
             Text(widget.name),
             Container(
               decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.black12,
-                ),
+                border: Border.all(color: Colors.black12),
                 borderRadius: BorderRadius.circular(8.0),
               ),
               child: Row(
                 children: <Widget>[
                   IconButton(
                     icon: Icon(Icons.remove),
-                    onPressed: () { if (quantity > 0) setState(() => quantity--); },
+                    onPressed: () { setState(() => quantity--); },
                   ),
                   Padding(
                     padding: EdgeInsets.all(8.0),

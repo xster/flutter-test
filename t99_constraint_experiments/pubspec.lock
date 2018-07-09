@@ -130,15 +130,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.2+1"
-  ios_settings_icons:
-    dependency: "direct main"
-    description:
-      path: t96_ios_settings_assets
-      ref: c82db5fe8cd6493d2fa8d2604a3b1a3a386133b1
-      resolved-ref: c82db5fe8cd6493d2fa8d2604a3b1a3a386133b1
-      url: "https://github.com/xster/flutter-test.git"
-    source: git
-    version: "0.0.1"
   js:
     dependency: transitive
     description:

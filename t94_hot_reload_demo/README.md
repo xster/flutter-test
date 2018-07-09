@@ -1,8 +1,5 @@
-# t94_hot_reload_demo
+# GMTC demo
 
-A new Flutter project.
+A Flutter demo project used at GMTC and for various intra-company presentations. 
 
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+中国用户可以通过[flutter-io.cn](https://flutter-io.cn)参考我们中文的社区资源

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'checkout.dart';
 
-List<String> items = <String>[
+var items = <String>[
   '手表',
   '电视',
   '信封包',
@@ -34,7 +34,7 @@ class CartList extends StatefulWidget {
 }
 
 class CartListState extends State<CartList> {
-  List<String> bought = <String>[];
+  var bought = <String>[];
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,6 @@ class CartListState extends State<CartList> {
               padding: EdgeInsets.all(16.0),
               child: RaisedButton(
                 child: Icon(Icons.credit_card),
-                onPressed: () => Navigator.push(context, checkoutRoute(bought)),
               ),
             ),
           ],
@@ -84,39 +83,27 @@ class CartItemState extends State<CartItem> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: EdgeInsets.all(8.0),
-      child: Padding(
-        padding: EdgeInsets.all(12.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Text(widget.name),
+        Row(
           children: <Widget>[
-            Text(widget.name),
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black12),
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              child: Row(
-                children: <Widget>[
-                  IconButton(
-                    icon: Icon(Icons.remove),
-                    onPressed: () { setState(() => quantity--); },
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(quantity.toString()),
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.add),
-                    onPressed: () => setState(() => quantity++),
-                  ),
-                ],
-              ),
+            IconButton(
+              icon: Icon(Icons.remove),
+              onPressed: () { setState(() => quantity--); },
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(quantity.toString()),
+            ),
+            IconButton(
+              icon: Icon(Icons.add),
+              onPressed: () => setState(() => quantity++),
             ),
           ],
         ),
-      ),
+      ],
     );
   }
 }

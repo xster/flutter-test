@@ -44,6 +44,16 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
+            Container(
+              height: 300.0,
+              width: 300.0,
+              color: Colors.red,
+              child: Container(
+                height: 100.0,
+                width: 100.0,
+                color: Colors.blue,
+              ),
+            ),
             RaisedButton(
               child: Text('Next'),
               onPressed: () => Navigator.pushNamed(context, 'doesnt exist'),

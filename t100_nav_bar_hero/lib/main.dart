@@ -26,26 +26,55 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  double lerpProgress = 0.0;
+
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         middle: Text('Page 1'),
       ),
-      child: Center(child: CupertinoButton(
-        color: CupertinoColors.activeBlue,
-        child: Text('Next'),
-        onPressed: () => Navigator.push(context, CupertinoPageRoute(
-          builder: (BuildContext context) {
-            return CupertinoPageScaffold(
-              navigationBar: CupertinoNavigationBar(
-                middle: Text('Page 2'),
-              ),
-              child: Placeholder(),
-            );
-          }
-        )),
-      )),
+      child: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                CupertinoNavigationBar.lerp(
+                  CupertinoNavigationBar(
+                    middle: Text('Page one'),
+                  ),
+                  CupertinoNavigationBar(
+                    middle: Text('Page two'),
+                  ),
+                  lerpProgress,
+                ),
+                CupertinoSlider(
+                  min: 0.0,
+                  max: 1.0,
+                  value: lerpProgress,
+                  onChanged: (double value) => setState(() => lerpProgress = value),
+                ),
+              ],
+            ),
+            CupertinoButton(
+              color: CupertinoColors.activeBlue,
+              child: Text('Next'),
+              onPressed: () => Navigator.push(context, CupertinoPageRoute(
+                builder: (BuildContext context) {
+                  return CupertinoPageScaffold(
+                    navigationBar: CupertinoNavigationBar(
+                      middle: Text('Page 2'),
+                    ),
+                    child: Placeholder(),
+                  );
+                }
+              )),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

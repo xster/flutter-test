@@ -8,7 +8,7 @@ void main() => runApp(new MaterialApp(
     appBar: new AppBar(title: const Text('Explosion Demo')),
     body: new World())));
 
-const int kObjects = 100;
+const int kObjects = 300;
 const FractionalOffset kInitialPosition = const FractionalOffset(0.5, 0.2);
 const double kMaxExplosionLinearVelocity = 2.0;
 const double kMaxExplosionRotationalVelocity = 3.0;
@@ -31,7 +31,7 @@ class WorldState extends State<World> with SingleTickerProviderStateMixin {
     exploded = false;
     worldAnimationController = new AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 2));
+      duration: const Duration(seconds: 4));
     random = new Random();
   }
 

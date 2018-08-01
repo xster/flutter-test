@@ -30,6 +30,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ifK-Jm-eyW"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Page 1" id="bmz-vF-bVL">
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="6Rk-qz-EMu"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="sSh-nX-tTe"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nIm-Mn-oUT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -42,37 +48,204 @@
                     <view key="view" contentMode="scaleToFill" id="xMK-Py-vze">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnT-kB-bgI">
+                                <rect key="frame" x="152" y="339" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next Page"/>
+                                <connections>
+                                    <segue destination="JPv-QY-ldG" kind="show" id="Ig3-Qb-wyR"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6lp-83-0gI"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Something super super long" largeTitleDisplayMode="never" id="dDA-tc-nh4">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="2Ob-J0-g2T">
+                            <rect key="frame" x="127" y="7.5" width="121" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="First"/>
+                                <segment title="Second"/>
+                            </segments>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="K3y-1m-UBb"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFK-rA-hrj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1344.8" y="-178.56071964017991"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="wjv-EF-egj">
+        <!--Page 3-->
+        <scene sceneID="Dt0-4v-3s2">
             <objects>
-                <viewController id="VXK-21-TFM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LJz-R4-iyp">
+                <viewController title="Page 3" id="JPv-QY-ldG" customClass="Page3VC" customModule="t101_ios_test" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YZ9-mh-c4C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qxy-o9-0Yx">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Title" id="SqR-CH-SOK"/>
-                                </items>
-                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Oo-Vb-qVy">
+                                <rect key="frame" x="152" y="336" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next Page"/>
+                                <connections>
+                                    <segue destination="Hod-UC-2d6" kind="show" id="fj0-A1-qxT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="f4H-zL-t0j"/>
+                        <viewLayoutGuide key="safeArea" id="7kI-yt-DmV"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Page 3" largeTitleDisplayMode="always" id="Eep-SS-h3Y">
+                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="eOi-jx-yAg"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ktX-x1-PjO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2124" y="-179"/>
+        </scene>
+        <!--Page 4-->
+        <scene sceneID="Zxl-g4-TPC">
+            <objects>
+                <viewController title="Page 4" id="Hod-UC-2d6" customClass="Page4VC" customModule="t101_ios_test" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vMc-r1-7WX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rf9-bC-JZp">
+                                <rect key="frame" x="138" y="377" width="98" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Previous Page"/>
+                                <connections>
+                                    <action selector="backTap:" destination="Hod-UC-2d6" eventType="touchUpInside" id="yT5-Vr-lUR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKv-Ey-PiH">
+                                <rect key="frame" x="152" y="309" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next Page"/>
+                                <connections>
+                                    <segue destination="q13-Ds-zid" kind="show" id="jkW-HI-xfb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="OC5-uA-LNh"/>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="1L7-aG-mbo">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="tGt-yz-NVw"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="JCu-mT-29H">
+                            <rect key="frame" x="127" y="7.5" width="121" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="First"/>
+                                <segment title="Second"/>
+                            </segments>
+                        </segmentedControl>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="16E-dd-KyN" kind="unwind" identifier="unwindToPage3" unwindAction="unwindToPage3WithSegue:" id="5u4-8N-o5i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V9p-57-KQM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="16E-dd-KyN" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2895" y="-179"/>
+        </scene>
+        <!--Large Title-->
+        <scene sceneID="GF8-Jn-8XV">
+            <objects>
+                <viewController id="q13-Ds-zid" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KhK-Lr-qI6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tth-JR-n8a">
+                                <rect key="frame" x="152" y="309" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next Page"/>
+                                <connections>
+                                    <segue destination="1Kg-s1-TM7" kind="show" id="dWS-oF-ueB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="E7X-K8-auN"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Large Title" largeTitleDisplayMode="always" id="SHI-7l-F6b"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SOW-Wr-qpd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3686" y="-179"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="633-dU-3Tg">
+            <objects>
+                <viewController id="1Kg-s1-TM7" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3da-3p-Ywc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyf-9M-JLl">
+                                <rect key="frame" x="152" y="318" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next Page"/>
+                                <connections>
+                                    <segue destination="XP3-Ft-GQH" kind="show" id="0qQ-Ni-XAf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ciq-DB-dTL"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZUT-BX-GP0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bPd-4N-dDO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="921" y="577"/>
+            <point key="canvasLocation" x="4494" y="-179"/>
+        </scene>
+        <!--Some really really long long title-->
+        <scene sceneID="gto-UO-Sbg">
+            <objects>
+                <viewController id="XP3-Ft-GQH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jNj-mf-Z2a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Md-6i-lLH">
+                                <rect key="frame" x="152" y="318" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next Page"/>
+                                <connections>
+                                    <segue destination="qV4-bx-ipt" kind="show" id="5zA-P4-Ibs"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="qSV-rb-Dn1"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Some really really long long title" largeTitleDisplayMode="never" id="hhd-PJ-iih"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="neD-FO-lcF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5289" y="-176"/>
+        </scene>
+        <!--Another title-->
+        <scene sceneID="3zA-77-wej">
+            <objects>
+                <viewController id="qV4-bx-ipt" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hfs-gi-qc8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="fzZ-Ss-NqP"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Another title" id="SpO-I0-3eh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2cG-T9-qPy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6110" y="-176"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="D4m-Jn-jJS">

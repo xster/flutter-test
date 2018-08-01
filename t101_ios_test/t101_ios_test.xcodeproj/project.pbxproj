@@ -12,6 +12,8 @@
 		0AB0AB3720FE8B9D00093E6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AB0AB3520FE8B9D00093E6A /* Main.storyboard */; };
 		0AB0AB3920FE8B9F00093E6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AB0AB3820FE8B9F00093E6A /* Assets.xcassets */; };
 		0AB0AB3C20FE8B9F00093E6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AB0AB3A20FE8B9F00093E6A /* LaunchScreen.storyboard */; };
+		1146A16421114875006E46BC /* Page3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A16321114875006E46BC /* Page3VC.swift */; };
+		1146A16621114FFB006E46BC /* Page4VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A16521114FFB006E46BC /* Page4VC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		0AB0AB3820FE8B9F00093E6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AB0AB3B20FE8B9F00093E6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AB0AB3D20FE8B9F00093E6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1146A16321114875006E46BC /* Page3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page3VC.swift; sourceTree = "<group>"; };
+		1146A16521114FFB006E46BC /* Page4VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page4VC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				0AB0AB3820FE8B9F00093E6A /* Assets.xcassets */,
 				0AB0AB3A20FE8B9F00093E6A /* LaunchScreen.storyboard */,
 				0AB0AB3D20FE8B9F00093E6A /* Info.plist */,
+				1146A16321114875006E46BC /* Page3VC.swift */,
+				1146A16521114FFB006E46BC /* Page4VC.swift */,
 			);
 			path = t101_ios_test;
 			sourceTree = "<group>";
@@ -137,6 +143,8 @@
 			files = (
 				0AB0AB3420FE8B9D00093E6A /* ViewController.swift in Sources */,
 				0AB0AB3220FE8B9D00093E6A /* AppDelegate.swift in Sources */,
+				1146A16621114FFB006E46BC /* Page4VC.swift in Sources */,
+				1146A16421114875006E46BC /* Page3VC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

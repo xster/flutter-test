@@ -14,6 +14,7 @@
 		0AB0AB3C20FE8B9F00093E6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AB0AB3A20FE8B9F00093E6A /* LaunchScreen.storyboard */; };
 		1146A16421114875006E46BC /* Page3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A16321114875006E46BC /* Page3VC.swift */; };
 		1146A16621114FFB006E46BC /* Page4VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1146A16521114FFB006E46BC /* Page4VC.swift */; };
+		11FD794321143AD3001E5983 /* Page9VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FD794221143AD3001E5983 /* Page9VC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		0AB0AB3D20FE8B9F00093E6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1146A16321114875006E46BC /* Page3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page3VC.swift; sourceTree = "<group>"; };
 		1146A16521114FFB006E46BC /* Page4VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page4VC.swift; sourceTree = "<group>"; };
+		11FD794221143AD3001E5983 /* Page9VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page9VC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				0AB0AB3D20FE8B9F00093E6A /* Info.plist */,
 				1146A16321114875006E46BC /* Page3VC.swift */,
 				1146A16521114FFB006E46BC /* Page4VC.swift */,
+				11FD794221143AD3001E5983 /* Page9VC.swift */,
 			);
 			path = t101_ios_test;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 				0AB0AB3220FE8B9D00093E6A /* AppDelegate.swift in Sources */,
 				1146A16621114FFB006E46BC /* Page4VC.swift in Sources */,
 				1146A16421114875006E46BC /* Page3VC.swift in Sources */,
+				11FD794321143AD3001E5983 /* Page9VC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

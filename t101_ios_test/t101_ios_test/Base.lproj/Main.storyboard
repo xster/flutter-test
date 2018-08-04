@@ -226,7 +226,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Next Page"/>
                                 <connections>
-                                    <segue destination="qV4-bx-ipt" kind="show" id="5zA-P4-Ibs"/>
+                                    <segue destination="cOv-kb-Vkq" kind="show" id="eiC-pL-kgS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -238,6 +238,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="neD-FO-lcF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5289" y="-176"/>
+        </scene>
+        <!--Large Title-->
+        <scene sceneID="a1t-fo-A1a">
+            <objects>
+                <viewController id="cOv-kb-Vkq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8J6-yk-Ct8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4m-ac-MtJ">
+                                <rect key="frame" x="152" y="318" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next Page"/>
+                                <connections>
+                                    <segue destination="qV4-bx-ipt" kind="show" id="jkd-gh-73c"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="QlC-w7-p9X"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Large Title" largeTitleDisplayMode="always" id="k9h-oH-zzD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sio-qi-Cmg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6210" y="-179"/>
         </scene>
         <!--Another title-->
         <scene sceneID="3zA-77-wej">
@@ -263,7 +289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2cG-T9-qPy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6110" y="-176"/>
+            <point key="canvasLocation" x="7079" y="-179"/>
         </scene>
         <!--Title-->
         <scene sceneID="CMr-mu-sS8">
@@ -291,7 +317,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dYJ-yR-9Pd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6898" y="-176"/>
+            <point key="canvasLocation" x="7866" y="-179"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="D4m-Jn-jJS">

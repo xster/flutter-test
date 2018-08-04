@@ -33,46 +33,56 @@ class TestPage extends StatefulWidget {
 
 class TestPageState extends State<TestPage> with SingleTickerProviderStateMixin {
   AnimationController simulatedAnimation;
+  GlobalKey topKey;
+  GlobalKey bottomKey;
+  Widget bottomNavBar;
+  Widget topNavBar;
 
   @override
   void initState() {
     super.initState();
     simulatedAnimation = new AnimationController(vsync: this);
+    bottomKey = new GlobalKey();
+    topKey = new GlobalKey();
+    bottomNavBar = buildSmallWithLeadingButton(bottomKey);
+    topNavBar = buildLargeWithSegmentedMiddle(topKey);
   }
 
   @override
   Widget build(BuildContext context) {
-    final Widget bottomNavBar = buildSmallWithSegmentedMiddle(context);
-    final Widget topNavBar = buildLargeWithSegmentedMiddle(context);
-
     return CupertinoPageScaffold(
       child: Container(
-        color: Color(0xFF20FFFF),
+        padding: EdgeInsets.symmetric(vertical: 40.0),
+        // color: Color(0xFF20FFFF),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            bottomNavBar,
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                CupertinoNavigationBarTransition(
-                  animation: simulatedAnimation,
-                  bottomNavBar: bottomNavBar,
-                  topNavBar: topNavBar,
-                  bottomRoute: ModalRoute.of(context),
-                  topRoute: ModalRoute.of(context),
-                ),
-                CupertinoSlider(
-                  min: 0.0,
-                  max: 1.0,
-                  value: simulatedAnimation.value,
-                  onChanged: (double value) {
-                    setState(() { simulatedAnimation.value = value; });
-                  },
-                ),
-              ],
-            ),
             wrapSliver(topNavBar),
+            SizedBox(
+              height: 200.0,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  topKey.currentContext != null && bottomKey.currentContext != null
+                      ?  CupertinoNavigationBarTransition(
+                        animation: simulatedAnimation,
+                        bottomNavBar: bottomNavBar,
+                        topNavBar: topNavBar,
+                        bottomContext: bottomKey.currentContext,
+                        topContext: topKey.currentContext,
+                      ) : Placeholder(fallbackHeight: 100.0),
+                  CupertinoSlider(
+                    min: 0.0,
+                    max: 1.0,
+                    value: simulatedAnimation.value,
+                    onChanged: (double value) {
+                      setState(() { simulatedAnimation.value = value; });
+                    },
+                  ),
+                ],
+              ),
+            ),
+            bottomNavBar,
           ],
         ),
       ),
@@ -108,14 +118,34 @@ class BarSegmentedControlState extends State<BarSegmentedControl> {
   }
 }
 
-Widget buildSmallWithSegmentedMiddle(BuildContext context) {
+Widget buildSmallWithSegmentedMiddle(Key key) {
   return CupertinoNavigationBar(
+    key: key,
     middle: BarSegmentedControl(),
   );
 }
 
-Widget buildLargeWithSegmentedMiddle(BuildContext context) {
+Widget buildSmallWithTitleOverride(Key key) {
+  return CupertinoNavigationBar(
+    key: key,
+    middle: Text('Small Title'),
+  );
+}
+
+Widget buildSmallWithLeadingButton(Key key) {
+  return CupertinoNavigationBar(
+    key: key,
+    leading: CupertinoButton(
+      padding: EdgeInsets.zero,
+      child: Icon(CupertinoIcons.refresh),
+      onPressed: () {},
+    ),
+  );
+}
+
+Widget buildLargeWithSegmentedMiddle(Key key) {
   return CupertinoSliverNavigationBar(
+    key: key,
     middle: BarSegmentedControl(),
     largeTitle: Text('Override'),
   );

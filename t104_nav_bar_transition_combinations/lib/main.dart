@@ -11,6 +11,7 @@ void main() {
 
 int currentRouteIndex = 0;
 int maxStack = 10;
+Random random = Random();
 
 List<Function> possiblePages = [
   simpleSmallTitle,
@@ -29,8 +30,9 @@ List<Function> routes = List.generate(
 class StartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    timeDilation = 10.0;
+    timeDilation = 5.0;
     return CupertinoPageScaffold(
+      backgroundColor: randomColor(),
       child: buildStandardBody(context),
     );
   }
@@ -41,6 +43,7 @@ CupertinoPageRoute<void> simpleSmallTitle() {
     title: 'Simple title',
     builder: (BuildContext context) {
       return CupertinoPageScaffold(
+        backgroundColor: randomColor(),
         navigationBar: const CupertinoNavigationBar(),
         child: buildStandardBody(context),
       );
@@ -53,6 +56,7 @@ CupertinoPageRoute<void> simpleSegmentedControlWithHiddenTitle() {
     title: 'Segmented controls',
     builder: (BuildContext context) {
       return CupertinoPageScaffold(
+        backgroundColor: randomColor(),
         navigationBar: CupertinoNavigationBar(
           middle: ConstrainedBox(
             constraints: BoxConstraints(
@@ -60,8 +64,8 @@ CupertinoPageRoute<void> simpleSegmentedControlWithHiddenTitle() {
             ),
             child: SegmentedControl<int>(
               children: {
-                0: Text('iPod'),
-                1: Text('iPhone'),
+                0: Center(child: Text('iPod')),
+                1: Center(child: Text('iPhone')),
               },
               onValueChanged: (int selected) {},
             ),
@@ -78,6 +82,7 @@ CupertinoPageRoute<void> simpleLargeTitle() {
     title: 'Large title',
     builder: (BuildContext context) {
       return CupertinoPageScaffold(
+        backgroundColor: randomColor(),
         child: CustomScrollView(
           slivers: <Widget>[
             const CupertinoSliverNavigationBar(),
@@ -88,6 +93,15 @@ CupertinoPageRoute<void> simpleLargeTitle() {
         ),
       );
     }
+  );
+}
+
+Color randomColor() {
+  return new Color.fromARGB(
+    0xFF,
+    random.nextInt(55) + 100,
+    random.nextInt(55) + 100,
+    random.nextInt(55) + 100,
   );
 }
 

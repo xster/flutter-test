@@ -15,22 +15,26 @@ Random random = Random();
 
 List<Function> possiblePages = [
   simpleSmallTitle,
+  simpleSmallCustomTitle,
+  simpleSmallTitleWithLeadingOverride,
   simpleSegmentedControlWithHiddenTitle,
   simpleLargeTitle,
+  largeTitleWithLeadingOverride,
+  largeTitleWithSegmentedControl,
+  simpleLargeTitleWithTrailing,
 ];
 
 List<Function> routes = List.generate(
   maxStack,
   (int index) {
     return possiblePages[new Random().nextInt(possiblePages.length)];
-  }
+  },
 );
-
 
 class StartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    timeDilation = 5.0;
+    timeDilation = 3.0;
     return CupertinoPageScaffold(
       backgroundColor: randomColor(),
       child: buildStandardBody(context),
@@ -47,7 +51,41 @@ CupertinoPageRoute<void> simpleSmallTitle() {
         navigationBar: const CupertinoNavigationBar(),
         child: buildStandardBody(context),
       );
-    }
+    },
+  );
+}
+
+CupertinoPageRoute<void> simpleSmallCustomTitle() {
+  return CupertinoPageRoute(
+    title: 'Different title',
+    builder: (BuildContext context) {
+      return CupertinoPageScaffold(
+        backgroundColor: randomColor(),
+        navigationBar: const CupertinoNavigationBar(
+          middle: Text('Custom title'),
+        ),
+        child: buildStandardBody(context),
+      );
+    },
+  );
+}
+
+CupertinoPageRoute<void> simpleSmallTitleWithLeadingOverride() {
+  return CupertinoPageRoute(
+    title: 'Leading action',
+    builder: (BuildContext context) {
+      return CupertinoPageScaffold(
+        backgroundColor: randomColor(),
+        navigationBar: CupertinoNavigationBar(
+          leading: CupertinoButton(
+            padding: EdgeInsets.zero,
+            child: Icon(CupertinoIcons.share),
+            onPressed: () {},
+          ),
+        ),
+        child: buildStandardBody(context),
+      );
+    },
   );
 }
 
@@ -73,7 +111,7 @@ CupertinoPageRoute<void> simpleSegmentedControlWithHiddenTitle() {
         ),
         child: buildStandardBody(context),
       );
-    }
+    },
   );
 }
 
@@ -92,16 +130,90 @@ CupertinoPageRoute<void> simpleLargeTitle() {
           ],
         ),
       );
-    }
+    },
+  );
+}
+
+CupertinoPageRoute<void> largeTitleWithLeadingOverride() {
+  return CupertinoPageRoute(
+    title: 'Large title',
+    builder: (BuildContext context) {
+      return CupertinoPageScaffold(
+        backgroundColor: randomColor(),
+        child: CustomScrollView(
+          slivers: <Widget>[
+            CupertinoSliverNavigationBar(
+              leading: CupertinoButton(child: Text('Edit'), onPressed: () {}),
+            ),
+            SliverToBoxAdapter(
+              child: buildStandardBody(context),
+            ),
+          ],
+        ),
+      );
+    },
+  );
+}
+
+CupertinoPageRoute<void> largeTitleWithSegmentedControl() {
+  return CupertinoPageRoute(
+    title: 'Large title',
+    builder: (BuildContext context) {
+      return CupertinoPageScaffold(
+        backgroundColor: randomColor(),
+        child: CustomScrollView(
+          slivers: <Widget>[
+            CupertinoSliverNavigationBar(
+              middle: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: 200.0,
+                ),
+                child: SegmentedControl<int>(
+                  children: {
+                    0: Center(child: Text('iPod')),
+                    1: Center(child: Text('iPhone')),
+                  },
+                  onValueChanged: (int selected) {},
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: buildStandardBody(context),
+            ),
+          ],
+        ),
+      );
+    },
+  );
+}
+
+CupertinoPageRoute<void> simpleLargeTitleWithTrailing() {
+  return CupertinoPageRoute(
+    title: 'Large title',
+    builder: (BuildContext context) {
+      return CupertinoPageScaffold(
+        backgroundColor: randomColor(),
+        child: CustomScrollView(
+          slivers: <Widget>[
+            CupertinoSliverNavigationBar(
+              trailing: CupertinoButton(child: Text('Edit'), onPressed: () {}),
+            ),
+            SliverToBoxAdapter(
+              child: buildStandardBody(context),
+            ),
+          ],
+        ),
+      );
+    },
   );
 }
 
 Color randomColor() {
   return new Color.fromARGB(
     0xFF,
-    random.nextInt(55) + 100,
-    random.nextInt(55) + 100,
-    random.nextInt(55) + 100,
+    random.nextInt(55) + 200,
+    random.nextInt(55) + 200,
+    random.nextInt(55) + 200,
   );
 }
 
@@ -112,38 +224,35 @@ Widget buildStandardBody(BuildContext context) {
       child: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: (
-            <Widget>[
-              currentRouteIndex > 0 ?
-                  CupertinoButton(
+          children: (<Widget>[
+            currentRouteIndex > 0
+                ? CupertinoButton(
                     color: CupertinoColors.activeBlue,
                     child: Text('Previous'),
                     onPressed: () {
                       currentRouteIndex--;
                       Navigator.pop(context);
                     },
-                  ) :
-                  null,
-              currentRouteIndex < maxStack - 1 ?
-                  CupertinoButton(
+                  )
+                : null,
+            currentRouteIndex < maxStack - 1
+                ? CupertinoButton(
                     color: CupertinoColors.activeBlue,
                     child: Text('Next'),
                     onPressed: () {
                       currentRouteIndex++;
                       Navigator.push(context, routes[currentRouteIndex]());
                     },
-                  ) :
-                  null,
-            ]
-                ..removeWhere((Widget widget) => widget == null)
-          )
+                  )
+                : null,
+          ]..removeWhere((Widget widget) => widget == null))
               .map<Widget>((Widget widget) => Padding(
-                padding: EdgeInsets.symmetric(vertical: 6.0),
-                child: widget,
-              )).toList(),
+                    padding: EdgeInsets.symmetric(vertical: 6.0),
+                    child: widget,
+                  ))
+              .toList(),
         ),
       ),
     ),
   );
 }
-

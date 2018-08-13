@@ -34,7 +34,7 @@ List<Function> routes = List.generate(
 class StartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    timeDilation = 3.0;
+    timeDilation = 20.0;
     return CupertinoPageScaffold(
       backgroundColor: randomColor(),
       child: buildStandardBody(context),
@@ -100,10 +100,10 @@ CupertinoPageRoute<void> simpleSegmentedControlWithHiddenTitle() {
             constraints: BoxConstraints(
               maxWidth: 200.0,
             ),
-            child: SegmentedControl<int>(
+            child: CupertinoSegmentedControl<int>(
               children: {
-                0: Center(child: Text('iPod')),
-                1: Center(child: Text('iPhone')),
+                0: Text('iPod'),
+                1: Text('iPhone'),
               },
               onValueChanged: (int selected) {},
             ),
@@ -127,6 +127,9 @@ CupertinoPageRoute<void> simpleLargeTitle() {
             SliverToBoxAdapter(
               child: buildStandardBody(context),
             ),
+            SliverToBoxAdapter(
+              child: SizedBox(height: 1000.0),
+            ),
           ],
         ),
       );
@@ -148,6 +151,9 @@ CupertinoPageRoute<void> largeTitleWithLeadingOverride() {
             SliverToBoxAdapter(
               child: buildStandardBody(context),
             ),
+            SliverToBoxAdapter(
+              child: SizedBox(height: 1000.0),
+            ),
           ],
         ),
       );
@@ -168,10 +174,10 @@ CupertinoPageRoute<void> largeTitleWithSegmentedControl() {
                 constraints: BoxConstraints(
                   maxWidth: 200.0,
                 ),
-                child: SegmentedControl<int>(
+                child: CupertinoSegmentedControl<int>(
                   children: {
-                    0: Center(child: Text('iPod')),
-                    1: Center(child: Text('iPhone')),
+                    0: Text('iPod'),
+                    1: Text('iPhone'),
                   },
                   onValueChanged: (int selected) {},
                 ),
@@ -179,6 +185,9 @@ CupertinoPageRoute<void> largeTitleWithSegmentedControl() {
             ),
             SliverToBoxAdapter(
               child: buildStandardBody(context),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(height: 1000.0),
             ),
           ],
         ),
@@ -196,10 +205,17 @@ CupertinoPageRoute<void> simpleLargeTitleWithTrailing() {
         child: CustomScrollView(
           slivers: <Widget>[
             CupertinoSliverNavigationBar(
-              trailing: CupertinoButton(child: Text('Edit'), onPressed: () {}),
+              trailing: CupertinoButton(
+                padding: EdgeInsets.zero,
+                child: Text('Edit'),
+                onPressed: () {}
+              ),
             ),
             SliverToBoxAdapter(
               child: buildStandardBody(context),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(height: 1000.0),
             ),
           ],
         ),

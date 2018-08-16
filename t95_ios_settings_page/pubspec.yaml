@@ -13,7 +13,6 @@ dependencies:
     git:
       url: https://github.com/xster/flutter-test.git
       path: t96_ios_settings_assets
-      ref: c82db5fe8cd6493d2fa8d2604a3b1a3a386133b1
 
 dev_dependencies:
   flutter_test:

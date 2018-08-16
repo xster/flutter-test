@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 
+import 'colors.dart';
+
 class SettingsGroup extends StatelessWidget {
   const SettingsGroup(this.items) : assert(items != null);
-
-  static const Color borderColor = const Color(0xFFBCBBC1);
 
   final List<Widget> items;
 

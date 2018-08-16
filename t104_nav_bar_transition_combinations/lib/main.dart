@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 
 void main() {
@@ -35,6 +36,8 @@ class StartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     timeDilation = 20.0;
+    debugProfileBuildsEnabled = true;
+    debugProfilePaintsEnabled = true;
     return CupertinoPageScaffold(
       backgroundColor: randomColor(),
       child: buildStandardBody(context),

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'cellular.dart';
+import 'colors.dart';
 import 'group.dart';
 import 'header.dart';
 import 'item.dart';
@@ -19,8 +21,6 @@ class MyApp extends StatelessWidget {
 }
 
 class SettingsPage extends StatelessWidget {
-  static const Color backgroundGray = Color(0xFFEFEFF4);
-
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
@@ -62,6 +62,7 @@ class SettingsPage extends StatelessWidget {
                         label: 'Cellular',
                         iconAssetLabel: 'cellular',
                         type: SettingsItemType.modal,
+                        onPress: () => Navigator.push(context, CellularPage.route),
                       ),
                       SettingsItem(
                         label: 'Personal Hotspot',

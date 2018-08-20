@@ -135,7 +135,7 @@ packages:
     description:
       path: t96_ios_settings_assets
       ref: HEAD
-      resolved-ref: c8b3428f842caaffc27ae100aaeeabdf44e7e647
+      resolved-ref: d875d953e3daad5aa89c9dab02b5349a3e250a11
       url: "https://github.com/xster/flutter-test.git"
     source: git
     version: "0.0.1"

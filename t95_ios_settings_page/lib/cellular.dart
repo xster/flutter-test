@@ -87,6 +87,7 @@ class CellularPage extends StatelessWidget {
                 SettingsItem(
                   label: 'YouTube',
                   subtitle: '50.0 GB',
+                  iconAssetLabel: 'youtube',
                   type: SettingsItemType.toggle,
                   value: '100 KB',
                 ),

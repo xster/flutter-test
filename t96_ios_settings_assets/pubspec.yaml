@@ -30,6 +30,7 @@ flutter:
    - assets/accounts.png
    - assets/contacts.png
    - assets/calendar.png
+   - assets/youtube.png
 
 environment:
   sdk: '>=2.0.0'

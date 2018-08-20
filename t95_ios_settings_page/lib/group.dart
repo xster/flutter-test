@@ -56,14 +56,14 @@ class SettingsGroup extends StatelessWidget {
         DefaultTextStyle(
           style: TextStyle(
             color: CupertinoColors.inactiveGray,
-            fontSize: 14.0,
-            letterSpacing: -0.72,
+            fontSize: 13.5,
+            letterSpacing: -0.5,
           ),
           child: Padding(
             padding: EdgeInsets.only(
               left: 15.0,
               right: 15.0,
-              bottom: 4.5,
+              bottom: 6.0,
             ),
             child: header,
           ),
@@ -105,7 +105,7 @@ class SettingsGroup extends StatelessWidget {
             padding: EdgeInsets.only(
               left: 15.0,
               right: 15.0,
-              top: 4.5,
+              top: 7.0,
             ),
             child: footer,
           ),

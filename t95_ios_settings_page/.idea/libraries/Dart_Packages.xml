@@ -138,7 +138,7 @@
         <entry key="ios_settings_icons">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../t96_ios_settings_assets/lib" />
+              <option value="$USER_HOME$/.pub-cache/git/flutter-test-c8b3428f842caaffc27ae100aaeeabdf44e7e647/t96_ios_settings_assets/lib" />
             </list>
           </value>
         </entry>
@@ -397,6 +397,7 @@
       </option>
     </properties>
     <CLASSES>
+      <root url="file://$USER_HOME$/.pub-cache/git/flutter-test-c8b3428f842caaffc27ae100aaeeabdf44e7e647/t96_ios_settings_assets/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/analyzer-0.32.4/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/args-1.5.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/async-2.0.8/lib" />
@@ -452,7 +453,6 @@
       <root url="file://$PROJECT_DIR$/../../flutter/bin/cache/pkg/sky_engine/lib" />
       <root url="file://$PROJECT_DIR$/../../flutter/packages/flutter/lib" />
       <root url="file://$PROJECT_DIR$/../../flutter/packages/flutter_test/lib" />
-      <root url="file://$PROJECT_DIR$/../t96_ios_settings_assets/lib" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

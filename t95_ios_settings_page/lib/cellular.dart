@@ -71,6 +71,7 @@ class CellularPage extends StatelessWidget {
               ],
               header: Text('VERIZON'),
             ),
+            const Padding(padding: EdgeInsets.only(top: 11.5)),
             SettingsGroup(
               <Widget>[
                 SettingsItem(
@@ -81,6 +82,12 @@ class CellularPage extends StatelessWidget {
                 SettingsItem(
                   label: 'Current Period Roaming',
                   type: SettingsItemType.modal,
+                  value: '100 KB',
+                ),
+                SettingsItem(
+                  label: 'YouTube',
+                  subtitle: '50.0 GB',
+                  type: SettingsItemType.toggle,
                   value: '100 KB',
                 ),
               ],

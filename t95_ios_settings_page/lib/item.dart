@@ -17,6 +17,7 @@ class SettingsItem extends StatefulWidget {
   const SettingsItem({
     @required this.type,
     @required this.label,
+    this.subtitle,
     this.iconAssetLabel,
     this.value,
     this.hasDetails = false,
@@ -25,6 +26,7 @@ class SettingsItem extends StatefulWidget {
        assert(type != null);
 
   final String label;
+  final String subtitle;
   final String iconAssetLabel;
   final SettingsItemType type;
   final String value;
@@ -58,6 +60,24 @@ class SettingsItemState extends State<SettingsItem> {
       );
     }
 
+    Widget titleSection = Text(widget.label);
+    if (widget.subtitle != null) {
+      titleSection = Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          const Padding(padding: EdgeInsets.only(top: 7.0)),
+          titleSection,
+          const Padding(padding: EdgeInsets.only(top: 5.0)),
+          Text(
+            widget.subtitle,
+            style: TextStyle(
+              fontSize: 11.0,
+            ),
+          )
+        ],
+      );
+    }
+
     rowChildren.add(
       Expanded(
         child: Padding(
@@ -65,7 +85,7 @@ class SettingsItemState extends State<SettingsItem> {
             top: 1.5,
             left: 15.0,
           ),
-          child: Text(widget.label),
+          child: titleSection,
         ),
       ),
     );
@@ -146,7 +166,7 @@ class SettingsItemState extends State<SettingsItem> {
           }
         },
         child: SizedBox(
-          height: 45.0,
+          height: widget.subtitle == null ? 44.0 : 58.0,
           child: Row(
             children: rowChildren,
           ),

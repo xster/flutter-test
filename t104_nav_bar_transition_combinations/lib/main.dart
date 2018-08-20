@@ -35,7 +35,7 @@ List<Function> routes = List.generate(
 class StartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    timeDilation = 20.0;
+    timeDilation = 5.0;
     debugProfileBuildsEnabled = true;
     debugProfilePaintsEnabled = true;
     return CupertinoPageScaffold(

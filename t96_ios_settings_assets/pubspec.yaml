@@ -5,10 +5,6 @@ author: Xiao Yu <xiao@xster.net>
 homepage: https://github.com/xster/flutter_test/t96_ios_settings_assets
 version: 0.0.1
 
-dependencies:
-  flutter:
-    sdk: flutter
-
 flutter:
   assets:
    - assets/airplane.png
@@ -34,3 +30,6 @@ flutter:
    - assets/accounts.png
    - assets/contacts.png
    - assets/calendar.png
+
+environment:
+  sdk: '>=2.0.0'

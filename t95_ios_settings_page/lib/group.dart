@@ -105,7 +105,7 @@ class SettingsGroup extends StatelessWidget {
             padding: EdgeInsets.only(
               left: 15.0,
               right: 15.0,
-              top: 7.0,
+              top: 7.5,
             ),
             child: footer,
           ),

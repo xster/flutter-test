@@ -60,18 +60,24 @@ class SettingsItemState extends State<SettingsItem> {
       );
     }
 
-    Widget titleSection = Text(widget.label);
-    if (widget.subtitle != null) {
+    Widget titleSection;
+    if (widget.subtitle == null) {
+      titleSection = Padding(
+        padding: EdgeInsets.only(top: 1.5),
+        child: Text(widget.label),
+      );
+    } else {
       titleSection = Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          const Padding(padding: EdgeInsets.only(top: 7.0)),
-          titleSection,
-          const Padding(padding: EdgeInsets.only(top: 5.0)),
+          const Padding(padding: EdgeInsets.only(top: 8.5)),
+          Text(widget.label),
+          const Padding(padding: EdgeInsets.only(top: 4.0)),
           Text(
             widget.subtitle,
             style: TextStyle(
-              fontSize: 11.0,
+              fontSize: 12.0,
+              letterSpacing: -0.2,
             ),
           )
         ],
@@ -82,7 +88,6 @@ class SettingsItemState extends State<SettingsItem> {
       Expanded(
         child: Padding(
           padding: const EdgeInsets.only(
-            top: 1.5,
             left: 15.0,
           ),
           child: titleSection,
@@ -166,7 +171,7 @@ class SettingsItemState extends State<SettingsItem> {
           }
         },
         child: SizedBox(
-          height: widget.subtitle == null ? 44.0 : 58.0,
+          height: widget.subtitle == null ? 44.0 : 57.0,
           child: Row(
             children: rowChildren,
           ),

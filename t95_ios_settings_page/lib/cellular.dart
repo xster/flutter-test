@@ -86,10 +86,21 @@ class CellularPage extends StatelessWidget {
                 ),
                 SettingsItem(
                   label: 'YouTube',
-                  subtitle: '50.0 GB',
+                  subtitle: '50.5 GB',
                   iconAssetLabel: 'youtube',
                   type: SettingsItemType.toggle,
-                  value: '100 KB',
+                ),
+                SettingsItem(
+                  label: 'App Store',
+                  subtitle: '12.3 GB',
+                  iconAssetLabel: 'itunes',
+                  type: SettingsItemType.toggle,
+                ),
+                SettingsItem(
+                  label: 'System Services',
+                  type: SettingsItemType.modal,
+                  value: '9.9 GB',
+                  hasDetails: true,
                 ),
               ],
               header: Text('CELLULAR DATA'),

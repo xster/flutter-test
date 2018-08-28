@@ -10,41 +10,40 @@ class MyPage extends StatefulWidget {
 }
 
 class MyPageState extends State<MyPage> {
-  int promoAmount = 0;
   Color color;
+  int promoAmount = 0;
 
   @override
   void initState() {
     super.initState();
-    promotions.listen((int amount) => setState(() => promoAmount = amount));
+    promotions.listen((int amount) { if (mounted) setState(() => promoAmount = amount); });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: color,
-      appBar: AppBar(
-        title: Text('小店'),
-        leading: IconButton(
-            icon: Icon(Icons.shuffle),
-            onPressed: () => setState(() => color = getRandomColor())),
-      ),
-      body: Column(
-        children: <Widget>[
+        backgroundColor: color,
+        appBar: AppBar(
+            title: Text('小店'),
+            leading: IconButton(
+                icon: Icon(Icons.shuffle),
+                onPressed: () => setState(() => color = getRandomColor()))),
+        body: Column(children: <Widget>[
           MyCard(
               height: 240.0,
               color: Colors.blue[600],
-              child: Stack(children: <Widget>[Label('新货')])),
+              child: Stack(children: <Widget>[BottomRightLabel('新货')])),
           SizedBox(
               height: 150.0,
               child:
                   ListView(scrollDirection: Axis.horizontal, children: <Widget>[
                 MyCard(
-                    width: 120.0, color: Colors.red[700], child: Label('家具')),
-                MyCard(width: 200.0, color: Colors.green, child: Label('唱片')),
+                    width: 120.0, color: Colors.red[700], child: BottomRightLabel('家具')),
+                MyCard(width: 200.0, color: Colors.green, child: BottomRightLabel('唱片')),
                 MyCard(
-                    width: 160.0, color: Colors.amber[600], child: Label('单车')),
-                MyCard(width: 240.0, color: Colors.teal, child: Label('眼镜')),
+                    width: 160.0, color: Colors.amber[600], child: BottomRightLabel('单车')),
+                MyCard(width: 240.0, color: Colors.teal, child: BottomRightLabel('眼镜')),
+                MyCard(width: 180.0, color: Colors.pink, child: BottomRightLabel('西瓜')),
               ])),
           MyCard(
               height: 160.0,
@@ -60,10 +59,8 @@ class MyPageState extends State<MyPage> {
                             color: Colors.red,
                             borderRadius: BorderRadius.circular(15.0)),
                         child: Text(promoAmount.toString()))),
-                Label('抢购!')
+                BottomRightLabel('抢购!')
               ])),
-        ],
-      ),
-    );
+        ]));
   }
 }

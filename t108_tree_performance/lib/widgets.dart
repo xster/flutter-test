@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Label extends StatelessWidget {
-  const Label(this.label);
+class BottomRightLabel extends StatelessWidget {
+  const BottomRightLabel(this.label);
 
   final String label;
 

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import 'data.dart';
 import 'widgets.dart';
@@ -16,7 +17,9 @@ class MyPageState extends State<MyPage> {
   @override
   void initState() {
     super.initState();
-    promotions.listen((int amount) { if (mounted) setState(() => promoAmount = amount); });
+    promotions.listen((int amount) {
+      if (mounted) setState(() => promoAmount = amount);
+    });
   }
 
   @override
@@ -32,18 +35,18 @@ class MyPageState extends State<MyPage> {
           MyCard(
               height: 240.0,
               color: Colors.blue[600],
-              child: Stack(children: <Widget>[BottomRightLabel('新货')])),
+              child: Stack(children: <Widget>[Label('新货')])),
           SizedBox(
               height: 150.0,
               child:
                   ListView(scrollDirection: Axis.horizontal, children: <Widget>[
                 MyCard(
-                    width: 120.0, color: Colors.red[700], child: BottomRightLabel('家具')),
-                MyCard(width: 200.0, color: Colors.green, child: BottomRightLabel('唱片')),
+                    width: 120.0, color: Colors.red[700], child: Label('家具')),
+                MyCard(width: 200.0, color: Colors.green, child: Label('唱片')),
                 MyCard(
-                    width: 160.0, color: Colors.amber[600], child: BottomRightLabel('单车')),
-                MyCard(width: 240.0, color: Colors.teal, child: BottomRightLabel('眼镜')),
-                MyCard(width: 180.0, color: Colors.pink, child: BottomRightLabel('西瓜')),
+                    width: 160.0, color: Colors.amber[600], child: Label('单车')),
+                MyCard(width: 240.0, color: Colors.teal, child: Label('眼镜')),
+                MyCard(width: 180.0, color: Colors.pink, child: Label('西瓜')),
               ])),
           MyCard(
               height: 160.0,
@@ -59,7 +62,7 @@ class MyPageState extends State<MyPage> {
                             color: Colors.red,
                             borderRadius: BorderRadius.circular(15.0)),
                         child: Text(promoAmount.toString()))),
-                BottomRightLabel('抢购!')
+                Label('抢购!')
               ])),
         ]));
   }

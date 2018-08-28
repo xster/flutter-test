@@ -7,5 +7,5 @@ Stream<int> promotions =
 
 Random random = new Random();
 
-Color getRandomColor() => new Color.fromARGB(0xFF, 200 + random.nextInt(55),
-    200 + random.nextInt(55), 200 + random.nextInt(55));
+Color getRandomColor() => new Color.fromARGB(0xFF, 100 + random.nextInt(155),
+    100 + random.nextInt(155), 100 + random.nextInt(155));

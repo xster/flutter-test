@@ -1,3 +1,4 @@
+import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -10,13 +11,26 @@ class MyPage extends StatefulWidget {
   State<StatefulWidget> createState() => MyPageState();
 }
 
-class MyPageState extends State<MyPage> {
+class MyPageState extends State<MyPage> with SingleTickerProviderStateMixin {
   Color color;
-  int promoAmount = 0;
+
+  Animation<Color> colorAnimation;
+  AnimationController animationController;
 
   @override
   void initState() {
     super.initState();
+    animationController =
+        AnimationController(vsync: this, duration: Duration(seconds: 1))
+          ..addListener(() => setState(() {}));
+    colorAnimation = new AlwaysStoppedAnimation(Colors.white);
+  }
+
+  int promoAmount = 0;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     promotions.listen((int amount) {
       if (mounted) setState(() => promoAmount = amount);
     });
@@ -25,45 +39,57 @@ class MyPageState extends State<MyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: color,
         appBar: AppBar(
             title: Text('小店'),
             leading: IconButton(
                 icon: Icon(Icons.shuffle),
-                onPressed: () => setState(() => color = getRandomColor()))),
-        body: Column(children: <Widget>[
-          MyCard(
-              height: 240.0,
-              color: Colors.blue[600],
-              child: Stack(children: <Widget>[Label('新货')])),
-          SizedBox(
-              height: 150.0,
-              child:
-                  ListView(scrollDirection: Axis.horizontal, children: <Widget>[
-                MyCard(
-                    width: 120.0, color: Colors.red[700], child: Label('家具')),
-                MyCard(width: 200.0, color: Colors.green, child: Label('唱片')),
-                MyCard(
-                    width: 160.0, color: Colors.amber[600], child: Label('单车')),
-                MyCard(width: 240.0, color: Colors.teal, child: Label('眼镜')),
-                MyCard(width: 180.0, color: Colors.pink, child: Label('西瓜')),
-              ])),
-          MyCard(
-              height: 160.0,
-              color: Colors.indigo,
-              child: Stack(children: <Widget>[
-                Align(
-                    alignment: Alignment.topLeft,
-                    child: Container(
-                        margin: const EdgeInsets.all(8.0),
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 12.0, vertical: 7.0),
-                        decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(15.0)),
-                        child: Text(promoAmount.toString()))),
-                Label('抢购!')
-              ])),
-        ]));
+                onPressed: () => setState(() {
+                      colorAnimation = ColorTween(
+                              begin: colorAnimation.value,
+                              end: getRandomColor())
+                          .animate(animationController);
+                      animationController
+                        ..reset()
+                        ..forward();
+                    }))),
+        body: Container(
+          color: colorAnimation.value,
+          child: Column(children: <Widget>[
+            MyCard(
+                height: 240.0,
+                color: Colors.blue[600],
+                child: Stack(children: <Widget>[Label('新货')])),
+            SizedBox(
+                height: 150.0,
+                child: ListView(scrollDirection: Axis.horizontal, children: <
+                    Widget>[
+                  MyCard(
+                      width: 120.0, color: Colors.red[700], child: Label('家具')),
+                  MyCard(width: 200.0, color: Colors.green, child: Label('唱片')),
+                  MyCard(
+                      width: 160.0,
+                      color: Colors.amber[600],
+                      child: Label('单车')),
+                  MyCard(width: 240.0, color: Colors.teal, child: Label('眼镜')),
+                  MyCard(width: 180.0, color: Colors.pink, child: Label('西瓜')),
+                ])),
+            MyCard(
+                height: 160.0,
+                color: Colors.indigo,
+                child: Stack(children: <Widget>[
+                  Align(
+                      alignment: Alignment.topLeft,
+                      child: Container(
+                          margin: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 12.0, vertical: 7.0),
+                          decoration: BoxDecoration(
+                              color: Colors.red,
+                              borderRadius: BorderRadius.circular(15.0)),
+                          child: Text(promoAmount.toString()))),
+                  Label('抢购!')
+                ])),
+          ]),
+        ));
   }
 }

@@ -7,8 +7,9 @@ import 'package:flutter/rendering.dart';
 import 'page.dart';
 
 void main() {
-  debugProfileBuildsEnabled = true;
-  debugProfilePaintsEnabled = true;
+//  debugProfileBuildsEnabled = true;
+//  debugProfilePaintsEnabled = true;
+//  debugPaintLayerBordersEnabled = true;
   runApp(new MaterialApp(
       theme: ThemeData(
           primaryColor: Colors.white,

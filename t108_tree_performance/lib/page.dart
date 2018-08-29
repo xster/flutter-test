@@ -1,4 +1,3 @@
-import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -14,23 +13,11 @@ class MyPage extends StatefulWidget {
 class MyPageState extends State<MyPage> with SingleTickerProviderStateMixin {
   Color color;
 
-  Animation<Color> colorAnimation;
-  AnimationController animationController;
+  int promoAmount = 0;
 
   @override
   void initState() {
     super.initState();
-    animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 1))
-          ..addListener(() => setState(() {}));
-    colorAnimation = new AlwaysStoppedAnimation(Colors.white);
-  }
-
-  int promoAmount = 0;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
     promotions.listen((int amount) {
       if (mounted) setState(() => promoAmount = amount);
     });
@@ -43,17 +30,9 @@ class MyPageState extends State<MyPage> with SingleTickerProviderStateMixin {
             title: Text('小店'),
             leading: IconButton(
                 icon: Icon(Icons.shuffle),
-                onPressed: () => setState(() {
-                      colorAnimation = ColorTween(
-                              begin: colorAnimation.value,
-                              end: getRandomColor())
-                          .animate(animationController);
-                      animationController
-                        ..reset()
-                        ..forward();
-                    }))),
+                onPressed: () => setState(() => color = getRandomColor()))),
         body: Container(
-          color: colorAnimation.value,
+          color: color,
           child: Column(children: <Widget>[
             MyCard(
                 height: 240.0,

@@ -31,7 +31,8 @@ class MyPageState extends State<MyPage> with SingleTickerProviderStateMixin {
             leading: IconButton(
                 icon: Icon(Icons.shuffle),
                 onPressed: () => setState(() => color = getRandomColor()))),
-        body: Container(
+        body: AnimatedContainer(
+          duration: Duration(seconds: 1),
           color: color,
           child: Column(children: <Widget>[
             MyCard(

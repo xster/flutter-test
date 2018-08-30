@@ -48,7 +48,7 @@ class MyPageState extends State<MyPage> with SingleTickerProviderStateMixin {
               height: 160.0,
               color: Colors.indigo,
               child: Stack(children: <Widget>[
-                Align(
+                OverflowBox(
                     alignment: Alignment.topLeft,
                     child: Container(
                         margin: const EdgeInsets.all(8.0),

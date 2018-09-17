@@ -10,7 +10,7 @@ class MyPage extends StatefulWidget {
   State<StatefulWidget> createState() => MyPageState();
 }
 
-class MyPageState extends State<MyPage> with SingleTickerProviderStateMixin {
+class MyPageState extends State<MyPage> {
   int promoAmount = 0;
 
   @override

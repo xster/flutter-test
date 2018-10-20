@@ -36,8 +36,6 @@ class StartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     timeDilation = 5.0;
-    debugProfileBuildsEnabled = true;
-    debugProfilePaintsEnabled = true;
     return CupertinoPageScaffold(
       backgroundColor: randomColor(),
       child: buildStandardBody(context),

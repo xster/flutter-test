@@ -1,0 +1,10 @@
+# This file tracks properties of this Flutter project.
+# Used by Flutter tool to assess capabilities and perform upgrades etc.
+#
+# This file should be version controlled and should not be manually edited.
+
+version:
+  revision: 2906cc67dece132787e56f614c38199b1362b23e
+  channel: ios-double-tap
+
+project_type: app

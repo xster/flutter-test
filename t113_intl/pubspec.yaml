@@ -1,0 +1,4 @@
+name: intl_test
+
+dependencies:
+  intl: 0.15.7

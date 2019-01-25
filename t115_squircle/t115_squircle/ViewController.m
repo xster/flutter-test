@@ -77,6 +77,8 @@
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet ArcView *arcView;
+@property (weak, nonatomic) IBOutlet UISlider *heightSlider;
+@property (weak, nonatomic) IBOutlet UISlider *widthSlider;
 @end
 
 @implementation ViewController
@@ -87,6 +89,20 @@
 
 - (IBAction)changeRadius:(id)sender {
   [_arcView setRadius:_slider.value];
+}
+
+- (IBAction)changeHeight:(id)sender {
+  CGRect newSize = _arcView.frame;
+  newSize.size.height = _heightSlider.value;
+  [_arcView setFrame:newSize];
+  [_arcView setNeedsDisplay];
+}
+
+- (IBAction)changeWidth:(id)sender {
+  CGRect newSize = _arcView.frame;
+  newSize.size.width = _widthSlider.value;
+  [_arcView setFrame:newSize];
+  [_arcView setNeedsDisplay];
 }
 
 @end

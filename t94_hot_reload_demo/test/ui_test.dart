@@ -10,14 +10,14 @@ void main() {
     await tester.tap(find.byIcon(Icons.add_shopping_cart));
     await tester.pump();
 
-    expect(find.widgetWithText(Card, '手表'), findsOneWidget);
+    expect(find.widgetWithText(CartItem, '手表'), findsOneWidget);
 
     await tester.tap(find.descendant(
-      of: find.widgetWithText(Card, '手表'),
+      of: find.widgetWithText(CartItem, '手表'),
       matching: find.byIcon(Icons.remove),
     ));
     await tester.tap(find.descendant(
-      of: find.widgetWithText(Card, '手表'),
+      of: find.widgetWithText(CartItem, '手表'),
       matching: find.byIcon(Icons.remove),
     ));
     await tester.pump();
@@ -25,7 +25,7 @@ void main() {
     expect(
       tester.widget<Text>(
         find.descendant(
-          of: find.widgetWithText(Card, '手表'),
+          of: find.widgetWithText(CartItem, '手表'),
           matching: find.byType(Text),
         ).at(1),
       ).data,

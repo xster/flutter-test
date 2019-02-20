@@ -91,7 +91,9 @@ class CartItemState extends State<CartItem> {
           children: <Widget>[
             IconButton(
               icon: Icon(Icons.remove),
-              onPressed: () { setState(() => quantity--); },
+              onPressed: () { 
+                if (quantity > 0) setState(() => quantity--);
+               },
             ),
             Padding(
               padding: EdgeInsets.all(8.0),

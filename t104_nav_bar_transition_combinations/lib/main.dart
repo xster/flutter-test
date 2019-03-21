@@ -6,6 +6,12 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 
 void main() {
   runApp(CupertinoApp(
+    builder: (BuildContext context, Widget navigator) {
+      return Directionality(
+        textDirection: TextDirection.rtl,
+        child: navigator,
+      );
+    },
     home: StartPage(),
   ));
 }

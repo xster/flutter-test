@@ -1,0 +1,10 @@
+# This file tracks properties of this Flutter project.
+# Used by Flutter tool to assess capabilities and perform upgrades etc.
+#
+# This file should be version controlled and should not be manually edited.
+
+version:
+  revision: 68dd7ae612f43ef8b5576749b22c667092fe189e
+  channel: fastlane-apple
+
+project_type: app

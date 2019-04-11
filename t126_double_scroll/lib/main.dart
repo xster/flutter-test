@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 void main() => runApp(MyApp());
 
@@ -37,6 +38,9 @@ class ScrollComparison extends StatefulWidget {
 class ScrollComparisonState extends State<ScrollComparison> {
   List<Color> colorOrder;
 
+  final androidKey = GlobalKey();
+  final iosKey = GlobalKey();
+
   @override
   void initState() {
     final random = Random();
@@ -54,25 +58,69 @@ class ScrollComparisonState extends State<ScrollComparison> {
         color: colorOrder[index],
       );
     });
-    return Row(
-      children: <Widget>[
-        Expanded(
-          child: GlowingOverscrollIndicator(
-            axisDirection: AxisDirection.down,
-            color: Colors.blue,
-            child: ListView(
-              physics: ClampingScrollPhysics(),
-              children: content,
+    return MultiEventForwardingWidget(
+      keys: [ androidKey, iosKey ],
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: GlowingOverscrollIndicator(
+              axisDirection: AxisDirection.down,
+              color: Colors.blue,
+              child: ListView(
+                key: androidKey,
+                physics: ClampingScrollPhysics(),
+                children: content,
+              ),
             ),
           ),
-        ),
-        Expanded(
-          child: ListView(
-            physics: BouncingScrollPhysics(),
-            children: content,
-          ),
-        )
-      ],
+          Expanded(
+            child: ListView(
+              key: iosKey,
+              physics: BouncingScrollPhysics(),
+              children: content,
+            ),
+          )
+        ],
+      ),
     );
+  }
+}
+
+// This is a hack. Don't do this.
+class MultiEventForwardingWidget extends SingleChildRenderObjectWidget {
+  MultiEventForwardingWidget({
+    this.keys,
+    Widget child
+  }) : super(child: child);
+
+  final List<GlobalKey> keys;
+
+  @override
+  RenderObject createRenderObject(BuildContext context) {
+    return RenderMultiEventForwarding(keys);
+  }
+}
+
+class RenderMultiEventForwarding extends RenderProxyBoxWithHitTestBehavior {
+  RenderMultiEventForwarding(this._keys) : super(behavior: HitTestBehavior.opaque);
+
+  final List<GlobalKey> _keys;
+  void set keys {
+
+  }
+  List<RenderObject> targetObjects;
+
+  void findScrollableListener(Element element) {
+    if (element.renderObject is RenderPointerListener) {
+      targetObjects.add(element.renderObject);
+    } else {
+      element.visitChildren(findScrollableListener);
+    }
+  }
+
+  void findForwardingTargets() {
+    for (var key in keys) {
+      key.currentContext.visitChildElements(findScrollableListener);
+    }
   }
 }

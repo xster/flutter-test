@@ -58,30 +58,36 @@ class ScrollComparisonState extends State<ScrollComparison> {
         color: colorOrder[index],
       );
     });
-    return MultiEventForwardingWidget(
-      keys: [ androidKey, iosKey ],
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: GlowingOverscrollIndicator(
-              axisDirection: AxisDirection.down,
-              color: Colors.blue,
-              child: ListView(
-                key: androidKey,
-                physics: ClampingScrollPhysics(),
-                children: content,
+    return Stack(
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            Expanded(
+              child: GlowingOverscrollIndicator(
+                axisDirection: AxisDirection.down,
+                color: Colors.blue,
+                child: ListView(
+                  key: androidKey,
+                  physics: ClampingScrollPhysics(),
+                  children: content,
+                ),
               ),
             ),
+            Expanded(
+              child: ListView(
+                key: iosKey,
+                physics: BouncingScrollPhysics(),
+                children: content,
+              ),
+            )
+          ],
+        ),
+        Positioned.fill(
+          child: MultiEventForwardingWidget(
+            keys: <GlobalKey>[androidKey, iosKey],
           ),
-          Expanded(
-            child: ListView(
-              key: iosKey,
-              physics: BouncingScrollPhysics(),
-              children: content,
-            ),
-          )
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -104,23 +110,42 @@ class MultiEventForwardingWidget extends SingleChildRenderObjectWidget {
 class RenderMultiEventForwarding extends RenderProxyBoxWithHitTestBehavior {
   RenderMultiEventForwarding(this._keys) : super(behavior: HitTestBehavior.opaque);
 
-  final List<GlobalKey> _keys;
-  void set keys {
-
+  List<GlobalKey> _keys;
+  set keys(List<GlobalKey> keys) {
+    _keys = keys;
   }
-  List<RenderObject> targetObjects;
+  List<RenderPointerListener> targetObjects;
 
   void findScrollableListener(Element element) {
     if (element.renderObject is RenderPointerListener) {
-      targetObjects.add(element.renderObject);
+      final RenderPointerListener pointerListener = element.renderObject;
+      if (pointerListener.behavior == HitTestBehavior.opaque && pointerListener.onPointerDown != null) {
+        targetObjects.add(element.renderObject);
+      } else {
+        element.visitChildren(findScrollableListener);
+      }
     } else {
       element.visitChildren(findScrollableListener);
     }
   }
 
   void findForwardingTargets() {
-    for (var key in keys) {
+    for (var key in _keys) {
       key.currentContext.visitChildElements(findScrollableListener);
+    }
+  }
+
+  @override
+  void paint(PaintingContext context, Offset offset) {
+    targetObjects = List<RenderPointerListener>();
+    findForwardingTargets();
+    super.paint(context, offset);
+  }
+
+  @override
+  void handleEvent(PointerEvent event, HitTestEntry entry) {
+    for (RenderPointerListener descendent in targetObjects) {
+      descendent.handleEvent(event, entry);
     }
   }
 }

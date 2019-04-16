@@ -10,24 +10,28 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       home: MediaQuery(
         data: MediaQueryData(padding: EdgeInsets.zero),
-        child: ScrollComparison()
+        child: Material(
+          color: Colors.red,
+          child: ScrollComparison(),
+        )
       ),
     );
   }
 }
 
 List<Color> availableColors = [
-  Colors.red,
-  Colors.blue,
-  Colors.green,
-  Colors.cyan,
-  Colors.deepOrange,
-  Colors.indigo,
-  Colors.pink,
-  Colors.teal,
-  Colors.yellow,
+  Colors.red[300],
+  Colors.blue[300],
+  Colors.green[300],
+  Colors.cyan[300],
+  Colors.deepOrange[300],
+  Colors.indigo[300],
+  Colors.pink[300],
+  Colors.teal[300],
+  Colors.yellow[300],
 ];
 
 class ScrollComparison extends StatefulWidget {
@@ -44,7 +48,7 @@ class ScrollComparisonState extends State<ScrollComparison> {
   @override
   void initState() {
     final random = Random();
-    colorOrder = List<Color>.generate(100, (int index) {
+    colorOrder = List<Color>.generate(20, (int index) {
       return availableColors[random.nextInt(availableColors.length)];
     });
     super.initState();
@@ -52,10 +56,16 @@ class ScrollComparisonState extends State<ScrollComparison> {
 
   @override
   Widget build(BuildContext context) {
-    final content = List<Widget>.generate(100, (int index) {
+    final content = List<Widget>.generate(20, (int index) {
       return Container(
         height: 100,
         color: colorOrder[index],
+        child: Center(child: Text(
+          (index + 1).toString(),
+          style: TextStyle(
+            fontSize: 24,
+          ),
+        )),
       );
     });
     return Stack(
@@ -68,7 +78,7 @@ class ScrollComparisonState extends State<ScrollComparison> {
                 color: Colors.blue,
                 child: ListView(
                   key: androidKey,
-                  physics: ClampingScrollPhysics(),
+                  physics: ClampingScrollPhysics(parent: null),
                   children: content,
                 ),
               ),
@@ -82,6 +92,16 @@ class ScrollComparisonState extends State<ScrollComparison> {
             )
           ],
         ),
+        Positioned(left: -40, top: 0, bottom: 0, child: Center(
+          child: Transform.rotate(
+            angle: pi / 2,
+            child: Text('Android', style: TextStyle(fontSize: 36))),
+        )),
+        Positioned(right: 0, top: 0, bottom: 0, child: Center(
+          child: Transform.rotate(
+            angle: - pi / 2,
+            child: Text('iOS', style: TextStyle(fontSize: 36))),
+        )),
         Positioned.fill(
           child: MultiEventForwardingWidget(
             keys: <GlobalKey>[androidKey, iosKey],
@@ -92,7 +112,15 @@ class ScrollComparisonState extends State<ScrollComparison> {
   }
 }
 
-// This is a hack. Don't do this.
+// This is a hack. Don't do this. You also need to add
+// ```dart
+// @override
+// void rejectGesture(int pointer) {
+//   acceptGesture(pointer);
+// }
+// ```
+// To VerticalDragGestureRecognizer for this to work, which obviously, again,
+// is a hack.
 class MultiEventForwardingWidget extends SingleChildRenderObjectWidget {
   MultiEventForwardingWidget({
     this.keys,

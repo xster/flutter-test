@@ -12,6 +12,7 @@
 		0A243FE02281112C001B1AC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A243FDE2281112C001B1AC0 /* Main.storyboard */; };
 		0A243FE22281112E001B1AC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A243FE12281112E001B1AC0 /* Assets.xcassets */; };
 		0A243FE52281112E001B1AC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A243FE32281112E001B1AC0 /* LaunchScreen.storyboard */; };
+		2078CD0C3C7AA16388F9858D /* Pods_t130_leaf_flutter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18187C3E1AFF08638CF7A720 /* Pods_t130_leaf_flutter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		0A243FE12281112E001B1AC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A243FE42281112E001B1AC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A243FE62281112E001B1AC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1326E779FA5E5A002FD4BFEB /* Pods-t130_leaf_flutter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-t130_leaf_flutter.debug.xcconfig"; path = "Target Support Files/Pods-t130_leaf_flutter/Pods-t130_leaf_flutter.debug.xcconfig"; sourceTree = "<group>"; };
+		18187C3E1AFF08638CF7A720 /* Pods_t130_leaf_flutter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_t130_leaf_flutter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D6D1E97A4BC17A10B209BF4 /* Pods-t130_leaf_flutter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-t130_leaf_flutter.release.xcconfig"; path = "Target Support Files/Pods-t130_leaf_flutter/Pods-t130_leaf_flutter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2078CD0C3C7AA16388F9858D /* Pods_t130_leaf_flutter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				0A243FD92281112C001B1AC0 /* t130_leaf_flutter */,
 				0A243FD82281112C001B1AC0 /* Products */,
+				819C3AAC2B66A48AEC6FF065 /* Pods */,
+				1F6674E3287720B11E3400F9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = t130_leaf_flutter;
 			sourceTree = "<group>";
 		};
+		1F6674E3287720B11E3400F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				18187C3E1AFF08638CF7A720 /* Pods_t130_leaf_flutter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		819C3AAC2B66A48AEC6FF065 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1326E779FA5E5A002FD4BFEB /* Pods-t130_leaf_flutter.debug.xcconfig */,
+				8D6D1E97A4BC17A10B209BF4 /* Pods-t130_leaf_flutter.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A243FE92281112E001B1AC0 /* Build configuration list for PBXNativeTarget "t130_leaf_flutter" */;
 			buildPhases = (
+				0A243FEC22823D3E001B1AC0 /* Embed Flutter */,
+				6EF2BB58B0BE3366570E6E77 /* [CP] Check Pods Manifest.lock */,
 				0A243FD32281112C001B1AC0 /* Sources */,
 				0A243FD42281112C001B1AC0 /* Frameworks */,
 				0A243FD52281112C001B1AC0 /* Resources */,
+				0FADF598E06675904B17A3E9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,73 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A243FEC22823D3E001B1AC0 /* Embed Flutter */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Flutter";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build\n\"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed\n";
+		};
+		0FADF598E06675904B17A3E9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-t130_leaf_flutter/Pods-t130_leaf_flutter-frameworks.sh",
+				"${PODS_ROOT}/../../t130_leaf_flutter/.ios/Flutter/engine/Flutter.framework",
+				"${BUILT_PRODUCTS_DIR}/FlutterPluginRegistrant/FlutterPluginRegistrant.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flutter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlutterPluginRegistrant.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-t130_leaf_flutter/Pods-t130_leaf_flutter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6EF2BB58B0BE3366570E6E77 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-t130_leaf_flutter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0A243FD32281112C001B1AC0 /* Sources */ = {
@@ -280,10 +374,12 @@
 		};
 		0A243FEA2281112E001B1AC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1326E779FA5E5A002FD4BFEB /* Pods-t130_leaf_flutter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S8QB4VV633;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = t130_leaf_flutter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -298,10 +394,12 @@
 		};
 		0A243FEB2281112E001B1AC0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D6D1E97A4BC17A10B209BF4 /* Pods-t130_leaf_flutter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S8QB4VV633;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = t130_leaf_flutter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

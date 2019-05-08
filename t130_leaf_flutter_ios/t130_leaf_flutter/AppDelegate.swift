@@ -7,15 +7,25 @@
 //
 
 import UIKit
+import Flutter
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate, FlutterAppLifeCycleProvider {
+  var _lifecycleDelegate: FlutterPluginAppLifeCycleDelegate?
   var window: UIWindow?
+  var flutterEngine: FlutterEngine?
 
+  override init() {
+    super.init()
+    _lifecycleDelegate = FlutterPluginAppLifeCycleDelegate.init()
+  }
+
+  func addApplicationLifeCycleDelegate(_ delegate: FlutterPlugin) {
+    _lifecycleDelegate?.add(delegate)
+  }
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
+    flutterEngine = FlutterEngine.init(name: "my test a2a", project: nil)
     return true
   }
 

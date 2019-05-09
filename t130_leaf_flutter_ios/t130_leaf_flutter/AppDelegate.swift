@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FlutterAppLifeCycleProvid
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     flutterEngine = FlutterEngine.init(name: "my test a2a", project: nil)
+    flutterEngine?.run(withEntrypoint: nil)
     return true
   }
 

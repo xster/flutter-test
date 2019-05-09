@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Top View Controller-->
+        <!--Top native screen-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="TopViewController" customModule="t130_leaf_flutter" customModuleProvider="target" sceneMemberID="viewController">
@@ -66,6 +66,9 @@
                                 <rect key="frame" x="135" y="313" width="145" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Go to Flutter settings"/>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="jPu-YY-SWU"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HV2-0B-3Pc">
                                 <rect key="frame" x="102" y="174" width="197" height="21"/>
@@ -78,7 +81,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="DjD-ic-qpR"/>
+                    <navigationItem key="navigationItem" title="Top native screen" id="DjD-ic-qpR"/>
                     <connections>
                         <outlet property="progressLabel" destination="HV2-0B-3Pc" id="kmc-mr-iCr"/>
                         <outlet property="progressView" destination="daN-Ij-ze9" id="O1y-jw-uHf"/>

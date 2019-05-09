@@ -25,5 +25,10 @@ class TopViewController: UIViewController {
     progressLabel.text = String(sender.value)
   }
 
+  @IBAction func buttonTapped(_ sender: Any) {
+    let flutterEngine = (UIApplication.shared.delegate as? AppDelegate)?.flutterEngine;
+    let flutterViewController = LeafFlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)!;
+    self.navigationController?.pushViewController(flutterViewController, animated: true)
+  }
 }
 

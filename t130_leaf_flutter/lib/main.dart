@@ -3,21 +3,7 @@ import 'package:flutter/services.dart';
 
 const channel = MethodChannel('slider');
 
-double sliderValue = 0;
-
 void main() {
-  print('running flutter main');
-  channel.setMethodCallHandler((MethodCall call) {
-    if (call.method != 'send') {
-      throw UnimplementedError();
-    }
-
-    sliderValue = call.arguments[0];
-
-    if (sliderValue == null ){
-      throw ArgumentError();
-    }
-  });
   runApp(CupertinoApp(home: MyApp()));
 }
 
@@ -27,8 +13,29 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  double sliderValue = 0;
+
+  @override
+  void initState() {
+    super.initState();
+
+    channel.setMethodCallHandler((MethodCall call) {
+      if (call.method != 'send') {
+        throw UnimplementedError();
+      }
+
+      if (call.arguments is! double) {
+        throw ArgumentError();
+      }
+
+      setState(() => sliderValue = call.arguments);
+      print('sent $sliderValue');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    print('presently $sliderValue');
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         leading: CupertinoNavigationBarBackButton(

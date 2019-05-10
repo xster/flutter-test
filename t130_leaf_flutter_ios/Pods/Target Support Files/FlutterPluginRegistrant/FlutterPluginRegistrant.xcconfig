@@ -7,5 +7,5 @@ PODS_ROOT = ${SRCROOT}
 PODS_TARGET_SRCROOT = ${PODS_ROOT}/../../t130_leaf_flutter/.ios/Flutter/FlutterPluginRegistrant
 PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.${PRODUCT_NAME:rfc1034identifier}
 SKIP_INSTALL = YES
-#include "/Users/xster/development/flutter-test/t130_leaf_flutter/.ios/Flutter/Generated.xcconfig"
-#include "/Users/xster/development/flutter-test/t130_leaf_flutter/.ios/Flutter/Generated.xcconfig"
+#include "/Users/xster/development/test/t130_leaf_flutter/.ios/Flutter/Generated.xcconfig"
+#include "/Users/xster/development/test/t130_leaf_flutter/.ios/Flutter/Generated.xcconfig"

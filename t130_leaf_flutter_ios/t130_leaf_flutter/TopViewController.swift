@@ -14,20 +14,33 @@ class TopViewController: UIViewController {
   @IBOutlet weak var progressLabel: UILabel!
   @IBOutlet weak var progressView: UIProgressView!
 
+  weak var flutterEngine: FlutterEngine?
+  var channel: FlutterMethodChannel?
+
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    flutterEngine = (UIApplication.shared.delegate as? AppDelegate)?.flutterEngine
+    channel = FlutterMethodChannel(name: "slider", binaryMessenger: flutterEngine!)
+    channel?.setMethodCallHandler({
+      (call: FlutterMethodCall, result: FlutterResult) -> Void in
+
+      update(sliderValue: call.arguments)
+    })
+  }
+
+  func update(sliderValue: Float) {
+    progressView.setProgress(sliderValue, animated: true)
+    progressLabel.text = String(sliderValue)
   }
 
   @IBAction func nativeChangeSliderValue(_ sender: UISlider) {
-    progressView.setProgress(sender.value, animated: true)
-    progressLabel.text = String(sender.value)
+    update(sliderValue: sender.value)
   }
 
   @IBAction func buttonTapped(_ sender: Any) {
-    let flutterEngine = (UIApplication.shared.delegate as? AppDelegate)?.flutterEngine;
-    let flutterViewController = LeafFlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)!;
+    let flutterEngine = (UIApplication.shared.delegate as? AppDelegate)?.flutterEngine
+    let flutterViewController = LeafFlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)!
     self.navigationController?.pushViewController(flutterViewController, animated: true)
   }
 }

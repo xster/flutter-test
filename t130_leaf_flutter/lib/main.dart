@@ -1,7 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
-void main() => runApp(CupertinoApp(home: MyApp()));
+const channel = MethodChannel('slider');
+
+double sliderValue = 0;
+
+void main() {
+  print('running flutter main');
+  channel.setMethodCallHandler((MethodCall call) {
+    if (call.method != 'send') {
+      throw UnimplementedError();
+    }
+
+    sliderValue = call.arguments[0];
+
+    if (sliderValue == null ){
+      throw ArgumentError();
+    }
+  });
+  runApp(CupertinoApp(home: MyApp()));
+}
 
 class MyApp extends StatefulWidget {
   @override
@@ -9,15 +27,16 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  bool switchValue = false;
-
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         leading: CupertinoNavigationBarBackButton(
           previousPageTitle: 'Top native screen',
-          onPressed: () => SystemNavigator.pop(),
+          onPressed: () {
+            channel.invokeMethod('return', sliderValue);
+            SystemNavigator.pop();
+          }
         ),
         middle: Text('Flutter screen'),
       ),
@@ -36,9 +55,9 @@ class _MyAppState extends State<MyApp> {
                   ),
                 )),
               ),
-              CupertinoSwitch(
-                value: switchValue,
-                onChanged: (value) => setState(() => switchValue = value),
+              CupertinoSlider(
+                value: sliderValue,
+                onChanged: (value) => setState(() => sliderValue = value),
               ),
             ],
           ),

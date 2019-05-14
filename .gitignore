@@ -1,3 +1,6 @@
 .idea
 xcuserdata/
 build/
+.project
+.settings/
+.classpath

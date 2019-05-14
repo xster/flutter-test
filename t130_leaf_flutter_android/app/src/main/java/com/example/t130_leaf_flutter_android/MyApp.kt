@@ -11,7 +11,7 @@ class MyApp : Application() {
             dartExecutor.executeDartEntrypoint(
                 DartExecutor.DartEntrypoint(
                     resources.assets,
-                    FlutterMain.findAppBundlePath(this),
+                    FlutterMain.findAppBundlePath(this@MyApp),
                     "main"
                 )
             )

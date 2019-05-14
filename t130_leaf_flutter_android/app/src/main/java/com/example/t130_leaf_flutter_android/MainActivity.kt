@@ -8,14 +8,10 @@ import android.view.View
 import android.widget.SeekBar
 import io.flutter.plugin.common.MethodChannel
 import kotlinx.android.synthetic.main.activity_main.*
-import com.apple.eawt.Application.getApplication
 import io.flutter.embedding.engine.FlutterEngine
 import android.content.Intent
 import io.flutter.embedding.android.FlutterActivity
-import io.flutter.embedding.android.FlutterFragment
 import io.flutter.embedding.android.FlutterFragment.FlutterEngineProvider
-
-
 
 class MainActivity : AppCompatActivity() {
   private lateinit var channel: MethodChannel
@@ -61,19 +57,20 @@ class MainActivity : AppCompatActivity() {
   }
 }
 
-class MyFlutterActivity : FlutterActivity(), FlutterFragment.FlutterEngineProvider {
-
-  // You need to define an IntentBuilder subclass so that the
-  // IntentBuilder uses MyFlutterActivity instead of a regular FlutterActivity.
-  private class IntentBuilder// Override the constructor to specify your class.
-  internal constructor() : FlutterActivity.IntentBuilder(MyFlutterActivity::class.java)
-
+class MyFlutterActivity : FlutterActivity(), FlutterEngineProvider {
   companion object {
-    // This is the method that others will use to create
-    // an Intent that launches MyFlutterActivity.
-    fun createDefaultIntent(@NonNull launchingContext: Context): Intent {
+    fun createDefaultIntent(launchingContext: Context): Intent {
       return IntentBuilder().build(launchingContext)
     }
+  }
+
+  private class IntentBuilder : FlutterActivity.IntentBuilder {
+    constructor() : super(MyFlutterActivity::class.java)
+  }
+
+  override fun getFlutterEngine(context: Context): FlutterEngine? {
+//    return (application as MyApp).flutterEngine
+    return null
   }
 }
 

@@ -23,4 +23,16 @@ class MyApp : Application() {
       )
     }
   }
+
+  val flutterEngine2: FlutterEngine by lazy {
+    FlutterEngine(this).apply {
+      dartExecutor.executeDartEntrypoint(
+        DartExecutor.DartEntrypoint(
+          resources.assets,
+          FlutterMain.findAppBundlePath(this@MyApp),
+          "main2"
+        )
+      )
+    }
+  }
 }

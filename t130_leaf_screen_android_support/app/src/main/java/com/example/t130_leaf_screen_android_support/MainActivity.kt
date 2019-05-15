@@ -6,18 +6,23 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
+import android.view.ViewGroup
 import android.widget.SeekBar
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.android.FlutterFragment
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
+import io.flutter.embedding.android.FlutterView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-  private lateinit var channel: MethodChannel
+  private lateinit var sliderChannel: MethodChannel
+  private lateinit var switchChannel: MethodChannel
+  private lateinit var flutterView: FlutterView
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+
     setContentView(R.layout.activity_main)
     progressSlider.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
       override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -29,9 +34,13 @@ class MainActivity : AppCompatActivity() {
       override fun onStopTrackingTouch(seekBar: SeekBar?) {}
     })
 
+    flutterView = FlutterView(this)
+    flutterView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+    flutterViewContainer.addView(flutterView)
+
     Handler().post {
-      channel = MethodChannel((application as MyApp).flutterEngine.dartExecutor, "slider")
-      channel.setMethodCallHandler { call, result ->
+      sliderChannel = MethodChannel((application as MyApp).flutterEngine.dartExecutor, "slider")
+      sliderChannel.setMethodCallHandler { call, result ->
         if (call.method != "return") {
           result.notImplemented()
           return@setMethodCallHandler
@@ -43,7 +52,35 @@ class MainActivity : AppCompatActivity() {
 
         update((call.arguments as Double * 100).toInt())
       }
+
+      switchChannel = MethodChannel((application as MyApp).flutterEngine2.dartExecutor, "switch")
+      switchChannel.setMethodCallHandler { call, result ->
+        if (call.method != "return") {
+          result.notImplemented()
+          return@setMethodCallHandler
+        }
+
+        if (call.arguments !is Boolean) {
+          result.error("invalid_argument", null, null)
+        }
+
+        nativeSwitch.isChecked = call.arguments as Boolean
+      }
+
+      nativeSwitch.setOnCheckedChangeListener { _, isChecked ->
+        switchChannel.invokeMethod("send", isChecked)
+      }
     }
+  }
+
+  override fun onPause() {
+    flutterView.detachFromFlutterEngine()
+    super.onPause()
+  }
+
+  override fun onResume() {
+    super.onResume()
+    flutterView.attachToFlutterEngine((application as MyApp).flutterEngine2)
   }
 
   fun update(progress: Int) {
@@ -53,7 +90,7 @@ class MainActivity : AppCompatActivity() {
   }
 
   fun goToFlutter(view: View) {
-    channel.invokeMethod("send", progressBar.progress / 100.0)
+    sliderChannel.invokeMethod("send", progressBar.progress / 100.0)
     startActivity(MyFlutterActivity.createDefaultIntent(this))
   }
 }

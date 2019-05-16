@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.t130_leaf_screen_android_support"
+        applicationId "com.example.t130_leaf_flutter_android_support"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1

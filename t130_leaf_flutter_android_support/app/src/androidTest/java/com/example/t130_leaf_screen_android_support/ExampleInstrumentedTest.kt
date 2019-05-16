@@ -1,4 +1,4 @@
-package com.example.t130_leaf_screen_android_support
+package com.example.t130_leaf_flutter_android_support
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("com.example.t130_leaf_screen_android_support", appContext.packageName)
+        assertEquals("com.example.t130_leaf_flutter_android_support", appContext.packageName)
     }
 }

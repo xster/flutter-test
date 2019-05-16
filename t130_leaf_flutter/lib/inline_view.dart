@@ -25,6 +25,8 @@ class _MySwitchState extends State<MySwitch> {
         throw ArgumentError();
       }
 
+      print('dart received switch ${call.arguments}');
+
       setState(() => switchValue = call.arguments);
     });
   }
@@ -36,6 +38,7 @@ class _MySwitchState extends State<MySwitch> {
         child: Switch.adaptive(
           value: switchValue,
           onChanged: (value) {
+            print('dart sending switch $value');
             channel.invokeMethod('return', value);
             setState(() => switchValue = value);
           },

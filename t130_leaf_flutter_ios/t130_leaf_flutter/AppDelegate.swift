@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FlutterAppLifeCycleProvid
   var _lifecycleDelegate: FlutterPluginAppLifeCycleDelegate?
   var window: UIWindow?
   var flutterEngine: FlutterEngine?
+  var flutterEngine2: FlutterEngine?
 
   override init() {
     super.init()
@@ -27,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FlutterAppLifeCycleProvid
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     flutterEngine = FlutterEngine.init(name: "my test a2a", project: nil)
     flutterEngine?.run(withEntrypoint: nil)
+
+    flutterEngine2 = FlutterEngine.init(name: "the inline view engine", project: nil)
+    flutterEngine2?.run(withEntrypoint: "main2")
     return true
   }
 

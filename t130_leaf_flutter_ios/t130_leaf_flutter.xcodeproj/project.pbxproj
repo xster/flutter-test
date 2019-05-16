@@ -12,6 +12,7 @@
 		0A243FE02281112C001B1AC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A243FDE2281112C001B1AC0 /* Main.storyboard */; };
 		0A243FE22281112E001B1AC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A243FE12281112E001B1AC0 /* Assets.xcassets */; };
 		0A243FE52281112E001B1AC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A243FE32281112E001B1AC0 /* LaunchScreen.storyboard */; };
+		0A243FEE228CAEE2001B1AC0 /* InlineFlutterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A243FED228CAEE2001B1AC0 /* InlineFlutterViewController.swift */; };
 		0A4C7F022284117000034B36 /* LeafFlutterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7F012284117000034B36 /* LeafFlutterViewController.swift */; };
 		2078CD0C3C7AA16388F9858D /* Pods_t130_leaf_flutter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18187C3E1AFF08638CF7A720 /* Pods_t130_leaf_flutter.framework */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,7 @@
 		0A243FE12281112E001B1AC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A243FE42281112E001B1AC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A243FE62281112E001B1AC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A243FED228CAEE2001B1AC0 /* InlineFlutterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineFlutterViewController.swift; sourceTree = "<group>"; };
 		0A4C7F012284117000034B36 /* LeafFlutterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeafFlutterViewController.swift; sourceTree = "<group>"; };
 		1326E779FA5E5A002FD4BFEB /* Pods-t130_leaf_flutter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-t130_leaf_flutter.debug.xcconfig"; path = "Target Support Files/Pods-t130_leaf_flutter/Pods-t130_leaf_flutter.debug.xcconfig"; sourceTree = "<group>"; };
 		18187C3E1AFF08638CF7A720 /* Pods_t130_leaf_flutter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_t130_leaf_flutter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +71,7 @@
 				0A243FE12281112E001B1AC0 /* Assets.xcassets */,
 				0A243FE32281112E001B1AC0 /* LaunchScreen.storyboard */,
 				0A243FE62281112E001B1AC0 /* Info.plist */,
+				0A243FED228CAEE2001B1AC0 /* InlineFlutterViewController.swift */,
 				0A4C7F012284117000034B36 /* LeafFlutterViewController.swift */,
 			);
 			path = t130_leaf_flutter;
@@ -235,6 +238,7 @@
 				0A243FDD2281112C001B1AC0 /* TopViewController.swift in Sources */,
 				0A4C7F022284117000034B36 /* LeafFlutterViewController.swift in Sources */,
 				0A243FDB2281112C001B1AC0 /* AppDelegate.swift in Sources */,
+				0A243FEE228CAEE2001B1AC0 /* InlineFlutterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

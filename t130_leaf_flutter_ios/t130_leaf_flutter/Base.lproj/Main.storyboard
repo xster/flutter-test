@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FXo-QI-6ZS">
-    <device id="retina6_1" orientation="portrait">
+    <device id="ipad10_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,66 +15,114 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="TopViewController" customModule="t130_leaf_flutter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XGY-M0-xCU">
-                                <rect key="frame" x="87" y="177" width="240" height="184"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j1U-QE-1ej">
+                                <rect key="frame" x="297" y="406" width="240" height="300"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Send and receive a float" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xut-4N-ft0">
-                                        <rect key="frame" x="28" y="20" width="184" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send and receive a bool inline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bd-RT-bzF">
+                                        <rect key="frame" x="6" y="17" width="228" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NCO-Ik-XFC">
+                                        <rect key="frame" x="0.0" y="115" width="240" height="185"/>
+                                        <color key="tintColor" red="1" green="0.1634348793" blue="0.0" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="185" id="gw9-ux-km4"/>
+                                        </constraints>
+                                    </containerView>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="up2-xL-k4G">
+                                        <rect key="frame" x="95.5" y="56" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="nativeChangeSwitchValue:" destination="BYZ-38-t0r" eventType="valueChanged" id="jZH-v2-76F"/>
+                                        </connections>
+                                    </switch>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="NCO-Ik-XFC" secondAttribute="bottom" id="9jh-VO-GLc"/>
+                                    <constraint firstAttribute="bottom" secondItem="NCO-Ik-XFC" secondAttribute="bottom" id="EpA-ee-Aq7"/>
+                                    <constraint firstItem="7bd-RT-bzF" firstAttribute="top" secondItem="j1U-QE-1ej" secondAttribute="top" constant="17" id="Qoz-Li-uhf"/>
+                                    <constraint firstItem="7bd-RT-bzF" firstAttribute="centerX" secondItem="j1U-QE-1ej" secondAttribute="centerX" id="Ruo-hx-pJY"/>
+                                    <constraint firstAttribute="height" constant="300" id="UgD-EH-x96"/>
+                                    <constraint firstItem="up2-xL-k4G" firstAttribute="top" secondItem="7bd-RT-bzF" secondAttribute="bottom" constant="18" id="XCx-lt-RF1"/>
+                                    <constraint firstAttribute="trailing" secondItem="NCO-Ik-XFC" secondAttribute="trailing" id="d03-vc-bIb"/>
+                                    <constraint firstItem="up2-xL-k4G" firstAttribute="centerX" secondItem="j1U-QE-1ej" secondAttribute="centerX" id="ifx-Wx-eHg"/>
+                                    <constraint firstAttribute="width" constant="240" id="puP-86-hi7"/>
+                                    <constraint firstItem="NCO-Ik-XFC" firstAttribute="leading" secondItem="j1U-QE-1ej" secondAttribute="leading" id="wIa-Lk-sNn"/>
+                                </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QpO-Nv-bm6">
-                                <rect key="frame" x="102" y="500" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="up2-xL-k4G">
-                                <rect key="frame" x="252" y="495" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="daN-Ij-ze9">
-                                <rect key="frame" x="132" y="287" width="150" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </progressView>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="0mu-HP-6So">
-                                <rect key="frame" x="100" y="313" width="214" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="nativeChangeSliderValue:" destination="BYZ-38-t0r" eventType="valueChanged" id="1Gs-iv-dPR"/>
-                                </connections>
-                            </slider>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Vg-8N-gKz">
-                                <rect key="frame" x="165" y="376" width="86" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Go to Flutter"/>
-                                <connections>
-                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="jPu-YY-SWU"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HV2-0B-3Pc">
-                                <rect key="frame" x="102" y="237" width="197" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XGY-M0-xCU">
+                                <rect key="frame" x="292" y="120" width="250" height="250"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send and receive a float" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xut-4N-ft0">
+                                        <rect key="frame" x="33" y="20" width="184" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="daN-Ij-ze9">
+                                        <rect key="frame" x="50" y="108" width="150" height="2"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="8jb-Jv-FGd"/>
+                                        </constraints>
+                                    </progressView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HV2-0B-3Pc">
+                                        <rect key="frame" x="104" y="63" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Vg-8N-gKz">
+                                        <rect key="frame" x="82" y="191" width="86" height="30"/>
+                                        <state key="normal" title="Go to Flutter"/>
+                                        <connections>
+                                            <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="jPu-YY-SWU"/>
+                                        </connections>
+                                    </button>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="0mu-HP-6So">
+                                        <rect key="frame" x="13" y="137" width="224" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="220" id="sGG-ea-Nb0"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="nativeChangeSliderValue:" destination="BYZ-38-t0r" eventType="valueChanged" id="1Gs-iv-dPR"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="1Vg-8N-gKz" firstAttribute="centerX" secondItem="XGY-M0-xCU" secondAttribute="centerX" id="346-SL-GQx"/>
+                                    <constraint firstItem="1Vg-8N-gKz" firstAttribute="top" secondItem="0mu-HP-6So" secondAttribute="bottom" constant="24" id="7eG-NQ-x7I"/>
+                                    <constraint firstAttribute="width" constant="250" id="9pU-XY-2C2"/>
+                                    <constraint firstItem="HV2-0B-3Pc" firstAttribute="centerX" secondItem="XGY-M0-xCU" secondAttribute="centerX" id="KQB-F9-X3u"/>
+                                    <constraint firstItem="daN-Ij-ze9" firstAttribute="centerX" secondItem="XGY-M0-xCU" secondAttribute="centerX" id="Mue-Xb-Yz6"/>
+                                    <constraint firstItem="daN-Ij-ze9" firstAttribute="top" secondItem="HV2-0B-3Pc" secondAttribute="bottom" constant="24" id="N9p-jp-3JK"/>
+                                    <constraint firstItem="xut-4N-ft0" firstAttribute="centerX" secondItem="XGY-M0-xCU" secondAttribute="centerX" id="Q1e-Df-zye"/>
+                                    <constraint firstItem="xut-4N-ft0" firstAttribute="top" secondItem="XGY-M0-xCU" secondAttribute="top" constant="20" id="RJf-N9-BQH"/>
+                                    <constraint firstItem="HV2-0B-3Pc" firstAttribute="top" secondItem="xut-4N-ft0" secondAttribute="bottom" constant="22" id="iCo-iu-UeI"/>
+                                    <constraint firstItem="0mu-HP-6So" firstAttribute="centerX" secondItem="XGY-M0-xCU" secondAttribute="centerX" id="kSc-X3-6kz"/>
+                                    <constraint firstAttribute="height" constant="250" id="ldb-04-67L"/>
+                                    <constraint firstItem="0mu-HP-6So" firstAttribute="top" secondItem="daN-Ij-ze9" secondAttribute="bottom" constant="27" id="y73-oI-vpl"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="j1U-QE-1ej" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FmO-b5-Sxj"/>
+                            <constraint firstItem="XGY-M0-xCU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="YP6-9k-Zgh"/>
+                            <constraint firstItem="j1U-QE-1ej" firstAttribute="top" secondItem="XGY-M0-xCU" secondAttribute="bottom" constant="36" id="iGg-Jc-eVj"/>
+                            <constraint firstItem="XGY-M0-xCU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="sBL-YC-d3t"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Top native screen" id="DjD-ic-qpR"/>
                     <connections>
+                        <outlet property="inlineFlutterContainer" destination="NCO-Ik-XFC" id="33o-By-koM"/>
+                        <outlet property="nativeSwitch" destination="up2-xL-k4G" id="eml-tx-TZ0"/>
                         <outlet property="progressLabel" destination="HV2-0B-3Pc" id="kmc-mr-iCr"/>
                         <outlet property="progressSlider" destination="0mu-HP-6So" id="TQU-b8-Ign"/>
                         <outlet property="progressView" destination="daN-Ij-ze9" id="O1y-jw-uHf"/>
@@ -90,7 +138,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FXo-QI-6ZS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="H4Q-11-99y">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="834" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

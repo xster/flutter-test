@@ -2,21 +2,28 @@ PODS:
   - Flutter (1.0.0)
   - FlutterPluginRegistrant (0.0.1):
     - Flutter
+    - webview_flutter
+  - webview_flutter (0.0.1):
+    - Flutter
 
 DEPENDENCIES:
-  - Flutter (from `../t130_leaf_flutter/.ios/Flutter/engine`)
-  - FlutterPluginRegistrant (from `../t130_leaf_flutter/.ios/Flutter/FlutterPluginRegistrant`)
+  - Flutter (from `flutter/.ios/Flutter/engine`)
+  - FlutterPluginRegistrant (from `flutter/.ios/Flutter/FlutterPluginRegistrant`)
+  - webview_flutter (from `flutter/.ios/Flutter/.symlinks/webview_flutter/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
-    :path: "../t130_leaf_flutter/.ios/Flutter/engine"
+    :path: flutter/.ios/Flutter/engine
   FlutterPluginRegistrant:
-    :path: "../t130_leaf_flutter/.ios/Flutter/FlutterPluginRegistrant"
+    :path: flutter/.ios/Flutter/FlutterPluginRegistrant
+  webview_flutter:
+    :path: flutter/.ios/Flutter/.symlinks/webview_flutter/ios
 
 SPEC CHECKSUMS:
   Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
-  FlutterPluginRegistrant: 8855ca2b426d228cb41aa6c26c0c83b8c49e3593
+  FlutterPluginRegistrant: 6c5c8a8b145bba7bf1df5b028e53e6dc9a454c04
+  webview_flutter: 1aa7604e6cdb451a9b7ed2c37d5454c0b440246b
 
-PODFILE CHECKSUM: 68daa2a00b818af63d5d2fa80cba8a13cf811fd5
+PODFILE CHECKSUM: d8b39f6b9c272de6c85b5fa77e023f89fd494b03
 
 COCOAPODS: 1.6.1

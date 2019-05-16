@@ -29,7 +29,7 @@
                                     </label>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NCO-Ik-XFC">
                                         <rect key="frame" x="0.0" y="115" width="240" height="185"/>
-                                        <color key="tintColor" red="1" green="0.1634348793" blue="0.0" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.084393614217168178" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="185" id="gw9-ux-km4"/>
                                         </constraints>
@@ -44,7 +44,6 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="NCO-Ik-XFC" secondAttribute="bottom" id="9jh-VO-GLc"/>
-                                    <constraint firstAttribute="bottom" secondItem="NCO-Ik-XFC" secondAttribute="bottom" id="EpA-ee-Aq7"/>
                                     <constraint firstItem="7bd-RT-bzF" firstAttribute="top" secondItem="j1U-QE-1ej" secondAttribute="top" constant="17" id="Qoz-Li-uhf"/>
                                     <constraint firstItem="7bd-RT-bzF" firstAttribute="centerX" secondItem="j1U-QE-1ej" secondAttribute="centerX" id="Ruo-hx-pJY"/>
                                     <constraint firstAttribute="height" constant="300" id="UgD-EH-x96"/>
@@ -52,6 +51,7 @@
                                     <constraint firstAttribute="trailing" secondItem="NCO-Ik-XFC" secondAttribute="trailing" id="d03-vc-bIb"/>
                                     <constraint firstItem="up2-xL-k4G" firstAttribute="centerX" secondItem="j1U-QE-1ej" secondAttribute="centerX" id="ifx-Wx-eHg"/>
                                     <constraint firstAttribute="width" constant="240" id="puP-86-hi7"/>
+                                    <constraint firstItem="NCO-Ik-XFC" firstAttribute="top" secondItem="up2-xL-k4G" secondAttribute="bottom" constant="28" id="qO2-AG-4Sa"/>
                                     <constraint firstItem="NCO-Ik-XFC" firstAttribute="leading" secondItem="j1U-QE-1ej" secondAttribute="leading" id="wIa-Lk-sNn"/>
                                 </constraints>
                             </view>

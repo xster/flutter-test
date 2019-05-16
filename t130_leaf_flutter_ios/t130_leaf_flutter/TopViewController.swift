@@ -23,6 +23,7 @@ class TopViewController: UIViewController {
   var switchChannel: FlutterMethodChannel?
 
   override func viewDidLoad() {
+    let start = NSDate()
     super.viewDidLoad()
     let delegate = (UIApplication.shared.delegate as? AppDelegate)!
     flutterEngine = delegate.flutterEngine
@@ -40,7 +41,6 @@ class TopViewController: UIViewController {
         result(FlutterError.init(code: "invalid_argument", message: nil, details: nil))
         return
       }
-      print("returned \(String(describing: value))")
       self.update(sliderValue: value.floatValue)
     })
 
@@ -56,17 +56,21 @@ class TopViewController: UIViewController {
         result(FlutterError.init(code: "invalid_argument", message: nil, details: nil))
         return
       }
-      print("swift returned switch \(String(describing: value))")
       self.nativeSwitch.setOn(value, animated: true)
     })
 
     let inlineFVC = FlutterViewController(engine: flutterEngine2, nibName: nil, bundle: nil)!
     self.addChild(inlineFVC)
-    inlineFVC.view.frame = inlineFlutterContainer.frame
     self.inlineFlutterContainer.addSubview(inlineFVC.view)
+    
+    inlineFVC.view.translatesAutoresizingMaskIntoConstraints = false
+    inlineFVC.view.topAnchor.constraint(equalTo: inlineFlutterContainer.topAnchor, constant: 0).isActive = true
+    inlineFVC.view.bottomAnchor.constraint(equalTo: inlineFlutterContainer.bottomAnchor, constant: 0).isActive = true
+    inlineFVC.view.leadingAnchor.constraint(equalTo: inlineFlutterContainer.leadingAnchor, constant: 0).isActive = true
+    inlineFVC.view.trailingAnchor.constraint(equalTo: inlineFlutterContainer.trailingAnchor, constant: 0).isActive = true
+
     inlineFVC.didMove(toParent: self)
-    print("flutter frame \(inlineFVC.view.frame)")
-    print("native frame \(inlineFlutterContainer.frame)")
+    print("viewDidLoad took \(-start.timeIntervalSinceNow)")
   }
 
   func update(sliderValue: Float) {

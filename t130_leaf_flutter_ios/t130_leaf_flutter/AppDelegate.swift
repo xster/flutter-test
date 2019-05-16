@@ -8,6 +8,7 @@
 
 import UIKit
 import Flutter
+import FlutterPluginRegistrant
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, FlutterAppLifeCycleProvider {
@@ -26,11 +27,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FlutterAppLifeCycleProvid
   }
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    let start = NSDate()
     flutterEngine = FlutterEngine.init(name: "my test a2a", project: nil)
     flutterEngine?.run(withEntrypoint: nil)
+    GeneratedPluginRegistrant.register(with: self.flutterEngine)
 
     flutterEngine2 = FlutterEngine.init(name: "the inline view engine", project: nil)
     flutterEngine2?.run(withEntrypoint: "main2")
+    print("application launch took \(-start.timeIntervalSinceNow)")
     return true
   }
 

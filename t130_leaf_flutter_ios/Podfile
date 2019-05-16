@@ -6,6 +6,6 @@ target 't130_leaf_flutter' do
   use_frameworks!
 
   # Pods for t130_leaf_flutter
-  flutter_application_path = '../t130_leaf_flutter/'
+  flutter_application_path = 'flutter'
   eval(File.read(File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')), binding)
 end

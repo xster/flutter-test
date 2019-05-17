@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+// import 'package:webview_flutter/webview_flutter.dart';
 
 const channel = MethodChannel('slider');
 
@@ -70,10 +70,10 @@ class _MyAppState extends State<MyApp> {
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black, width: 10)
                 ),
-                child: WebView(
-                  initialUrl: 'https://apple.com',
-                  javascriptMode: JavascriptMode.unrestricted,
-                ),
+                // child: WebView(
+                //   initialUrl: 'https://apple.com',
+                //   javascriptMode: JavascriptMode.unrestricted,
+                // ),
               ),
             ],
           ),

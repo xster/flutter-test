@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
   private lateinit var switchChannel: MethodChannel
   private lateinit var flutterView: FlutterView
 
+  private lateinit var flutterEngine2: FlutterEngine
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
@@ -41,6 +43,8 @@ class MainActivity : AppCompatActivity() {
       flutterView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
       flutterViewContainer.addView(flutterView)
 
+      flutterEngine2 = (application as MyApp).flutterEngine2
+
       Handler().post {
         Log.d("mylog", "various hookups took ${measureTimeMillis {
           sliderChannel = MethodChannel((application as MyApp).flutterEngine.dartExecutor, "slider")
@@ -57,7 +61,7 @@ class MainActivity : AppCompatActivity() {
             update((call.arguments as Double * 100).toInt())
           }
 
-          switchChannel = MethodChannel((application as MyApp).flutterEngine2.dartExecutor, "switch")
+          switchChannel = MethodChannel(flutterEngine2.dartExecutor, "switch")
           switchChannel.setMethodCallHandler { call, result ->
             if (call.method != "return") {
               result.notImplemented()
@@ -81,14 +85,21 @@ class MainActivity : AppCompatActivity() {
   }
 
   override fun onPause() {
+    flutterEngine2.lifecycleChannel.appIsInactive()
     flutterView.detachFromFlutterEngine()
     super.onPause()
+  }
+
+  override fun onStop() {
+    flutterEngine2.lifecycleChannel.appIsPaused()
+    super.onStop()
   }
 
   override fun onResume() {
     super.onResume()
     Log.d("mylog", "onResume took ${measureTimeMillis {
-      flutterView.attachToFlutterEngine((application as MyApp).flutterEngine2)
+      flutterView.attachToFlutterEngine(flutterEngine2)
+      flutterEngine2.lifecycleChannel.appIsResumed()
     }}")
   }
 

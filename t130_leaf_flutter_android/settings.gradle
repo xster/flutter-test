@@ -2,5 +2,5 @@ include ':app'
 
 setBinding(new Binding([gradle: this]))                                 // new
 evaluate(new File(                                                      // new
-        '/Users/xster/development/flutter-test/t130_leaf_flutter/.android/include_flutter.groovy'                          // new
+        'flutter/.android/include_flutter.groovy'                          // new
 ))

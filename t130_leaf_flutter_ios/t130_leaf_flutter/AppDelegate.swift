@@ -14,8 +14,20 @@ import FlutterPluginRegistrant
 class AppDelegate: UIResponder, UIApplicationDelegate, FlutterAppLifeCycleProvider {
   var _lifecycleDelegate: FlutterPluginAppLifeCycleDelegate?
   var window: UIWindow?
-  var flutterEngine: FlutterEngine?
-  var flutterEngine2: FlutterEngine?
+  lazy var flutterEngine: FlutterEngine = {
+    let start = NSDate()
+    let engine = FlutterEngine.init(name: "my test a2a", project: nil)
+    engine?.run(withEntrypoint: nil)
+    GeneratedPluginRegistrant.register(with: engine)
+    print("engine 1 took \(-start.timeIntervalSinceNow) to lazy load")
+    return engine
+  }()
+  lazy var flutterEngine2: FlutterEngine = {
+    let start = NSDate()
+    let engine = FlutterEngine.init(name: "the inline view engine", project: nil)
+    engine?.run(withEntrypoint: "main2")
+    print("engine 2 took \(-start.timeIntervalSinceNow) to lazy load")
+  }()
 
   override init() {
     super.init()
@@ -24,18 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FlutterAppLifeCycleProvid
 
   func addApplicationLifeCycleDelegate(_ delegate: FlutterPlugin) {
     _lifecycleDelegate?.add(delegate)
-  }
-
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    let start = NSDate()
-    flutterEngine = FlutterEngine.init(name: "my test a2a", project: nil)
-    flutterEngine?.run(withEntrypoint: nil)
-    GeneratedPluginRegistrant.register(with: self.flutterEngine)
-
-    flutterEngine2 = FlutterEngine.init(name: "the inline view engine", project: nil)
-    flutterEngine2?.run(withEntrypoint: "main2")
-    print("application launch took \(-start.timeIntervalSinceNow)")
-    return true
   }
 
   func applicationWillResignActive(_ application: UIApplication) {

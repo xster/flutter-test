@@ -34,12 +34,20 @@
                                             <constraint firstAttribute="height" constant="185" id="gw9-ux-km4"/>
                                         </constraints>
                                     </containerView>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="up2-xL-k4G">
-                                        <rect key="frame" x="95.5" y="56" width="51" height="31"/>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="up2-xL-k4G">
+                                        <rect key="frame" x="161" y="59" width="51" height="31"/>
                                         <connections>
                                             <action selector="nativeChangeSwitchValue:" destination="BYZ-38-t0r" eventType="valueChanged" id="jZH-v2-76F"/>
                                         </connections>
                                     </switch>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2e-p5-LKM">
+                                        <rect key="frame" x="8" y="59" width="92" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Arm engine 2"/>
+                                        <connections>
+                                            <action selector="armEngine2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Ot-wW-wZf"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
@@ -76,8 +84,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Vg-8N-gKz">
-                                        <rect key="frame" x="82" y="191" width="86" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Vg-8N-gKz">
+                                        <rect key="frame" x="149" y="195" width="86" height="30"/>
                                         <state key="normal" title="Go to Flutter"/>
                                         <connections>
                                             <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="jPu-YY-SWU"/>
@@ -92,6 +100,14 @@
                                             <action selector="nativeChangeSliderValue:" destination="BYZ-38-t0r" eventType="valueChanged" id="1Gs-iv-dPR"/>
                                         </connections>
                                     </slider>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vh8-yX-pXW">
+                                        <rect key="frame" x="15" y="195" width="90" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Arm engine 1"/>
+                                        <connections>
+                                            <action selector="armEngine1:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="4bL-09-Rd7"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>

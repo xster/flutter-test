@@ -29,21 +29,6 @@ class TopViewController: UIViewController {
     flutterEngine = delegate.flutterEngine
     flutterEngine2 = delegate.flutterEngine2
 
-    sliderChannel = FlutterMethodChannel(name: "slider", binaryMessenger: flutterEngine!)
-    sliderChannel?.setMethodCallHandler({
-      (call: FlutterMethodCall, result: FlutterResult) -> Void in
-      guard call.method == "return" else {
-        result(FlutterMethodNotImplemented)
-        return
-      }
-      
-      guard let value = call.arguments as? NSNumber else {
-        result(FlutterError.init(code: "invalid_argument", message: nil, details: nil))
-        return
-      }
-      self.update(sliderValue: value.floatValue)
-    })
-
     switchChannel = FlutterMethodChannel(name: "switch", binaryMessenger: flutterEngine2!)
     switchChannel?.setMethodCallHandler({
       (call: FlutterMethodCall, result: FlutterResult) -> Void in
@@ -87,8 +72,38 @@ class TopViewController: UIViewController {
     switchChannel?.invokeMethod("send", arguments: nativeSwitch.isOn)
   }
 
+  @IBAction func armEngine1(_ sender: Any) {
+    if flutterEngine == nil {
+      let delegate = (UIApplication.shared.delegate as? AppDelegate)!
+      flutterEngine = delegate.flutterEngine
+
+      sliderChannel = FlutterMethodChannel(name: "slider", binaryMessenger: flutterEngine!)
+      sliderChannel?.setMethodCallHandler({
+        (call: FlutterMethodCall, result: FlutterResult) -> Void in
+        guard call.method == "return" else {
+          result(FlutterMethodNotImplemented)
+          return
+        }
+
+        guard let value = call.arguments as? NSNumber else {
+          result(FlutterError.init(code: "invalid_argument", message: nil, details: nil))
+          return
+        }
+        self.update(sliderValue: value.floatValue)
+      })
+    }
+  }
+
+  @IBAction func armEngine2(_ sender: Any) {
+
+  }
+
   @IBAction func buttonTapped(_ sender: Any) {
-    let flutterEngine = (UIApplication.shared.delegate as? AppDelegate)?.flutterEngine
+    if flutterEngine == nil {
+      print("engine 1 not initialized yet so cannot launch flutter")
+      return
+    }
+
     sliderChannel?.invokeMethod("send", arguments: progressView.progress)
     
     let flutterViewController = LeafFlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)!

@@ -16,17 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FlutterAppLifeCycleProvid
   var window: UIWindow?
   lazy var flutterEngine: FlutterEngine = {
     let start = NSDate()
-    let engine = FlutterEngine.init(name: "my test a2a", project: nil)
-    engine?.run(withEntrypoint: nil)
+    let engine = FlutterEngine.init(name: "my test a2a", project: nil)!
+    print("engine 1 took \(-start.timeIntervalSinceNow) to create")
+    engine.run(withEntrypoint: nil)
     GeneratedPluginRegistrant.register(with: engine)
-    print("engine 1 took \(-start.timeIntervalSinceNow) to lazy load")
+    print("engine 1 took \(-start.timeIntervalSinceNow) to run")
     return engine
   }()
   lazy var flutterEngine2: FlutterEngine = {
     let start = NSDate()
-    let engine = FlutterEngine.init(name: "the inline view engine", project: nil)
-    engine?.run(withEntrypoint: "main2")
-    print("engine 2 took \(-start.timeIntervalSinceNow) to lazy load")
+    let engine = FlutterEngine.init(name: "the inline view engine", project: nil)!
+    print("engine 2 took \(-start.timeIntervalSinceNow) to create")
+    engine.run(withEntrypoint: "main2")
+    print("engine 2 took \(-start.timeIntervalSinceNow) to run")
+    return engine
   }()
 
   override init() {

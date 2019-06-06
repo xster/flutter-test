@@ -22,42 +22,6 @@ class TopViewController: UIViewController {
   var sliderChannel: FlutterMethodChannel?
   var switchChannel: FlutterMethodChannel?
 
-  override func viewDidLoad() {
-    let start = NSDate()
-    super.viewDidLoad()
-    let delegate = (UIApplication.shared.delegate as? AppDelegate)!
-    flutterEngine = delegate.flutterEngine
-    flutterEngine2 = delegate.flutterEngine2
-
-    switchChannel = FlutterMethodChannel(name: "switch", binaryMessenger: flutterEngine2!)
-    switchChannel?.setMethodCallHandler({
-      (call: FlutterMethodCall, result: FlutterResult) -> Void in
-      guard call.method == "return" else {
-        result(FlutterMethodNotImplemented)
-        return
-      }
-
-      guard let value = (call.arguments as? NSNumber)?.boolValue else {
-        result(FlutterError.init(code: "invalid_argument", message: nil, details: nil))
-        return
-      }
-      self.nativeSwitch.setOn(value, animated: true)
-    })
-
-    let inlineFVC = FlutterViewController(engine: flutterEngine2, nibName: nil, bundle: nil)!
-    self.addChild(inlineFVC)
-    self.inlineFlutterContainer.addSubview(inlineFVC.view)
-    
-    inlineFVC.view.translatesAutoresizingMaskIntoConstraints = false
-    inlineFVC.view.topAnchor.constraint(equalTo: inlineFlutterContainer.topAnchor, constant: 0).isActive = true
-    inlineFVC.view.bottomAnchor.constraint(equalTo: inlineFlutterContainer.bottomAnchor, constant: 0).isActive = true
-    inlineFVC.view.leadingAnchor.constraint(equalTo: inlineFlutterContainer.leadingAnchor, constant: 0).isActive = true
-    inlineFVC.view.trailingAnchor.constraint(equalTo: inlineFlutterContainer.trailingAnchor, constant: 0).isActive = true
-
-    inlineFVC.didMove(toParent: self)
-    print("viewDidLoad took \(-start.timeIntervalSinceNow)")
-  }
-
   func update(sliderValue: Float) {
     progressView.setProgress(sliderValue, animated: true)
     progressLabel.text = String(sliderValue)
@@ -74,6 +38,7 @@ class TopViewController: UIViewController {
 
   @IBAction func armEngine1(_ sender: Any) {
     if flutterEngine == nil {
+      let start = NSDate()
       let delegate = (UIApplication.shared.delegate as? AppDelegate)!
       flutterEngine = delegate.flutterEngine
 
@@ -91,11 +56,47 @@ class TopViewController: UIViewController {
         }
         self.update(sliderValue: value.floatValue)
       })
+      print("arming engine 1 took \(-start.timeIntervalSinceNow)")
     }
   }
 
   @IBAction func armEngine2(_ sender: Any) {
-
+    if flutterEngine2 == nil {
+      let start = NSDate()
+      let delegate = (UIApplication.shared.delegate as? AppDelegate)!
+      flutterEngine2 = delegate.flutterEngine2
+      
+      switchChannel = FlutterMethodChannel(name: "switch", binaryMessenger: flutterEngine2!)
+      switchChannel?.setMethodCallHandler({
+        (call: FlutterMethodCall, result: FlutterResult) -> Void in
+        guard call.method == "return" else {
+          result(FlutterMethodNotImplemented)
+          return
+        }
+        
+        guard let value = (call.arguments as? NSNumber)?.boolValue else {
+          result(FlutterError.init(code: "invalid_argument", message: nil, details: nil))
+          return
+        }
+        self.nativeSwitch.setOn(value, animated: true)
+      })
+      
+      let inlineFVC = FlutterViewController(engine: flutterEngine2, nibName: nil, bundle: nil)!
+      inlineFVC.setFlutterViewDidRenderCallback({
+        print("drawing out of engine 2 took \(-start.timeIntervalSinceNow)")
+      })
+      self.addChild(inlineFVC)
+      self.inlineFlutterContainer.addSubview(inlineFVC.view)
+      
+      inlineFVC.view.translatesAutoresizingMaskIntoConstraints = false
+      inlineFVC.view.topAnchor.constraint(equalTo: inlineFlutterContainer.topAnchor, constant: 0).isActive = true
+      inlineFVC.view.bottomAnchor.constraint(equalTo: inlineFlutterContainer.bottomAnchor, constant: 0).isActive = true
+      inlineFVC.view.leadingAnchor.constraint(equalTo: inlineFlutterContainer.leadingAnchor, constant: 0).isActive = true
+      inlineFVC.view.trailingAnchor.constraint(equalTo: inlineFlutterContainer.trailingAnchor, constant: 0).isActive = true
+      
+      inlineFVC.didMove(toParent: self)
+      print("arming engine 2 took \(-start.timeIntervalSinceNow)")
+    }
   }
 
   @IBAction func buttonTapped(_ sender: Any) {
@@ -105,7 +106,6 @@ class TopViewController: UIViewController {
     }
 
     sliderChannel?.invokeMethod("send", arguments: progressView.progress)
-    
     let flutterViewController = LeafFlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)!
     self.navigationController?.pushViewController(flutterViewController, animated: true)
   }

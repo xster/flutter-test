@@ -11,6 +11,10 @@ import Flutter
 
 class LeafFlutterViewController: FlutterViewController {
   override func viewWillAppear(_ animated: Bool) {
+    let start = NSDate()
+    self.setFlutterViewDidRenderCallback({
+      print("delay from viewWillAppear \(-start.timeIntervalSinceNow) before rendering")
+    })
     self.navigationController?.setNavigationBarHidden(true, animated: true)
     super.viewWillAppear(animated)
   }

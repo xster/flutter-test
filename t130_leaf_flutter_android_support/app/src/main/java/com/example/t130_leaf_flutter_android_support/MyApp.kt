@@ -8,24 +8,22 @@ import io.flutter.embedding.engine.dart.DartExecutor
 import kotlin.system.measureTimeMillis
 
 class MyApp : Application() {
-  override fun onCreate() {
-    super.onCreate()
-    FlutterMain.startInitialization(this)
-    FlutterMain.ensureInitializationComplete(this, arrayOfNulls(0))
+  var initialized = false
+
+  fun initialize() {
+    if (!initialized) {
+      Log.d("mylog", "main initialization took ${measureTimeMillis {
+        FlutterMain.startInitialization(this)
+        FlutterMain.ensureInitializationComplete(this, arrayOfNulls(0))
+        initialized = true
+      }}")
+    }
   }
 
   val flutterEngine: FlutterEngine by lazy {
     lateinit var engine1: FlutterEngine
-    Log.d("mylog", "engine1 took ${measureTimeMillis {
-      engine1 = FlutterEngine(this).apply {
-        dartExecutor.executeDartEntrypoint(
-          DartExecutor.DartEntrypoint(
-            resources.assets,
-            FlutterMain.findAppBundlePath(this@MyApp)!!,
-            "main"
-          )
-        )
-      }
+    Log.d("mylog", "engine1 creation took ${measureTimeMillis {
+      engine1 = FlutterEngine(this)
     }}")
     engine1
   }

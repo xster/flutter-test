@@ -174,7 +174,7 @@ class MyFlutterActivity : FlutterActivity(), FlutterFragment.FlutterEngineProvid
     Log.d("mylog", "activity first render ${System.currentTimeMillis() - start}")
   }
 
-  override fun getFlutterEngine(context: Context): FlutterEngine? {
+  override fun provideFlutterEngine(context: Context): FlutterEngine? {
     return (application as MyApp).flutterEngine
   }
 }

@@ -4,9 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
-import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import io.flutter.embedding.android.FlutterActivity
@@ -142,17 +140,20 @@ class MainActivity : AppCompatActivity() {
     progressSlider.progress = progress
   }
 
-  fun goToFlutter(view: View) {
-    if (flutterEngine1 != null) {
+  fun goToFlutter() {
+    val engine = flutterEngine1
+    if (engine != null) {
       sliderChannel.invokeMethod("send", progressBar.progress / 100.0)
+      val start: Long = System.currentTimeMillis()
+      engine.renderer.addOnFirstFrameRenderedListener {
+        Log.d("mylog", "activity first render ${System.currentTimeMillis() - start}")
+      }
       startActivity(MyFlutterActivity.createDefaultIntent(this))
     }
   }
 }
 
 class MyFlutterActivity : FlutterActivity(), FlutterFragment.FlutterEngineProvider {
-  private var start: Long = 0
-
   companion object {
     fun createDefaultIntent(launchingContext: Context): Intent {
       return IntentBuilder().build(launchingContext)
@@ -163,16 +164,6 @@ class MyFlutterActivity : FlutterActivity(), FlutterFragment.FlutterEngineProvid
     constructor() : super(MyFlutterActivity::class.java)
   }
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    start = System.currentTimeMillis()
-    Log.d("mylog", "activity created at $start")
-  }
-
-  override fun onFirstFrameRendered() {
-    super.onFirstFrameRendered()
-    Log.d("mylog", "activity first render ${System.currentTimeMillis() - start}")
-  }
 
   override fun provideFlutterEngine(context: Context): FlutterEngine? {
     return (application as MyApp).flutterEngine

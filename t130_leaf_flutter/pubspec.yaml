@@ -23,6 +23,6 @@ flutter:
   uses-material-design: true
 
   module:
-    androidX: true
+    # androidX: true
     androidPackage: com.example.t130_leaf_flutter
     iosBundleIdentifier: com.example.t130LeafFlutter

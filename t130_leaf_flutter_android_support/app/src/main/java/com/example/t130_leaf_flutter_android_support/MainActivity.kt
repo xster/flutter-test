@@ -5,6 +5,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import io.flutter.embedding.android.FlutterActivity
@@ -140,7 +141,7 @@ class MainActivity : AppCompatActivity() {
     progressSlider.progress = progress
   }
 
-  fun goToFlutter() {
+  fun goToFlutter(view: View) {
     val engine = flutterEngine1
     if (engine != null) {
       sliderChannel.invokeMethod("send", progressBar.progress / 100.0)

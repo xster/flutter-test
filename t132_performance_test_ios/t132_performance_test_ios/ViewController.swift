@@ -27,5 +27,11 @@ class ViewController: UIViewController {
     engine.run(withEntrypoint: nil)
     print("Entrypoint took \(-start.timeIntervalSinceNow) to create")
   }
+
+  @IBAction func showVC(_ sender: Any) {
+    present(
+      FlutterViewController.init(engine: engine, nibName: nil, bundle: nil),
+      animated: true, completion: nil)
+  }
 }
 

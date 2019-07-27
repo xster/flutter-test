@@ -16,6 +16,11 @@ class ViewController: UIViewController {
     super.viewDidLoad()
   }
 
+  @IBAction func initEngine(_ sender: Any) {
+    let start = NSDate()
+    print("Engine \(engine) took \(-start.timeIntervalSinceNow) to make")
+  }
+  
   @IBAction func loadVm(_ sender: Any) {
     let start = NSDate()
     engine.createShell(nil)
@@ -29,9 +34,12 @@ class ViewController: UIViewController {
   }
 
   @IBAction func showVC(_ sender: Any) {
-    present(
-      FlutterViewController.init(engine: engine, nibName: nil, bundle: nil),
-      animated: true, completion: nil)
+    let start = NSDate()
+    let fvc = FlutterViewController.init(engine: engine, nibName: nil, bundle: nil)!
+    fvc.setFlutterViewDidRenderCallback({
+      print("First frame took \(-start.timeIntervalSinceNow) to render")
+    })
+    present(fvc, animated: true, completion: nil)
   }
 }
 

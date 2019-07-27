@@ -18,22 +18,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1KT-Ri-6mx">
+                                <rect key="frame" x="171" y="144" width="72" height="30"/>
+                                <state key="normal" title="Init engine"/>
+                                <connections>
+                                    <action selector="initEngine:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zbb-Uq-eDs"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WCY-0N-lfm">
-                                <rect key="frame" x="176.5" y="144" width="61" height="30"/>
+                                <rect key="frame" x="176.5" y="274" width="61" height="30"/>
                                 <state key="normal" title="Load VM"/>
                                 <connections>
                                     <action selector="loadVm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Stn-qM-tQn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hF0-sZ-mkD">
-                                <rect key="frame" x="165" y="274" width="84" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hF0-sZ-mkD">
+                                <rect key="frame" x="165" y="417" width="84" height="30"/>
                                 <state key="normal" title="Load engine"/>
                                 <connections>
                                     <action selector="loadEngine:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JGt-id-7sM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Z1-mv-Pih">
-                                <rect key="frame" x="176" y="404" width="62" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Z1-mv-Pih">
+                                <rect key="frame" x="176" y="546" width="62" height="30"/>
                                 <state key="normal" title="Show VC"/>
                                 <connections>
                                     <action selector="showVC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lmu-9E-B1u"/>
@@ -42,12 +49,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="1KT-Ri-6mx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="20Y-2W-2IC"/>
+                            <constraint firstItem="WCY-0N-lfm" firstAttribute="top" secondItem="1KT-Ri-6mx" secondAttribute="bottom" constant="100" id="2sJ-2e-sfZ"/>
                             <constraint firstItem="hF0-sZ-mkD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="38R-Sh-QuJ"/>
+                            <constraint firstItem="1KT-Ri-6mx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="A4L-5N-QoL"/>
                             <constraint firstItem="5Z1-mv-Pih" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Nok-GY-7wN"/>
                             <constraint firstItem="hF0-sZ-mkD" firstAttribute="top" secondItem="WCY-0N-lfm" secondAttribute="bottom" constant="100" id="eVc-bO-6Jn"/>
                             <constraint firstItem="5Z1-mv-Pih" firstAttribute="top" secondItem="hF0-sZ-mkD" secondAttribute="bottom" constant="100" id="i4c-Bv-Sfs"/>
                             <constraint firstItem="WCY-0N-lfm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kWh-r9-O1d"/>
-                            <constraint firstItem="WCY-0N-lfm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="w61-ZD-PRM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

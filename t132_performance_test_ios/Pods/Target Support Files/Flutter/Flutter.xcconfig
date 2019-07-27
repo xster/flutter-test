@@ -9,3 +9,4 @@ PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.${PRODUCT_NAME:rfc1034identifier}
 SKIP_INSTALL = YES
 #include "/Users/xster/development/flutter-test/t132_performance_test_flutter/.ios/Flutter/Generated.xcconfig"
 #include "/Users/xster/development/flutter-test/t132_performance_test_flutter/.ios/Flutter/Generated.xcconfig"
+#include "/Users/xster/development/flutter-test/t132_performance_test_flutter/.ios/Flutter/Generated.xcconfig"

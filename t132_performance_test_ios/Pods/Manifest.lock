@@ -2,21 +2,27 @@ PODS:
   - Flutter (1.0.0)
   - FlutterPluginRegistrant (0.0.1):
     - Flutter
+  - t132_performance_test_flutter (0.0.1):
+    - Flutter
 
 DEPENDENCIES:
-  - Flutter (from `flutter/.ios/Flutter/engine`)
-  - FlutterPluginRegistrant (from `flutter/.ios/Flutter/FlutterPluginRegistrant`)
+  - Flutter (from `/Users/xster/development/test/t132_performance_test_flutter/.ios/Flutter/engine`)
+  - FlutterPluginRegistrant (from `/Users/xster/development/test/t132_performance_test_flutter/.ios/Flutter/FlutterPluginRegistrant`)
+  - t132_performance_test_flutter (from `/Users/xster/development/test/t132_performance_test_flutter/.ios/Flutter`)
 
 EXTERNAL SOURCES:
   Flutter:
-    :path: flutter/.ios/Flutter/engine
+    :path: "/Users/xster/development/test/t132_performance_test_flutter/.ios/Flutter/engine"
   FlutterPluginRegistrant:
-    :path: flutter/.ios/Flutter/FlutterPluginRegistrant
+    :path: "/Users/xster/development/test/t132_performance_test_flutter/.ios/Flutter/FlutterPluginRegistrant"
+  t132_performance_test_flutter:
+    :path: "/Users/xster/development/test/t132_performance_test_flutter/.ios/Flutter"
 
 SPEC CHECKSUMS:
   Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
   FlutterPluginRegistrant: 8855ca2b426d228cb41aa6c26c0c83b8c49e3593
+  t132_performance_test_flutter: ff8480ef0aabe368b6e9bf8327f5c68e3df01ffd
 
-PODFILE CHECKSUM: 27e375aeaa3fd76cbedd8ddd92374a68db36dab9
+PODFILE CHECKSUM: e76f7e04f96cbaf3ff657ef22a72e308973c9549
 
 COCOAPODS: 1.6.1

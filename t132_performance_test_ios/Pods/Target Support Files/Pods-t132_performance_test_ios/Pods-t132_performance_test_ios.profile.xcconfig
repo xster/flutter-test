@@ -1,11 +1,11 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../flutter/.ios/Flutter/engine"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/../../t132_performance_test_flutter/.ios/Flutter" "${PODS_ROOT}/../../t132_performance_test_flutter/.ios/Flutter/engine"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/FlutterPluginRegistrant"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
 LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FlutterPluginRegistrant"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"FlutterPluginRegistrant" -framework "Flutter"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/FlutterPluginRegistrant" -iframework "${PODS_ROOT}/../../t132_performance_test_flutter/.ios/Flutter/engine" -iframework "${PODS_ROOT}/../../t132_performance_test_flutter/.ios/Flutter"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"FlutterPluginRegistrant" -framework "App" -framework "Flutter"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
 PODS_ROOT = ${SRCROOT}/Pods
-#include "/Users/xster/development/flutter-test/t132_performance_test_flutter/.ios/Flutter/Generated.xcconfig"

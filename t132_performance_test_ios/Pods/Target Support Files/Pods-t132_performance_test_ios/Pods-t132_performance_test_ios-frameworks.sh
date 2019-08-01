@@ -153,13 +153,16 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${PODS_ROOT}/../flutter/.ios/Flutter/engine/Flutter.framework"
+  install_framework "${PODS_ROOT}/../../t132_performance_test_flutter/.ios/Flutter/engine/Flutter.framework"
+  install_framework "${PODS_ROOT}/../../t132_performance_test_flutter/.ios/Flutter/App.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${PODS_ROOT}/../flutter/.ios/Flutter/engine/Flutter.framework"
+  install_framework "${PODS_ROOT}/../../t132_performance_test_flutter/.ios/Flutter/engine/Flutter.framework"
+  install_framework "${PODS_ROOT}/../../t132_performance_test_flutter/.ios/Flutter/App.framework"
 fi
 if [[ "$CONFIGURATION" == "Profile" ]]; then
-  install_framework "${PODS_ROOT}/../flutter/.ios/Flutter/engine/Flutter.framework"
+  install_framework "${PODS_ROOT}/../../t132_performance_test_flutter/.ios/Flutter/engine/Flutter.framework"
+  install_framework "${PODS_ROOT}/../../t132_performance_test_flutter/.ios/Flutter/App.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

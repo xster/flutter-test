@@ -1,1 +1,1 @@
-../../../../flutter/.ios/Flutter/FlutterPluginRegistrant/Classes/GeneratedPluginRegistrant.h
+../../../../../t132_performance_test_flutter/.ios/Flutter/FlutterPluginRegistrant/Classes/GeneratedPluginRegistrant.h

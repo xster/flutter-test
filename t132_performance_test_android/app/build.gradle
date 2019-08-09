@@ -29,7 +29,7 @@ android {
 
 repositories {
     maven {
-        url 'flutter/build/host/outputs/repo'
+        url '../flutter/build/host/outputs/repo'
     }
 }
 

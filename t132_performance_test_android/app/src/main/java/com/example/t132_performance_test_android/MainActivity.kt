@@ -8,6 +8,7 @@ import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.embedding.engine.dart.DartExecutor
+import io.flutter.embedding.engine.renderer.OnFirstFrameRenderedListener
 import io.flutter.view.FlutterMain
 import kotlin.system.measureTimeMillis
 
@@ -19,6 +20,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    }
+
+    fun libraryLoad(view: View) {
+        Log.d("test_logs", "loading the flutter library took ${measureTimeMillis {
+            System.loadLibrary("flutter")
+        }}")
     }
 
     fun engineInit(view: View) {
@@ -42,8 +49,10 @@ class MainActivity : AppCompatActivity() {
 
     fun showActivity(view: View) {
         val start: Long = System.currentTimeMillis()
-        engine.renderer.addOnFirstFrameRenderedListener {
+        var firstFrameCallback: OnFirstFrameRenderedListener? = null
+        firstFrameCallback = OnFirstFrameRenderedListener {
             Log.d("test_logs", "activity first render ${System.currentTimeMillis() - start}")
+            engine.renderer.removeOnFirstFrameRenderedListener(firstFrameCallback!!)
         }
         FlutterEngineCache.getInstance().put("1", engine)
         startActivity(FlutterActivity.withCachedEngine("1").build(this))

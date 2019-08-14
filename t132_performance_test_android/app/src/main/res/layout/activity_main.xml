@@ -11,8 +11,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/engine_init" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="50dp" android:onClick="engineInit"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="50dp" android:onClick="engineInit" app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintTop_toBottomOf="@+id/button"/>
     <Button
             android:text="vm init"
             android:layout_width="wrap_content"
@@ -35,4 +36,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="50dp" app:layout_constraintTop_toBottomOf="@+id/engine_run"
             android:onClick="showActivity"/>
+    <Button
+            android:text="Load Library"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="50dp" android:onClick="libraryLoad"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

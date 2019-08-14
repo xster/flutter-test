@@ -81,6 +81,6 @@ flutter:
   # They also do not have any bearing on your native host application's
   # identifiers, which may be completely independent or the same as these.
   module:
-    androidX: false
+    androidX: true
     androidPackage: com.example.t132_performance_test_flutter
     iosBundleIdentifier: com.example.t132PerformanceTestFlutter

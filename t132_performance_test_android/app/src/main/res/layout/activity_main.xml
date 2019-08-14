@@ -12,26 +12,27 @@
             android:layout_height="wrap_content"
             android:id="@+id/engine_init" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="50dp" android:onClick="engineInit"/>
     <Button
             android:text="vm init"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/vm_init" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="50dp"
-            app:layout_constraintTop_toBottomOf="@+id/engine_init"/>
+            app:layout_constraintTop_toBottomOf="@+id/engine_init" android:onClick="vmInit"/>
     <Button
             android:text="engine run"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/engine_run" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="50dp"
-            app:layout_constraintTop_toBottomOf="@+id/vm_init"/>
+            app:layout_constraintTop_toBottomOf="@+id/vm_init" android:onClick="vmRun"/>
     <Button
             android:text="launch activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/launch_activity" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="50dp" app:layout_constraintTop_toBottomOf="@+id/engine_run"/>
+            android:layout_marginTop="50dp" app:layout_constraintTop_toBottomOf="@+id/engine_run"
+            android:onClick="showActivity"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

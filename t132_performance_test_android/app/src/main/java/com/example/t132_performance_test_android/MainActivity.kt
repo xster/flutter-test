@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity() {
             Log.d("test_logs", "activity first render ${System.currentTimeMillis() - start}")
             engine.renderer.removeOnFirstFrameRenderedListener(firstFrameCallback!!)
         }
+        engine.renderer.addOnFirstFrameRenderedListener(firstFrameCallback)
         FlutterEngineCache.getInstance().put("1", engine)
         startActivity(FlutterActivity.withCachedEngine("1").build(this))
     }

@@ -49,12 +49,14 @@ class MainActivity : AppCompatActivity() {
 
     fun showActivity(view: View) {
         val start: Long = System.currentTimeMillis()
-        var firstFrameCallback: OnFirstFrameRenderedListener? = null
-        firstFrameCallback = OnFirstFrameRenderedListener {
-            Log.d("test_logs", "activity first render ${System.currentTimeMillis() - start}")
-            engine.renderer.removeOnFirstFrameRenderedListener(firstFrameCallback!!)
+        val callback = object: OnFirstFrameRenderedListener {
+            override fun onFirstFrameRendered() {
+                Log.d("test_logs", "activity first render ${System.currentTimeMillis() - start}")
+                engine.renderer.removeOnFirstFrameRenderedListener(this)
+            }
         }
-        engine.renderer.addOnFirstFrameRenderedListener(firstFrameCallback)
+
+        engine.renderer.addOnFirstFrameRenderedListener(callback)
         FlutterEngineCache.getInstance().put("1", engine)
         startActivity(FlutterActivity.withCachedEngine("1").build(this))
     }

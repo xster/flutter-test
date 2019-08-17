@@ -23,7 +23,7 @@ class ViewController: UIViewController {
   
   @IBAction func loadVm(_ sender: Any) {
     let start = NSDate()
-    engine.createShell(nil)
+//    engine.createShell(nil)
     print("VM took \(-start.timeIntervalSinceNow) to create")
   }
   

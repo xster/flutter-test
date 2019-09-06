@@ -7,5 +7,9 @@ target 't130_leaf_flutter' do
 
   # Pods for t130_leaf_flutter
   flutter_application_path = 'flutter'
-  eval(File.read(File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')), binding)
+  load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
+
+  target 't130_leaf_flutter' do
+    install_all_flutter_pods(flutter_application_path)
+  end
 end

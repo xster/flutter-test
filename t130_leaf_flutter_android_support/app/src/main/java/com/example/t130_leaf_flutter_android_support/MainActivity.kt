@@ -14,6 +14,8 @@ import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.embedding.android.FlutterView
 import io.flutter.embedding.engine.dart.DartExecutor
+import io.flutter.embedding.engine.renderer.FlutterRenderer
+import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
 import io.flutter.view.FlutterMain
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.system.measureTimeMillis
@@ -48,7 +50,6 @@ class MainActivity : AppCompatActivity() {
       create1.setOnClickListener { flutterEngine1 = (application as MyApp).flutterEngine }
       engine1.setOnClickListener { armEngine1() }
       engine2.setOnClickListener { armEngine2() }
-      vm.setOnClickListener { (application as MyApp).initialize() }
     }
     Log.d("mylogs", "onCreate took $time ms")
   }
@@ -83,12 +84,8 @@ class MainActivity : AppCompatActivity() {
 
     Log.d("mylog", "arm engine 1 ${measureTimeMillis {
       flutterEngine1!!.dartExecutor.executeDartEntrypoint(
-          DartExecutor.DartEntrypoint(
-            resources.assets,
-            FlutterMain.findAppBundlePath(this)!!,
-            "main"
-          )
-        )
+        DartExecutor.DartEntrypoint.createDefault()
+      )
 
       sliderChannel = MethodChannel(flutterEngine1!!.dartExecutor, "slider")
       sliderChannel.setMethodCallHandler { call, result ->
@@ -146,28 +143,15 @@ class MainActivity : AppCompatActivity() {
     if (engine != null) {
       sliderChannel.invokeMethod("send", progressBar.progress / 100.0)
       val start: Long = System.currentTimeMillis()
-      engine.renderer.addOnFirstFrameRenderedListener {
-        Log.d("mylog", "activity first render ${System.currentTimeMillis() - start}")
-      }
-      startActivity(MyFlutterActivity.createDefaultIntent(this))
+      engine.renderer.addIsDisplayingFlutterUiListener(object : FlutterUiDisplayListener {
+        override fun onFlutterUiNoLongerDisplayed() {}
+
+        override fun onFlutterUiDisplayed() {
+          Log.d("mylog", "activity first render ${System.currentTimeMillis() - start}")
+        }
+
+      })
+      startActivity(FlutterActivity.createDefaultIntent(this))
     }
   }
 }
-
-class MyFlutterActivity : FlutterActivity(), FlutterFragment.FlutterEngineProvider {
-  companion object {
-    fun createDefaultIntent(launchingContext: Context): Intent {
-      return IntentBuilder().build(launchingContext)
-    }
-  }
-
-  private class IntentBuilder : FlutterActivity.IntentBuilder {
-    constructor() : super(MyFlutterActivity::class.java)
-  }
-
-
-  override fun provideFlutterEngine(context: Context): FlutterEngine? {
-    return (application as MyApp).flutterEngine
-  }
-}
-

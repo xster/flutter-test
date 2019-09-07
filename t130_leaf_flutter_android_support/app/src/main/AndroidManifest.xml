@@ -17,7 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".MyFlutterActivity"
+        <activity android:name="io.flutter.embedding.android.FlutterActivity"
                   android:theme="@style/AppTheme"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density"
                   android:hardwareAccelerated="true"

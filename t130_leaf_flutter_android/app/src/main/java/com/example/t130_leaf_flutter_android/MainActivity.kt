@@ -1,6 +1,5 @@
 package com.example.t130_leaf_flutter_android
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -8,10 +7,8 @@ import android.view.View
 import android.widget.SeekBar
 import io.flutter.plugin.common.MethodChannel
 import kotlinx.android.synthetic.main.activity_main.*
-import io.flutter.embedding.engine.FlutterEngine
-import android.content.Intent
 import io.flutter.embedding.android.FlutterActivity
-import io.flutter.embedding.android.FlutterFragment.FlutterEngineProvider
+import io.flutter.embedding.engine.FlutterEngineCache
 
 class MainActivity : AppCompatActivity() {
   private lateinit var channel: MethodChannel
@@ -53,23 +50,8 @@ class MainActivity : AppCompatActivity() {
   }
 
   fun goToFlutter(view: View) {
+    FlutterEngineCache.getInstance().put("app instance", (application as MyApp).flutterEngine)
     channel.invokeMethod("send", progressBar.progress / 100.0)
+    startActivity(FlutterActivity.withCachedEngine("app instance").build(applicationContext))
   }
 }
-
-class MyFlutterActivity : FlutterActivity(), FlutterEngineProvider {
-  companion object {
-    fun createDefaultIntent(launchingContext: Context): Intent {
-      return IntentBuilder().build(launchingContext)
-    }
-  }
-
-  private class IntentBuilder : FlutterActivity.IntentBuilder {
-    constructor() : super(MyFlutterActivity::class.java)
-  }
-
-  override fun getFlutterEngine(context: Context): FlutterEngine? {
-    return (application as MyApp).flutterEngine
-  }
-}
-

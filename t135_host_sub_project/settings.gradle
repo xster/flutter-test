@@ -1,0 +1,7 @@
+include ':app'
+rootProject.name='t135_host_sub_project'
+setBinding(new Binding([gradle: this]))                                 // new
+evaluate(new File(                                                      // new
+        settingsDir.parentFile,                                               // new
+        't135_stable_transitive_conflict/.android/include_flutter.groovy'                          // new
+))

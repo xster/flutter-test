@@ -1,0 +1,7 @@
+include ':app'
+rootProject.name='t136_host_sub_module'
+setBinding(new Binding([gradle: this]))                                 // new
+evaluate(new File(                                                      // new
+        settingsDir.parentFile,                                               // new
+        't136_transitive_dependency_conflict/.android/include_flutter.groovy'                          // new
+))

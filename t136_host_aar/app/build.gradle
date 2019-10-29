@@ -47,6 +47,9 @@ dependencies {
     releaseCompile('com.example.t136_transitive_dependency_conflict:flutter_release:1.0@aar') {
         transitive = true
     }
+    debugCompile('com.example.t136_transitive_dependency_conflict:flutter_debug:1.0@aar') {
+        transitive = true
+    }
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

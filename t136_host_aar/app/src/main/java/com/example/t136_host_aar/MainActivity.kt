@@ -1,12 +1,7 @@
 package com.example.t136_host_aar
 
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
+import io.flutter.embedding.android.FlutterActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : FlutterActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
 }

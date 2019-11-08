@@ -1,0 +1,11 @@
+include ':app'
+setBinding(new Binding([gradle: this]))
+evaluate(new File(
+  settingsDir,
+  't141_module_from_as/.android/include_flutter.groovy'
+))
+rootProject.name='t141_add_via_android_studio'
+
+include ':t141_module_from_as'
+
+include ':t141_module_from_as'

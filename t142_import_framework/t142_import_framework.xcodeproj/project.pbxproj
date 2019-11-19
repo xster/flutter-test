@@ -333,8 +333,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S8QB4VV633;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = /Users/xster/development/test/t142_build_framework/build/ios/framework/Profile;
-				HEADER_SEARCH_PATHS = /Users/xster/development/test/t142_build_framework/build/ios/framework/Profile;
+				FRAMEWORK_SEARCH_PATHS = ../t142_build_framework/build/ios/framework/Profile;
+				HEADER_SEARCH_PATHS = ../t142_build_framework/build/ios/framework/Profile;
 				INFOPLIST_FILE = t142_import_framework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -354,8 +354,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S8QB4VV633;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = /Users/xster/development/test/t142_build_framework/build/ios/framework/Profile;
-				HEADER_SEARCH_PATHS = /Users/xster/development/test/t142_build_framework/build/ios/framework/Profile;
+				FRAMEWORK_SEARCH_PATHS = ../t142_build_framework/build/ios/framework/Profile;
+				HEADER_SEARCH_PATHS = ../t142_build_framework/build/ios/framework/Profile;
 				INFOPLIST_FILE = t142_import_framework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -435,8 +435,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S8QB4VV633;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = /Users/xster/development/test/t142_build_framework/build/ios/framework/Profile;
-				HEADER_SEARCH_PATHS = /Users/xster/development/test/t142_build_framework/build/ios/framework/Profile;
+				FRAMEWORK_SEARCH_PATHS = ../t142_build_framework/build/ios/framework/Profile;
+				HEADER_SEARCH_PATHS = ../t142_build_framework/build/ios/framework/Profile;
 				INFOPLIST_FILE = t142_import_framework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

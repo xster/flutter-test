@@ -1,0 +1,6 @@
+framework module Pods_t147_add_to_app_ios_demo {
+  umbrella header "Pods-t147_add_to_app_ios_demo-umbrella.h"
+
+  export *
+  module * { export * }
+}

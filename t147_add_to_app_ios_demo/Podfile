@@ -1,0 +1,11 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+flutter_module = '../t147_add_to_app_ios_demo_flutter'
+load File.join(flutter_module, '.ios', 'Flutter', 'podhelper.rb')
+
+target 't147_add_to_app_ios_demo' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  install_all_flutter_pods(flutter_module)
+end

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "1110"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0ADF732D22E03FD700C51003"
-               BuildableName = "t132_performance_test_ios.app"
-               BlueprintName = "t132_performance_test_ios"
-               ReferencedContainer = "container:t132_performance_test_ios.xcodeproj">
+               BlueprintIdentifier = "0AD78A4D236EDC3800E048A9"
+               BuildableName = "t136_ios_framework_objc.app"
+               BlueprintName = "t136_ios_framework_objc"
+               ReferencedContainer = "container:t136_ios_framework_objc.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -27,20 +27,11 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0ADF732D22E03FD700C51003"
-            BuildableName = "t132_performance_test_ios.app"
-            BlueprintName = "t132_performance_test_ios"
-            ReferencedContainer = "container:t132_performance_test_ios.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -53,24 +44,12 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0ADF732D22E03FD700C51003"
-            BuildableName = "t132_performance_test_ios.app"
-            BlueprintName = "t132_performance_test_ios"
-            ReferencedContainer = "container:t132_performance_test_ios.xcodeproj">
+            BlueprintIdentifier = "0AD78A4D236EDC3800E048A9"
+            BuildableName = "t136_ios_framework_objc.app"
+            BlueprintName = "t136_ios_framework_objc"
+            ReferencedContainer = "container:t136_ios_framework_objc.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <AdditionalOptions>
-         <AdditionalOption
-            key = "MallocStackLogging"
-            value = ""
-            isEnabled = "YES">
-         </AdditionalOption>
-         <AdditionalOption
-            key = "PrefersMallocStackLoggingLite"
-            value = ""
-            isEnabled = "YES">
-         </AdditionalOption>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -82,10 +61,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0ADF732D22E03FD700C51003"
-            BuildableName = "t132_performance_test_ios.app"
-            BlueprintName = "t132_performance_test_ios"
-            ReferencedContainer = "container:t132_performance_test_ios.xcodeproj">
+            BlueprintIdentifier = "0AD78A4D236EDC3800E048A9"
+            BuildableName = "t136_ios_framework_objc.app"
+            BlueprintName = "t136_ios_framework_objc"
+            ReferencedContainer = "container:t136_ios_framework_objc.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

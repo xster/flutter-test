@@ -6,12 +6,12 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 
 void main() {
   runApp(CupertinoApp(
-    builder: (BuildContext context, Widget navigator) {
-      return Directionality(
-        textDirection: TextDirection.rtl,
-        child: navigator,
-      );
-    },
+    // builder: (BuildContext context, Widget navigator) {
+    //   return Directionality(
+    //     textDirection: TextDirection.rtl,
+    //     child: navigator,
+    //   );
+    // },
     home: StartPage(),
   ));
 }
@@ -41,7 +41,7 @@ List<Function> routes = List.generate(
 class StartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    timeDilation = 5.0;
+    // timeDilation = 5.0;
     return CupertinoPageScaffold(
       backgroundColor: randomColor(),
       child: buildStandardBody(context),
@@ -86,6 +86,7 @@ CupertinoPageRoute<void> simpleSmallTitleWithLeadingOverride() {
         navigationBar: CupertinoNavigationBar(
           leading: CupertinoButton(
             padding: EdgeInsets.zero,
+            minSize: 0,
             child: Icon(CupertinoIcons.share),
             onPressed: () {},
           ),
@@ -103,17 +104,12 @@ CupertinoPageRoute<void> simpleSegmentedControlWithHiddenTitle() {
       return CupertinoPageScaffold(
         backgroundColor: randomColor(),
         navigationBar: CupertinoNavigationBar(
-          middle: ConstrainedBox(
-            constraints: BoxConstraints(
-              maxWidth: 200.0,
-            ),
-            child: CupertinoSegmentedControl<int>(
-              children: {
-                0: Text('iPod'),
-                1: Text('iPhone'),
-              },
-              onValueChanged: (int selected) {},
-            ),
+          middle: CupertinoSegmentedControl<int>(
+            children: {
+              0: Text('iPod'),
+              1: Padding(padding: EdgeInsets.symmetric(horizontal: 12), child: Text('iPhone')),
+            },
+            onValueChanged: (int selected) {},
           ),
         ),
         child: buildStandardBody(context),
@@ -153,7 +149,12 @@ CupertinoPageRoute<void> largeTitleWithLeadingOverride() {
         child: CustomScrollView(
           slivers: <Widget>[
             CupertinoSliverNavigationBar(
-              leading: CupertinoButton(child: Text('Edit'), onPressed: () {}),
+              leading: CupertinoButton(
+                padding: EdgeInsets.zero,
+                onPressed: () {},
+                minSize: 0,
+                child: Text('Edit'),
+              ),
             ),
             SliverToBoxAdapter(
               child: buildStandardBody(context),
@@ -184,7 +185,7 @@ CupertinoPageRoute<void> largeTitleWithSegmentedControl() {
                 child: CupertinoSegmentedControl<int>(
                   children: {
                     0: Text('iPod'),
-                    1: Text('iPhone'),
+                    1: Padding(padding: EdgeInsets.symmetric(horizontal: 12), child: Text('iPhone')),
                   },
                   onValueChanged: (int selected) {},
                 ),

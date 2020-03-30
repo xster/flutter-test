@@ -1,2 +1,10 @@
 rootProject.name='t154_android_crashlytics'
 include ':app'
+setBinding(new Binding([gradle: this]))
+evaluate(new File(
+  settingsDir,
+  '../t154_flutter_crashlytics/.android/include_flutter.groovy'
+))
+
+include ':t154_flutter_crashlytics'
+project(':t154_flutter_crashlytics').projectDir = new File('../t154_flutter_crashlytics')

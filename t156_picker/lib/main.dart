@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
           child: Container(
             height: 400,
             child: CupertinoDatePicker(
-              mode: CupertinoDatePickerMode.time,
+              mode: CupertinoDatePickerMode.date,
               onDateTimeChanged: (DateTime value) {},
             ),
           ),

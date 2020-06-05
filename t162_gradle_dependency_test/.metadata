@@ -1,0 +1,10 @@
+# This file tracks properties of this Flutter project.
+# Used by Flutter tool to assess capabilities and perform upgrades etc.
+#
+# This file should be version controlled and should not be manually edited.
+
+version:
+  revision: 41da338e1ce6c05d2eaf15ababccd5446a6fd25f
+  channel: maven-proxy
+
+project_type: app

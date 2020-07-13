@@ -8,6 +8,8 @@ import Flutter
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     GeneratedPluginRegistrant.register(with: self)
+    let flutterVC = window.rootViewController as! FlutterViewController
+    IosImage.registerHandler(with: flutterVC.binaryMessenger)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 }

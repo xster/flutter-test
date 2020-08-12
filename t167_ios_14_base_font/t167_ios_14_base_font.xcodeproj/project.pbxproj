@@ -3,40 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A7501F124E3C3AA008EAC6B /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7501ED24E3C361008EAC6B /* App.framework */; };
-		0A7501F224E3C3AA008EAC6B /* App.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7501ED24E3C361008EAC6B /* App.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0A7501F424E3C3AB008EAC6B /* Flutter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7501EE24E3C361008EAC6B /* Flutter.framework */; };
-		0A7501F524E3C3AB008EAC6B /* Flutter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7501EE24E3C361008EAC6B /* Flutter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0AA54A4424E3B53200F5CE9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA54A4324E3B53200F5CE9A /* AppDelegate.swift */; };
 		0AA54A4624E3B53200F5CE9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA54A4524E3B53200F5CE9A /* SceneDelegate.swift */; };
 		0AA54A4824E3B53200F5CE9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA54A4724E3B53200F5CE9A /* ViewController.swift */; };
 		0AA54A4B24E3B53200F5CE9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA54A4924E3B53200F5CE9A /* Main.storyboard */; };
 		0AA54A4D24E3B53300F5CE9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA54A4C24E3B53300F5CE9A /* Assets.xcassets */; };
 		0AA54A5024E3B53300F5CE9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA54A4E24E3B53300F5CE9A /* LaunchScreen.storyboard */; };
+		A9BD2CD16F043CA79BE6DF65 /* libPods-t167_ios_14_base_font.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47E9DCEE04C6B72EB02AEDDB /* libPods-t167_ios_14_base_font.a */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		0A7501F324E3C3AA008EAC6B /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				0A7501F224E3C3AA008EAC6B /* App.framework in Embed Frameworks */,
-				0A7501F524E3C3AB008EAC6B /* Flutter.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		0A7501ED24E3C361008EAC6B /* App.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = App.framework; path = ../t167_flutter_ios_14_font/build/ios/framework/Debug/App.framework; sourceTree = "<group>"; };
-		0A7501EE24E3C361008EAC6B /* Flutter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Flutter.framework; path = ../t167_flutter_ios_14_font/build/ios/framework/Debug/Flutter.framework; sourceTree = "<group>"; };
 		0AA54A4024E3B53200F5CE9A /* t167_ios_14_base_font.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = t167_ios_14_base_font.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA54A4324E3B53200F5CE9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AA54A4524E3B53200F5CE9A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +25,9 @@
 		0AA54A4C24E3B53300F5CE9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AA54A4F24E3B53300F5CE9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AA54A5124E3B53300F5CE9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		436B629FF4D82659D8BF40D1 /* Pods-t167_ios_14_base_font.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-t167_ios_14_base_font.release.xcconfig"; path = "Target Support Files/Pods-t167_ios_14_base_font/Pods-t167_ios_14_base_font.release.xcconfig"; sourceTree = "<group>"; };
+		47E9DCEE04C6B72EB02AEDDB /* libPods-t167_ios_14_base_font.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-t167_ios_14_base_font.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9046A1EA1117C090F679EAA /* Pods-t167_ios_14_base_font.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-t167_ios_14_base_font.debug.xcconfig"; path = "Target Support Files/Pods-t167_ios_14_base_font/Pods-t167_ios_14_base_font.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A7501F124E3C3AA008EAC6B /* App.framework in Frameworks */,
-				0A7501F424E3C3AB008EAC6B /* Flutter.framework in Frameworks */,
+				A9BD2CD16F043CA79BE6DF65 /* libPods-t167_ios_14_base_font.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,17 +45,10 @@
 		045496B67D853668AFC74FB4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				C9046A1EA1117C090F679EAA /* Pods-t167_ios_14_base_font.debug.xcconfig */,
+				436B629FF4D82659D8BF40D1 /* Pods-t167_ios_14_base_font.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		0A7501EC24E3C361008EAC6B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0A7501ED24E3C361008EAC6B /* App.framework */,
-				0A7501EE24E3C361008EAC6B /* Flutter.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		0AA54A3724E3B53200F5CE9A = {
@@ -82,7 +57,7 @@
 				0AA54A4224E3B53200F5CE9A /* t167_ios_14_base_font */,
 				0AA54A4124E3B53200F5CE9A /* Products */,
 				045496B67D853668AFC74FB4 /* Pods */,
-				0A7501EC24E3C361008EAC6B /* Frameworks */,
+				8B4FFB4B3D76FCB26C15FE5D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +83,14 @@
 			path = t167_ios_14_base_font;
 			sourceTree = "<group>";
 		};
+		8B4FFB4B3D76FCB26C15FE5D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				47E9DCEE04C6B72EB02AEDDB /* libPods-t167_ios_14_base_font.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -115,10 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0AA54A5424E3B53300F5CE9A /* Build configuration list for PBXNativeTarget "t167_ios_14_base_font" */;
 			buildPhases = (
+				0488E930802C785896C1F608 /* [CP] Check Pods Manifest.lock */,
+				5FE2ACB1D436E189BA79E300 /* [CP-User] Run Flutter Build t167_flutter_ios_14_font Script */,
 				0AA54A3C24E3B53200F5CE9A /* Sources */,
 				0AA54A3D24E3B53200F5CE9A /* Frameworks */,
 				0AA54A3E24E3B53200F5CE9A /* Resources */,
-				0A7501F324E3C3AA008EAC6B /* Embed Frameworks */,
+				3303661BF6F37D05AD14F82F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -173,6 +158,64 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0488E930802C785896C1F608 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-t167_ios_14_base_font-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3303661BF6F37D05AD14F82F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-t167_ios_14_base_font/Pods-t167_ios_14_base_font-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-t167_ios_14_base_font/Pods-t167_ios_14_base_font-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-t167_ios_14_base_font/Pods-t167_ios_14_base_font-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5FE2ACB1D436E189BA79E300 /* [CP-User] Run Flutter Build t167_flutter_ios_14_font Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../t167_flutter_ios_14_font/.metadata",
+				"${SRCROOT}/../t167_flutter_ios_14_font/.ios/Flutter/App.framework/App",
+				"${SRCROOT}/../t167_flutter_ios_14_font/.ios/Flutter/engine/Flutter.framework/Flutter",
+				"${SRCROOT}/../t167_flutter_ios_14_font/.ios/Flutter/flutter_export_environment.sh",
+			);
+			name = "[CP-User] Run Flutter Build t167_flutter_ios_14_font Script";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/../t167_flutter_ios_14_font/.ios/Flutter/flutter_export_environment.sh\"\n\"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh build\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0AA54A3C24E3B53200F5CE9A /* Sources */ = {
@@ -325,12 +368,12 @@
 		};
 		0AA54A5524E3B53300F5CE9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9046A1EA1117C090F679EAA /* Pods-t167_ios_14_base_font.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S8QB4VV633;
-				FRAMEWORK_SEARCH_PATHS = ../t167_flutter_ios_14_font/build/ios/framework/Debug;
 				INFOPLIST_FILE = t167_ios_14_base_font/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -346,12 +389,12 @@
 		};
 		0AA54A5624E3B53300F5CE9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 436B629FF4D82659D8BF40D1 /* Pods-t167_ios_14_base_font.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S8QB4VV633;
-				FRAMEWORK_SEARCH_PATHS = ../t167_flutter_ios_14_font/build/ios/framework/Debug;
 				INFOPLIST_FILE = t167_ios_14_base_font/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (

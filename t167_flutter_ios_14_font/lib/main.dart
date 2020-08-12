@@ -9,7 +9,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoApp(
       home: CupertinoPageScaffold(child: Center(
-        child: Text('Default system 17 font'),
+        child: Text(
+          'Default system 17 font',
+          style: TextStyle(
+            fontFamily: '.SFUI-Regular',
+            fontSize: 17.0,
+            fontWeight: FontWeight.w400,
+            letterSpacing: 0.36
+          ),
+        ),
       )),
     );
   }

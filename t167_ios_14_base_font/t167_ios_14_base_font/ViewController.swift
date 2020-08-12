@@ -20,8 +20,11 @@ class ViewController: UIViewController {
         let flutterViewController = FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
         addChild(flutterViewController)
         flutterContainer.addSubview(flutterViewController.view)
-        flutterViewController.view.frame = flutterContainer.bounds
-        flutterViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        flutterViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        flutterViewController.view.topAnchor.constraint(equalTo: flutterContainer.topAnchor, constant: 0).isActive = true
+        flutterViewController.view.bottomAnchor.constraint(equalTo: flutterContainer.bottomAnchor, constant: 0).isActive = true
+        flutterViewController.view.leadingAnchor.constraint(equalTo: flutterContainer.leadingAnchor, constant: 0).isActive = true
+        flutterViewController.view.trailingAnchor.constraint(equalTo: flutterContainer.trailingAnchor, constant: 0).isActive = true
         
         flutterViewController.didMove(toParent: self)
     }

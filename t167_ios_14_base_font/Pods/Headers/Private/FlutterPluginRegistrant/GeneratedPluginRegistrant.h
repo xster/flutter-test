@@ -1,1 +1,0 @@
-../../../../../t167_flutter_ios_14_font/.ios/Flutter/FlutterPluginRegistrant/Classes/GeneratedPluginRegistrant.h

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A8FCDCC24E468F100963E15 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A8FCDCB24E468F100963E15 /* OpenSans-Regular.ttf */; };
 		0AA54A4424E3B53200F5CE9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA54A4324E3B53200F5CE9A /* AppDelegate.swift */; };
 		0AA54A4624E3B53200F5CE9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA54A4524E3B53200F5CE9A /* SceneDelegate.swift */; };
 		0AA54A4824E3B53200F5CE9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA54A4724E3B53200F5CE9A /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A8FCDCB24E468F100963E15 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		0AA54A4024E3B53200F5CE9A /* t167_ios_14_base_font.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = t167_ios_14_base_font.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA54A4324E3B53200F5CE9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AA54A4524E3B53200F5CE9A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 		0AA54A4224E3B53200F5CE9A /* t167_ios_14_base_font */ = {
 			isa = PBXGroup;
 			children = (
+				0A8FCDCB24E468F100963E15 /* OpenSans-Regular.ttf */,
 				0AA54A4324E3B53200F5CE9A /* AppDelegate.swift */,
 				0AA54A4524E3B53200F5CE9A /* SceneDelegate.swift */,
 				0AA54A4724E3B53200F5CE9A /* ViewController.swift */,
@@ -153,6 +156,7 @@
 			files = (
 				0AA54A5024E3B53300F5CE9A /* LaunchScreen.storyboard in Resources */,
 				0AA54A4D24E3B53300F5CE9A /* Assets.xcassets in Resources */,
+				0A8FCDCC24E468F100963E15 /* OpenSans-Regular.ttf in Resources */,
 				0AA54A4B24E3B53200F5CE9A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

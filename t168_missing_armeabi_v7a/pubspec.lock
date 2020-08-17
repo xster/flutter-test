@@ -49,7 +49,7 @@ packages:
       name: cupertino_icons
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.2"
+    version: "0.1.3"
   fake_async:
     dependency: transitive
     description:
@@ -67,15 +67,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  ios_settings_icons:
-    dependency: "direct main"
-    description:
-      path: t96_ios_settings_assets
-      ref: HEAD
-      resolved-ref: c8eb65b52673e1ea190b6fcfa3834a15199c50e6
-      url: "https://github.com/xster/flutter-test.git"
-    source: git
-    version: "0.0.1"
   matcher:
     dependency: transitive
     description:

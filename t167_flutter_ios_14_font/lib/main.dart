@@ -18,7 +18,7 @@ void main() => runApp(DecoratedBox(
             fontFamily: '.SF Pro Display',
             fontSize: 30.0,
             fontWeight: FontWeight.w600,
-            // letterSpacing: -1.5,
+            letterSpacing: 1,
             color: Color(0xFF000000),
           ),
         ),

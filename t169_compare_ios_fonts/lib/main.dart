@@ -49,7 +49,11 @@ void main() {
             Text(
               'Arial 30',
               style: TextStyle(fontFamily: 'Arial', fontSize: 30),
-            )
+            ),
+            Text(
+              '一二三四五，上山打老虎',
+              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 30),
+            ),
           ],
         ),
       );

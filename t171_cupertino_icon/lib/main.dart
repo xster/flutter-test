@@ -14,6 +14,7 @@ class App extends StatelessWidget {
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             CupertinoIcon.cube(),
             CupertinoIcon('square.and.arrow.up', size: 200),
+            CupertinoIcon.book(size: 100),
           ]),
         ),
       ),

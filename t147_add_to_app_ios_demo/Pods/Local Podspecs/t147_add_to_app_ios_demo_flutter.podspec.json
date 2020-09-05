@@ -14,7 +14,7 @@
     "path": "."
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
   "vendored_frameworks": "App.framework",
   "dependencies": {

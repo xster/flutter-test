@@ -20,9 +20,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  FlutterPluginRegistrant: d59dd07dd90e9c6430996073575a5bd1ea19677e
-  t147_add_to_app_ios_demo_flutter: d29d6b0021732e94fd0a000e221065bb7ea1e143
+  FlutterPluginRegistrant: 2afd5ea46d3a949472c9b7da6462d8fbf7d8b16e
+  t147_add_to_app_ios_demo_flutter: 232c7cc0e2d3507e9102fa04ad980912a45a7dda
 
 PODFILE CHECKSUM: a6f5eb14118da14e1f39c793358986289b72d32b
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3

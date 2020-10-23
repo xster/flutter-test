@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -90,6 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text('Running in ${kDebugMode ? "Debug" : kProfileMode ? "Profile" : "Release"} mode'),
             Text(
               'You have pushed the button this many times:',
             ),

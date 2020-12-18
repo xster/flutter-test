@@ -1,4 +1,4 @@
-name: t172_new_cupertino_icons
+name: t174_cupertino_icon_grid
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -27,8 +27,7 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons:
-    path: ../../flutter-open/cupertino_icons
+  cupertino_icons: ^1.0.0
 
 dev_dependencies:
   flutter_test:

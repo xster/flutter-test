@@ -2,6 +2,7 @@ package dev.flutter.example.t175_multiple_engines;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
@@ -10,6 +11,9 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
 import io.flutter.embedding.android.FlutterFragment;
+import io.flutter.embedding.engine.FlutterEngine;
+import io.flutter.embedding.engine.FlutterEngineCache;
+import io.flutter.embedding.engine.FlutterEngineGroup;
 
 public class MultipleFlutterActivity extends FragmentActivity {
   @Override
@@ -28,12 +32,18 @@ public class MultipleFlutterActivity extends FragmentActivity {
 
     setContentView(root);
 
+    FlutterEngineGroup flutterEngineGroup = new FlutterEngineGroup(this);
+
     for (int i = 0; i < numberOfFlutters; i++) {
       FrameLayout flutterContainer = new FrameLayout(this);
       root.addView(flutterContainer);
       flutterContainer.setId(12345 + i);
       flutterContainer.setLayoutParams(new LinearLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT, 1));
-      FlutterFragment flutterFragment = FlutterFragment.createDefault();
+
+      FlutterEngine engine = flutterEngineGroup.createAndRunDefaultEngine();
+      FlutterEngineCache.getInstance().put(String.valueOf(i), engine);
+
+      FlutterFragment flutterFragment = FlutterFragment.withCachedEngine(String.valueOf(i)).build();
 
       fragmentManager
           .beginTransaction()

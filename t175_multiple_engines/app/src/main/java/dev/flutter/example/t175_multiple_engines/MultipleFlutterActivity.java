@@ -32,7 +32,7 @@ public class MultipleFlutterActivity extends FragmentActivity {
 
     setContentView(root);
 
-    FlutterEngineGroup flutterEngineGroup = new FlutterEngineGroup(this);
+    FlutterEngineGroup flutterEngineGroup = new FlutterEngineGroup();
 
     for (int i = 0; i < numberOfFlutters; i++) {
       FrameLayout flutterContainer = new FrameLayout(this);
@@ -40,7 +40,7 @@ public class MultipleFlutterActivity extends FragmentActivity {
       flutterContainer.setId(12345 + i);
       flutterContainer.setLayoutParams(new LinearLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT, 1));
 
-      FlutterEngine engine = flutterEngineGroup.createAndRunDefaultEngine();
+      FlutterEngine engine = flutterEngineGroup.createAndRunDefaultEngine(this);
       FlutterEngineCache.getInstance().put(String.valueOf(i), engine);
 
       FlutterFragment flutterFragment = FlutterFragment.withCachedEngine(String.valueOf(i)).build();

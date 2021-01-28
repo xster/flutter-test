@@ -32,7 +32,7 @@ public class MultipleFlutterActivity extends FragmentActivity {
 
     setContentView(root);
 
-    FlutterEngineGroup flutterEngineGroup = new FlutterEngineGroup();
+    FlutterEngineGroup flutterEngineGroup = new FlutterEngineGroup(this);
 
     for (int i = 0; i < numberOfFlutters; i++) {
       FrameLayout flutterContainer = new FrameLayout(this);

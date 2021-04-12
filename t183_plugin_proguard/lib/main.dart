@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:package_info/package_info.dart';
+import 'package:image_picker/image_picker.dart';
 
 void main() {
   runApp(MyApp());
@@ -46,7 +48,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  String packageName;
   int _counter = 0;
+  String pickedFile;
+
+  @override
+  void initState() {
+    super.initState();
+    PackageInfo.fromPlatform().then((value) => setState(() => packageName = value.packageName));
+  }
 
   void _incrementCounter() {
     setState(() {
@@ -94,6 +105,9 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
+              'Package name $packageName'
+            ),
+            Text(
               'You have pushed the button this many times:',
             ),
             Text(
@@ -104,7 +118,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () async {
+          await ImagePicker().getImage(source: ImageSource.gallery).then((value) => setState(() => pickedFile = value.path));
+        },
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.

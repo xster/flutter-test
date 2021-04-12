@@ -21,6 +21,9 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  package_info: ^2.0.0
+  image_picker:
+    path: /Users/xster/development/plugins/packages/image_picker/image_picker
   flutter:
     sdk: flutter
 
